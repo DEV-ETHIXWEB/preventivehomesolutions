@@ -23,7 +23,7 @@ textarea,
 button,
 optgroup,
 option {
-  font-family: 'Strong', 'Poppins', system-ui, Arial, sans-serif;
+  font-family: 'Manrope', system-ui, Arial, sans-serif;
 }
 
 /* Custom themed scrollbar */
@@ -57,7 +57,7 @@ option {
 
 body {
   margin: 0;
-  font-family: 'Strong', 'Poppins', system-ui, Arial, sans-serif;
+  font-family: 'Manrope', system-ui, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   color: #16263d;
   background: #f4ecdf;

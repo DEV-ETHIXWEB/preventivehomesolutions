@@ -9,7 +9,7 @@
 export default function Placeholder({ label = 'Image', className = '', rounded = '' }) {
   return (
     <div
-      className={`flex items-center justify-center border-2 border-dashed border-gray-400/70 bg-gray-200/80 text-center text-xs font-medium uppercase tracking-wide text-gray-500 ${rounded} ${className}`}
+      className={`flex items-center justify-center border-2 border-dashed border-gray-400/70 bg-gray-200/80 text-center text-xs font-medium tracking-wide text-gray-500 ${rounded} ${className}`}
       aria-label={`${label} placeholder`}
     >
       <span className="px-2 py-1">{label}</span>

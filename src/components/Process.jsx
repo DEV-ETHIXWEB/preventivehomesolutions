@@ -52,13 +52,13 @@ export default function Process() {
         
         {/* Heading block */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <Reveal as="p" className="text-xs sm:text-sm font-mono tracking-[0.25em] font-bold text-phsOrange uppercase mb-4">
-            HOW WE WORK
+          <Reveal as="p" className="text-xs sm:text-sm font-mono tracking-[0.25em] font-bold text-white mb-4">
+            How We Work
           </Reveal>
-          <Reveal as="h2" delay={100} className="font-display font-black text-white text-3xl sm:text-4xl lg:text-[2.75rem] tracking-tight leading-[1.0] uppercase">
-            OUR PROCESS
+          <Reveal as="h2" delay={100} className="font-display font-black text-white text-3xl sm:text-4xl lg:text-[2.75rem] tracking-tight leading-[1.0] ">
+            Our Process
           </Reveal>
-          <Reveal as="p" delay={200} className="mt-4 text-[15px] sm:text-base text-gray-300 font-sans leading-relaxed">
+          <Reveal as="p" delay={200} className="mt-4 text-[15px] sm:text-base text-white/85 font-sans leading-relaxed">
             A hassle-free experience from start to finish.
           </Reveal>
         </div>
@@ -74,25 +74,25 @@ export default function Process() {
                 delay={i * 100}
               >
                 <div
-                  className={`group flex flex-col p-4 sm:p-8 rounded-3xl transition-all duration-300 hover:-translate-y-1 sm:shadow-md sm:hover:shadow-xl sm:bg-[#0e223f]/50 sm:hover:bg-[#0e223f]/75 sm:backdrop-blur-sm border-transparent sm:border ${
-                    isMiddle ? 'sm:border-phsOrange/50' : 'sm:border-white/10'
+                  className={`group flex flex-col p-4 sm:p-8 rounded-3xl transition-all duration-300 hover:-translate-y-1 sm:shadow-md sm:hover:shadow-xl sm:bg-phsSky/50 sm:hover:bg-phsSky/75 sm:backdrop-blur-sm border-transparent sm:border-2 ${
+                    isMiddle ? 'sm:border-phsOrange' : 'sm:border-phsOrange/70'
                   }`}
                 >
                   {/* Top row */}
                   <div className="flex items-start justify-between mb-8">
-                    <div className="font-display font-black text-phsOrange text-4xl sm:text-5xl leading-none">
+                    <div className="font-display font-black text-white text-4xl sm:text-5xl leading-none">
                       {number}
                     </div>
                     <Icon />
                   </div>
                   
                   {/* Title */}
-                  <h3 className="font-display font-bold text-white text-lg uppercase tracking-wide mb-3">
+                  <h3 className="font-display font-bold text-white text-lg tracking-wide mb-3">
                     {title}
                   </h3>
                   
                   {/* Description */}
-                  <p className="text-sm text-gray-400 font-sans leading-relaxed">
+                  <p className="text-sm text-white/85 font-sans leading-relaxed">
                     {text}
                   </p>
                 </div>

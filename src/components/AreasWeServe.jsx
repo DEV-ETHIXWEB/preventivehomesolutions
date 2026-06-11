@@ -16,7 +16,7 @@ const citiesList = [
 
 function PinIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="#f3741b" strokeWidth="1.75" className="h-4 w-4 text-phsOrange flex-shrink-0">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" className="h-4 w-4 flex-shrink-0">
       <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
       <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
     </svg>
@@ -37,11 +37,11 @@ export default function AreasWeServe() {
           {/* Left Column: Copy + Cities Grid */}
           <div className="lg:col-span-6 pt-16 sm:pt-20 lg:pt-24">
             <Reveal variant="left">
-              <p className="text-xs sm:text-sm font-mono tracking-[0.25em] font-bold text-phsOrange uppercase mb-4">
-                TERRITORY UNDER GUARD
+              <p className="text-xs sm:text-sm font-mono tracking-[0.25em] font-bold text-phsOrange mb-4">
+                Territory Under Guard
               </p>
-              <h2 className="font-display font-black text-phsInk text-3xl sm:text-4xl lg:text-[2.75rem] tracking-tight leading-[1.0] uppercase mb-4">
-                AREAS WE SERVE
+              <h2 className="font-display font-black text-phsInk text-3xl sm:text-4xl lg:text-[2.75rem] tracking-tight leading-[1.0] mb-4">
+                Areas We Serve
               </h2>
               <p className="text-[15px] sm:text-base text-gray-600 font-sans leading-relaxed mb-8">
                 Choosing Preventive Home Solutions means partnering with a team dedicated to lasting service across Northern Utah. Click on a city below to zoom and locate it on the map.
@@ -55,16 +55,16 @@ export default function AreasWeServe() {
                     <div
                       key={city}
                       onClick={() => setActiveCity(isActive ? '' : city)}
-                      className={`flex items-center gap-3 p-4 rounded-xl border transition-all duration-300 hover:bg-gray-50 hover:shadow-sm cursor-pointer select-none ${
+                      className={`group flex items-center gap-3 p-4 rounded-xl border cursor-pointer select-none transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.04] hover:border-phsOrange hover:bg-phsOrange hover:shadow-lg hover:shadow-phsOrange/40 ${
                         isActive
                           ? 'border-phsOrange bg-phsOrange/5 shadow-sm ring-1 ring-phsOrange/20'
                           : 'border-gray-200 bg-white'
                       }`}
                     >
-                      <span className={`transition-transform duration-300 ${isActive ? 'scale-120 -translate-y-0.5' : ''}`}>
+                      <span className={`text-phsOrange transition-all duration-300 ease-out group-hover:text-white group-hover:scale-110 ${isActive ? 'scale-120 -translate-y-0.5' : ''}`}>
                         <PinIcon />
                       </span>
-                      <span className={`font-mono text-xs sm:text-[11px] font-bold tracking-[0.15em] uppercase transition-colors duration-300 ${isActive ? 'text-phsOrange' : 'text-phsInk'}`}>
+                      <span className={`font-mono text-xs sm:text-[11px] font-bold tracking-[0.15em] transition-colors duration-300 group-hover:text-white ${isActive ? 'text-phsOrange' : 'text-phsInk'}`}>
                         {city}
                       </span>
                     </div>
@@ -79,7 +79,7 @@ export default function AreasWeServe() {
             <Reveal 
               variant="right" 
               delay={150} 
-              className="relative w-full max-w-[480px] aspect-[3/4] overflow-hidden bg-phsNavy flex flex-col items-center pt-8 pb-16 px-6 text-center shadow-2xl group cursor-default"
+              className="relative w-full max-w-[480px] aspect-[3/4] overflow-hidden bg-phsSky flex flex-col items-center pt-8 pb-16 px-6 text-center shadow-2xl group cursor-default"
               style={{ clipPath: 'polygon(0% 0%, 100% 0%, 100% 82%, 50% 100%, 0% 82%)' }}
             >
               {/* SVG White Shield Border Overlay */}
@@ -110,8 +110,8 @@ export default function AreasWeServe() {
                   allowFullScreen
                 />
                 {/* Theme tint overlays — keep map readable while matching site palette */}
-                <div className="pointer-events-none absolute inset-0 bg-phsNavy/10 mix-blend-multiply" />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-phsNavy/20" />
+                <div className="pointer-events-none absolute inset-0 bg-phsSky/10 mix-blend-multiply" />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-phsSky/20" />
                 <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-phsOrange/20" />
               </div>
 
@@ -124,13 +124,13 @@ export default function AreasWeServe() {
                 </svg>
 
                 {/* Heading */}
-                <h3 className="font-display font-black text-white text-2xl sm:text-3xl tracking-tight leading-none text-center uppercase">
-                  NORTHERN UTAH
+                <h3 className="font-display font-black text-white text-2xl sm:text-3xl tracking-tight leading-none text-center ">
+                  Northern Utah
                 </h3>
 
                 {/* Subheading */}
-                <p className="font-mono text-[9px] sm:text-[10px] font-bold tracking-[0.2em] text-gray-400 uppercase mt-3">
-                  10 CITIES · ONE STANDARD
+                <p className="font-mono text-[9px] sm:text-[10px] font-bold tracking-[0.2em] text-gray-400 mt-3">
+                  10 Cities · One Standard
                 </p>
               </div>
             </Reveal>

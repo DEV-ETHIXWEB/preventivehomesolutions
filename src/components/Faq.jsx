@@ -42,16 +42,16 @@ export default function Faq() {
         <div className="text-center mb-12">
           <Reveal
             as="p"
-            className="text-xs sm:text-sm font-mono tracking-[0.25em] font-bold text-phsOrange uppercase mb-4"
+            className="text-xs sm:text-sm font-mono tracking-[0.25em] font-bold text-phsOrange mb-4"
           >
-            FAQS
+            Faqs
           </Reveal>
           <Reveal
             as="h2"
             delay={100}
-            className="font-display font-black text-phsInk text-3xl sm:text-4xl lg:text-[2.75rem] tracking-tight leading-[1.1] uppercase mb-4"
+            className="font-display font-black text-phsInk text-3xl sm:text-4xl lg:text-[2.75rem] tracking-tight leading-[1.1] mb-4"
           >
-            FREQUENTLY ASKED QUESTIONS.
+            Frequently Asked Questions.
           </Reveal>
           <Reveal
             as="p"

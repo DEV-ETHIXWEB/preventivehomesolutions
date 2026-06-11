@@ -56,51 +56,15 @@ function GoogleLogo({ className = '' }) {
   )
 }
 
-function ExperienceCounter() {
-  const [count, setCount] = useState(0)
-
-  useEffect(() => {
-    let startTime = null
-    const duration = 2500 // 2.5 seconds
-    const end = 35
-
-    const animate = (time) => {
-      if (!startTime) startTime = time
-      const progress = time - startTime
-      const percentage = Math.min(progress / duration, 1)
-      
-      // easeOutQuart
-      const easeOut = 1 - Math.pow(1 - percentage, 4)
-      setCount(Math.floor(easeOut * end))
-
-      if (percentage < 1) {
-        requestAnimationFrame(animate)
-      }
-    }
-    
-    requestAnimationFrame(animate)
-  }, [])
-
-  return (
-    <div className="flex items-center gap-6 mt-2 border-t border-phsInk/10 pt-6 w-full max-w-md">
-      <div className="text-[4.5rem] font-display font-black text-phsOrange leading-none">
-        {count}+
-      </div>
-      <div className="text-[17px] font-bold text-phsInk/75 uppercase tracking-[0.18em] leading-relaxed">
-        Years of Combined <br /> Experience
-      </div>
-    </div>
-  )
-}
 
 /** Compact booking form used in the hero spec card. */
 function BookingForm() {
   const [submitted, setSubmitted] = useState(false)
 
   const fieldClass =
-    'w-full rounded-md border border-phsInk/15 bg-white/70 px-4 py-3 text-center text-sm text-phsInk placeholder:text-phsInk/40 outline-none transition-colors focus:border-phsInk focus:bg-white'
+    'w-full rounded-md border border-phsSky/15 bg-white/70 px-4 py-3 text-center text-sm text-phsInk placeholder:text-phsInk/40 outline-none transition-colors focus:border-phsSky focus:bg-white'
   const labelClass =
-    'mb-1.5 block text-center font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-phsInk/55'
+    'mb-1.5 block text-center font-mono text-[11px] font-bold tracking-[0.18em] text-phsInk'
 
   if (submitted) {
     return (
@@ -116,7 +80,7 @@ function BookingForm() {
             />
           </svg>
         </div>
-        <h3 className="mt-5 font-display text-2xl font-extrabold uppercase tracking-tight text-phsInk">
+        <h3 className="mt-5 font-display text-2xl font-extrabold tracking-tight text-phsInk">
           Request Received
         </h3>
         <p className="mt-2 max-w-xs text-sm text-phsInk/60">
@@ -129,10 +93,10 @@ function BookingForm() {
 
   return (
     <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true) }}>
-      <p className="text-center font-mono text-xs font-bold uppercase tracking-[0.24em] text-phsOrange">
+      <p className="text-center font-mono text-xs font-bold tracking-[0.24em] text-phsOrange">
         Request Service
       </p>
-      <h2 className="mt-2 text-center font-display text-2xl font-extrabold uppercase leading-tight tracking-tight text-phsInk">
+      <h2 className="mt-2 text-center font-display text-2xl font-extrabold leading-tight tracking-tight text-phsInk">
         Book Your Inspection
       </h2>
 
@@ -170,7 +134,7 @@ function BookingForm() {
 
         <button
           type="submit"
-          className="group mx-auto mt-1 flex w-fit items-center justify-center gap-2 whitespace-nowrap rounded-md bg-phsOrange px-8 py-3 font-display text-sm font-bold uppercase tracking-[0.12em] text-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-phsOrangeDark hover:shadow-md active:translate-y-0"
+          className="group mx-auto mt-1 flex w-fit items-center justify-center gap-2 whitespace-nowrap rounded-md bg-phsOrange px-8 py-3 font-display text-sm font-bold tracking-[0.12em] text-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-phsOrangeDark hover:shadow-md active:translate-y-0"
         >
           Schedule Inspection
           <ArrowIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -189,7 +153,7 @@ export default function Hero() {
           <Reveal
             as="p"
             delay={100}
-            className="font-mono text-xs font-bold uppercase tracking-[0.28em] text-phsOrange"
+            className="font-mono text-xs font-bold tracking-[0.28em] text-phsOrange"
           >
             Established Defense · Northern Utah
           </Reveal>
@@ -197,7 +161,7 @@ export default function Hero() {
           <Reveal
             as="h1"
             delay={200}
-            className="mt-6 font-display font-extrabold uppercase leading-[1.0] tracking-tight text-phsInk"
+            className="mt-6 font-display font-extrabold leading-[1.0] tracking-tight text-phsInk"
           >
             {/* Two static lines */}
             <span className="block whitespace-nowrap text-4xl sm:text-5xl lg:text-6xl">Heavy Duty</span>
@@ -240,41 +204,37 @@ export default function Hero() {
             </a>
             <a
               href={`tel:${PHONE_TEL}`}
-              className="inline-flex items-center justify-center gap-3 rounded-md border border-phsInk/25 bg-phsCream/60 px-7 py-4 font-semibold text-phsInk transition-all duration-300 hover:border-phsInk hover:bg-phsInk/5"
+              className="inline-flex items-center justify-center gap-3 rounded-md border border-phsSky/25 bg-phsCream/60 px-7 py-4 font-semibold text-phsInk transition-all duration-300 hover:border-phsSky hover:bg-phsSky/5"
             >
               <PhoneIcon className="h-5 w-5" />
               {PHONE_DISPLAY}
             </a>
           </Reveal>
 
-          <Reveal delay={650} className="mt-12 flex flex-wrap items-center gap-3">
-            <GoogleLogo className="h-6 w-auto" />
-            <div className="flex text-lg text-yellow-400 drop-shadow-sm">
+          <Reveal delay={650} className="mt-12 flex flex-wrap items-center gap-4">
+            <GoogleLogo className="h-7 sm:h-8 w-auto" />
+            <div className="flex text-xl sm:text-2xl text-yellow-400 drop-shadow-sm">
               {Array.from({ length: 5 }).map((_, i) => (
                 <span key={i}>★</span>
               ))}
             </div>
-            <span className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-phsInk/70">
-              Rated · 200+ Reviews
+            <span className="font-display text-sm sm:text-base font-bold tracking-wider text-phsInk">
+              5-Star Rated
             </span>
           </Reveal>
 
           {/* Mobile-only Form Container Moved Here */}
-          <div className="block lg:hidden mt-10 mb-8 w-full max-w-sm rounded-2xl bg-[#EBE4D5]/60 shadow-lg border border-phsInk/10 p-6 sm:p-8 backdrop-blur-sm">
+          <div className="block lg:hidden mt-10 mb-8 w-full max-w-sm rounded-2xl bg-[#EBE4D5]/60 shadow-lg border border-phsSky/10 p-6 sm:p-8 backdrop-blur-sm">
             <BookingForm />
           </div>
 
           {/* Quote to fill empty space */}
           <Reveal delay={800} className="mt-8 lg:mt-16 max-w-md">
-            <div className="flex flex-col gap-6">
-              <blockquote className="border-l-4 border-phsOrange pl-6 font-display italic text-phsInk/85">
-                <p className="text-xl leading-relaxed font-semibold">
-                  "Quick response, fast solutions, and efficient work you can always depend on."
-                </p>
-              </blockquote>
-              
-              <ExperienceCounter />
-            </div>
+            <blockquote className="border-l-4 border-phsOrange pl-6 font-display italic text-phsInk/85">
+              <p className="text-xl leading-relaxed font-semibold">
+                "Quick response, fast solutions, and efficient work you can always depend on."
+              </p>
+            </blockquote>
           </Reveal>
         </div>
 
@@ -294,7 +254,7 @@ export default function Hero() {
             {/* Form overlaid on the shield face */}
             <div
               className="absolute z-20"
-              style={{ top: '25%', left: '34%', width: '53%' }}
+              style={{ top: '25%', left: 'calc(34% + 14px)', width: '53%' }}
             >
               <div style={{ transform: 'scale(0.85)', transformOrigin: 'top center' }}>
                 <BookingForm />

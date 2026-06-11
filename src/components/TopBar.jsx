@@ -31,7 +31,7 @@ export default function TopBar() {
   }, [])
 
   return (
-    <div className="fixed inset-x-0 top-0 z-50 h-1.5 bg-phsInk">
+    <div className="fixed inset-x-0 top-0 z-50 h-1.5 bg-phsSky">
       <div
         className="h-full bg-phsOrange transition-[width] duration-150 ease-out"
         style={{ width: `${progress}%` }}

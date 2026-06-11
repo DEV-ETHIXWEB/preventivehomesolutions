@@ -2,7 +2,7 @@ import Reveal from './Reveal.jsx'
 
 export default function About() {
   return (
-    <section className="relative w-full overflow-hidden pb-24 lg:pb-32 px-6">
+    <section id="about" className="scroll-mt-24 relative w-full overflow-hidden pb-24 lg:pb-32 px-6">
       <div className="relative mx-auto max-w-[1200px]">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
@@ -31,15 +31,15 @@ export default function About() {
           {/* Right Column: Copywriting list */}
           <div className="lg:col-span-7 flex flex-col justify-center">
             <Reveal variant="right" delay={100}>
-              <p className="text-xs sm:text-sm font-mono tracking-[0.25em] font-bold text-phsOrange uppercase mb-4">
-                ABOUT PREVENTIVE
+              <p className="text-xs sm:text-sm font-mono tracking-[0.25em] font-bold text-white mb-4">
+                About Preventive
               </p>
-              <h2 className="font-display font-black text-white text-3xl sm:text-4xl lg:text-[2.75rem] tracking-tight leading-[1.0] uppercase mb-6">
-                AFFORDABLE, PROFESSIONAL<br />PROTECTION.
+              <h2 className="font-display font-black text-white text-3xl sm:text-4xl lg:text-[2.75rem] tracking-tight leading-[1.0] mb-6">
+                Affordable, Professional<br />Protection.
               </h2>
             </Reveal>
             
-            <Reveal variant="right" delay={200} className="space-y-6 text-[15px] leading-relaxed text-gray-300 font-sans">
+            <Reveal variant="right" delay={200} className="space-y-6 text-[15px] leading-relaxed text-white/85 font-sans">
               <p>
                 We are your go-to garrison for reliable plumbing, heating, and cooling defense in Northern Utah. We specialize in stopping failures before they breach. Expert maintenance, repair, and installation for the systems your home depends on.
               </p>
@@ -54,7 +54,7 @@ export default function About() {
             <Reveal variant="right" delay={300}>
               <a
                 href="#contact"
-                className="group inline-flex items-center justify-center gap-2 rounded-md bg-phsOrange px-7 py-4 font-display text-sm font-bold uppercase tracking-[0.12em] text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-phsOrangeDark hover:shadow-lg active:translate-y-0 mt-6 relative z-10"
+                className="group inline-flex items-center justify-center gap-2 rounded-md bg-phsOrange px-7 py-4 font-display text-sm font-bold tracking-[0.12em] text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-phsOrangeDark hover:shadow-lg active:translate-y-0 mt-6 relative z-10"
               >
                 <span>Enlist Our Guard</span>
                 <span className="transform group-hover:translate-x-1 transition-transform duration-300">→</span>

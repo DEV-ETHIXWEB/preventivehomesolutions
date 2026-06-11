@@ -23,7 +23,7 @@ const posts = [
 
 export default function Blog() {
   return (
-    <section className="bg-[#fbf7f0] py-20 lg:py-28 px-6">
+    <section id="blog" className="scroll-mt-24 bg-[#fbf7f0] py-20 lg:py-28 px-6">
       <div className="mx-auto max-w-[1200px]">
         
         {/* Heading Block */}
@@ -31,16 +31,16 @@ export default function Blog() {
           <div>
             <Reveal
               as="p"
-              className="text-[10px] sm:text-sm font-mono tracking-[0.25em] font-bold text-phsOrange uppercase mb-2 md:mb-4"
+              className="text-[10px] sm:text-sm font-mono tracking-[0.25em] font-bold text-phsOrange mb-2 md:mb-4"
             >
-              FIELD NOTES
+              Field Notes
             </Reveal>
             <Reveal
               as="h2"
               delay={100}
-              className="font-display font-black text-phsInk text-2xl sm:text-4xl lg:text-[2.75rem] tracking-tight leading-[1.0] uppercase"
+              className="font-display font-black text-phsInk text-2xl sm:text-4xl lg:text-[2.75rem] tracking-tight leading-[1.0] "
             >
-              LATEST FROM THE GUARD.
+              Latest from the Guard.
             </Reveal>
           </div>
           <Reveal
@@ -64,14 +64,14 @@ export default function Blog() {
             >
               {/* Top Card Graphic Section */}
               <div 
-                className="relative aspect-[16/10] w-full bg-phsNavy flex items-center justify-center overflow-hidden"
+                className="relative aspect-[16/10] w-full bg-phsSky flex items-center justify-center overflow-hidden"
                 style={{
                   backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px)',
                   backgroundSize: '20px 20px'
                 }}
               >
                 {/* Category Badge */}
-                <span className="absolute top-4 left-4 rounded bg-phsOrange px-2.5 py-1 text-[9px] font-mono font-bold tracking-widest text-white uppercase z-10">
+                <span className="absolute top-4 left-4 rounded bg-phsOrange px-2.5 py-1 text-[9px] font-mono font-bold tracking-widest text-white z-10">
                   {post.category}
                 </span>
 
@@ -95,14 +95,14 @@ export default function Blog() {
 
                 {/* Card Footer */}
                 <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                  <span className="font-mono text-[9px] sm:text-[10px] font-bold tracking-widest text-gray-400 uppercase">
+                  <span className="font-mono text-[9px] sm:text-[10px] font-bold tracking-widest text-gray-400 ">
                     {post.date}
                   </span>
                   <a
                     href="#"
                     className="inline-flex items-center gap-1.5 font-mono text-[9px] sm:text-[10px] font-bold tracking-widest text-phsOrange hover:text-phsOrangeDark transition-colors duration-300 group/link"
                   >
-                    READ 
+                    Read 
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="h-3 w-3 transition-transform duration-300 group-hover/link:translate-x-1">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                     </svg>

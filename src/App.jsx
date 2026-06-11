@@ -26,7 +26,7 @@ export default function App() {
       <WhyChoose />
       <BeforeAfter />
       <div
-        className="relative bg-[#0B1B30]"
+        className="relative bg-phsSky"
         style={{
           backgroundImage: 'radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px)',
           backgroundSize: '20px 20px',
@@ -38,7 +38,7 @@ export default function App() {
         <About />
       </div>
       <Testimonials />
-      <div className="h-6 w-full bg-phsNavy" />
+      <div className="h-6 w-full bg-phsSky" />
       <AreasWeServe />
       <Faq />
       <Blog />

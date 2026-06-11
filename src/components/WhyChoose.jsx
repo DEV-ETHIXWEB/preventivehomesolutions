@@ -1,4 +1,5 @@
 import Reveal from './Reveal.jsx'
+import GoogleReviews from './GoogleReviews.jsx'
 
 function ShieldCheckIcon() {
   return (
@@ -70,12 +71,12 @@ const features = [
 
 export default function WhyChoose() {
   return (
-    <section className="bg-[#FAF8F5] py-12 lg:py-28 relative border-t border-[#e6ded4]">
+    <section className="bg-white py-12 lg:py-28 relative">
       <div className="mx-auto max-w-[1200px] px-6">
         
         {/* Trust Badges Row */}
         <Reveal variant="scale" className="flex items-center justify-center mb-16">
-          <div className="rounded-3xl bg-white px-8 py-6">
+          <div className="rounded-3xl bg-white px-8 py-6 -translate-y-[25px] scale-[1.15]">
             <img
               src="/badges.png"
               alt="Trust Badges"
@@ -86,11 +87,11 @@ export default function WhyChoose() {
 
         {/* Heading Block */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <Reveal as="p" className="text-xs sm:text-sm font-mono tracking-[0.25em] font-bold text-phsOrange uppercase mb-4">
-            WHY CHOOSE PREVENTIVE HOME SOLUTIONS
+          <Reveal as="p" className="text-xs sm:text-sm font-mono tracking-[0.25em] font-bold text-phsOrange mb-4">
+            Why Choose Preventive Home Solutions
           </Reveal>
-          <Reveal as="h2" delay={100} className="font-display font-black text-phsNavy text-3xl sm:text-4xl lg:text-[2.75rem] tracking-tight leading-[1.0] uppercase">
-            BENEFITS OF THE<br />BEST IN THE TRADE.
+          <Reveal as="h2" delay={100} className="font-display font-black text-phsNavy text-3xl sm:text-4xl lg:text-[2.75rem] tracking-tight leading-[1.0] ">
+            Benefits of the<br />Best in the Trade.
           </Reveal>
           <Reveal as="p" delay={200} className="mt-4 text-[15px] leading-relaxed text-gray-500 font-sans">
             Choosing Preventive Home Solutions means partnering with a team dedicated to exceptional service and lasting solutions for your home.
@@ -101,14 +102,17 @@ export default function WhyChoose() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {features.map(({ title, Icon, description }, i) => (
             <Reveal key={title} variant="up" delay={i * 100}>
-              <div className="group flex flex-col p-8 rounded-3xl border border-[#e6ded4] bg-white/50 hover:bg-white hover:shadow-xl hover:shadow-phsCream/25 transition-all duration-300 hover:-translate-y-1 h-full relative z-10">
+              <div className="group relative z-10 flex h-full flex-col overflow-hidden p-8 rounded-3xl border border-[#e6ded4] bg-white/50 transition-all duration-300 ease-out hover:bg-white hover:border-phsOrange/40 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-2xl hover:shadow-phsOrange/10">
+                {/* Light-glare sweep on hover */}
+                <span className="pointer-events-none absolute inset-0 -translate-x-[150%] skew-x-12 bg-gradient-to-r from-transparent via-phsOrange/20 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-[150%]" />
+
                 {/* Icon Container */}
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-phsOrange/10 border border-phsOrange/20 text-phsOrange mb-6 transition-all duration-300 group-hover:scale-105 group-hover:bg-phsOrange group-hover:text-white group-hover:border-transparent">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-phsOrange/10 border border-phsOrange/20 text-phsOrange mb-6 transition-all duration-500 ease-out group-hover:scale-125 group-hover:-translate-y-1 group-hover:bg-phsOrange group-hover:text-white group-hover:border-transparent">
                   <Icon />
                 </div>
-                
+
                 {/* Content */}
-                <h3 className="font-display font-bold text-phsNavy text-lg uppercase tracking-wide">
+                <h3 className="font-display font-bold text-phsNavy text-lg tracking-wide transition-colors duration-300 group-hover:text-phsOrange">
                   {title}
                 </h3>
                 <p className="mt-2 text-sm text-gray-500 font-sans leading-relaxed">
@@ -118,6 +122,9 @@ export default function WhyChoose() {
             </Reveal>
           ))}
         </div>
+
+        {/* Live, continuously-scrolling Google reviews */}
+        <GoogleReviews />
 
       </div>
     </section>

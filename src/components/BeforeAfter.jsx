@@ -5,10 +5,10 @@ export default function BeforeAfter() {
     <section className="bg-[#FAF8F5] py-16 lg:py-20 px-6 border-t border-[#e6ded4]">
       <div className="mx-auto max-w-[1200px]">
         <Reveal className="text-center mb-10">
-          <p className="text-xs sm:text-sm font-mono tracking-[0.25em] font-bold text-phsOrange uppercase mb-3">
-            REAL RESULTS
+          <p className="text-xs sm:text-sm font-mono tracking-[0.25em] font-bold text-phsOrange mb-3">
+            Real Results
           </p>
-          <h2 className="font-display font-black text-phsInk text-3xl sm:text-4xl lg:text-[2.75rem] tracking-tight leading-[1.0] uppercase">
+          <h2 className="font-display font-black text-phsInk text-3xl sm:text-4xl lg:text-[2.75rem] tracking-tight leading-[1.0] ">
             BEFORE &amp; AFTER.
           </h2>
         </Reveal>
@@ -34,16 +34,16 @@ export default function BeforeAfter() {
               {/* Label overlay */}
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-phsInk/80 to-transparent p-6 flex items-end justify-between">
                 <div>
-                  <p className="font-mono text-[10px] font-bold tracking-[0.25em] text-phsOrange uppercase mb-1">
-                    WATER HEATER REPLACEMENT
+                  <p className="font-mono text-[10px] font-bold tracking-[0.25em] text-phsOrange mb-1">
+                    Water Heater Replacement
                   </p>
-                  <p className="font-display font-black text-white text-lg uppercase tracking-wide">
+                  <p className="font-display font-black text-white text-lg tracking-wide">
                     Same-Day Install · Northern Utah
                   </p>
                 </div>
                 <a
                   href="#scheduling"
-                  className="shrink-0 inline-flex items-center gap-2 rounded-md bg-phsOrange px-5 py-3 font-display text-xs font-bold uppercase tracking-wider text-white shadow hover:bg-phsOrangeDark transition-colors duration-300"
+                  className="shrink-0 inline-flex items-center gap-2 rounded-md bg-phsOrange px-5 py-3 font-display text-xs font-bold tracking-wider text-white shadow hover:bg-phsOrangeDark transition-colors duration-300"
                 >
                   Get A Quote →
                 </a>

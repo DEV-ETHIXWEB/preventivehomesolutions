@@ -14,16 +14,18 @@ export default function ContactForm() {
 
   return (
     <section id="scheduling" className="scroll-mt-24 bg-phsCream py-12 lg:py-28 px-6">
+      {/* Anchor so "Contact" nav / CTAs that point to #contact land here too */}
+      <span id="contact" aria-hidden="true" className="block scroll-mt-28" />
       <div className="mx-auto max-w-[1100px]">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
           {/* Left Column: Copy + Phone + Details */}
           <div className="lg:col-span-6 w-full">
             <Reveal variant="left" className="w-full">
-              <span className="text-xs sm:text-sm font-mono tracking-[0.25em] font-bold text-phsOrange uppercase mb-4 block">
-                READY TO BOOK?
+              <span className="text-xs sm:text-sm font-mono tracking-[0.25em] font-bold text-phsOrange mb-4 block">
+                Ready to Book?
               </span>
-              <h2 className="font-display font-black text-phsInk text-4xl sm:text-5xl lg:text-[3.25rem] tracking-tight leading-[1.0] uppercase mb-6">
+              <h2 className="font-display font-black text-phsInk text-4xl sm:text-5xl lg:text-[3.25rem] tracking-tight leading-[1.0] mb-6">
                 Available <span className="text-phsOrange">7</span>
                 <br />
                 <span className="text-phsOrange">days</span> a week.
@@ -69,15 +71,15 @@ export default function ContactForm() {
                         <polyline points="20 6 9 17 4 12" />
                       </svg>
                     </div>
-                    <h3 className="font-display font-bold text-xl text-phsInk mb-2 uppercase">Request Received!</h3>
+                    <h3 className="font-display font-bold text-xl text-phsInk mb-2 ">Request Received!</h3>
                     <p className="text-[14px] text-gray-600 font-sans leading-relaxed">
                       Thank you. An expert technician or comfort advisor will contact you shortly to provide your free quote.
                     </p>
                   </div>
                 ) : (
                   <form className="space-y-4" onSubmit={handleSubmit}>
-                    <h3 className="font-display font-black text-[18px] text-phsInk uppercase tracking-wide mb-6">
-                      GET A FREE QUOTE
+                    <h3 className="font-display font-black text-[18px] text-phsInk tracking-wide mb-6">
+                      Get a Free Quote
                     </h3>
 
                     {/* Name Input */}
@@ -121,7 +123,7 @@ export default function ContactForm() {
                     {/* Submit Button */}
                     <button
                       type="submit"
-                      className="w-full rounded-xl bg-phsOrange hover:bg-phsOrangeDark text-white py-4 px-6 font-bold text-[15px] shadow-sm hover:shadow active:scale-98 transition-all duration-300 uppercase tracking-wider"
+                      className="w-full rounded-xl bg-phsOrange hover:bg-phsOrangeDark text-white py-4 px-6 font-bold text-[15px] shadow-sm hover:shadow active:scale-98 transition-all duration-300 tracking-wider"
                     >
                       Request Free Quote
                     </button>

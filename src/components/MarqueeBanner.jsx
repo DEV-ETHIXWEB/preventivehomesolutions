@@ -48,7 +48,7 @@ export default function MarqueeBanner() {
         {repeatedServices.map((service, i) => (
           <div key={i} className="flex items-center gap-3">
             <service.Icon className="h-6 w-6 opacity-80" />
-            <span className="font-display text-lg font-bold uppercase tracking-widest">{service.name}</span>
+            <span className="font-display text-lg font-bold tracking-widest">{service.name}</span>
           </div>
         ))}
       </div>

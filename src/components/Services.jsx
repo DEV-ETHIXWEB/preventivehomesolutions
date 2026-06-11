@@ -4,21 +4,21 @@ const servicesList = [
   {
     title: 'Plumbing',
     description: 'Leak defense, repairs, repipes.',
-    iconSrc: '/plumbing-removebg-preview.svg',
+    iconSrc: '/Group 8.svg',
     photo: '/Pot Filler Faucet Install in Ogden.jpeg',
     photoAlt: 'Pot filler faucet installation, real job photo',
   },
   {
     title: 'HVAC',
     description: 'Furnaces, boilers, heat pumps.',
-    iconSrc: '/hvac-removebg-preview.svg',
+    iconSrc: '/Group 9.svg',
     photo: '/Heating furnace.jpg',
     photoAlt: 'Furnace system installation',
   },
   {
     title: 'AC Conditioning',
     description: 'AC install, tune-ups, repair.',
-    iconSrc: '/ac_conditioning-removebg-preview.svg',
+    iconSrc: '/Group 10.svg',
     photo: '/AC installed 01.jpg',
     photoAlt: 'AC unit installation, real job photo',
   },
@@ -41,12 +41,12 @@ export default function Services() {
                 <span className="absolute bottom-0 right-0 w-8 h-8 border-b-4 border-r-4 border-phsOrange z-10" />
                 <div className="relative aspect-[4/5] sm:aspect-[4/3] lg:aspect-[3/4] w-full overflow-hidden group">
                   <img
-                    src="/Coverphoto.png"
-                    alt="Preventive Home Solutions team and van"
+                    src="/back van.jpg"
+                    alt="Preventive Home Solutions service van"
                     className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   {/* Gradient only — no text overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-phsNavy/70 via-phsNavy/20 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-phsSky/70 via-phsSky/20 to-transparent" />
                 </div>
               </div>
             </Reveal>
@@ -56,11 +56,11 @@ export default function Services() {
           <div className="lg:col-span-7 flex flex-col justify-center">
             {/* Header Block */}
             <Reveal className="mb-10">
-              <p className="text-xs sm:text-sm font-mono tracking-[0.25em] font-bold text-phsOrange uppercase mb-4">
-                OUR SERVICES
+              <p className="text-xs sm:text-sm font-mono tracking-[0.25em] font-bold text-phsOrange mb-4">
+                Our Services
               </p>
-              <h2 className="font-display font-black text-phsNavy text-3xl sm:text-4xl lg:text-[2.75rem] tracking-tight leading-[1.0] uppercase">
-                THREE DISCIPLINES.<br />ONE STANDARD.
+              <h2 className="font-display font-black text-phsNavy text-3xl sm:text-4xl lg:text-[2.75rem] tracking-tight leading-[1.0] ">
+                Three Disciplines.<br />One Standard.
               </h2>
               <p className="mt-4 text-[15px] leading-relaxed text-gray-500 font-sans max-w-xl">
                 Whatever the system, the same craftsmanship. Built to outlast Northern Utah's hardest seasons.
@@ -73,17 +73,20 @@ export default function Services() {
                 <Reveal key={title} delay={i * 100} variant="up" className="h-full">
                   <a
                     href="#contact"
-                    className="group flex h-full flex-col items-center justify-center text-center p-2 sm:p-6 rounded-2xl border border-[#e6ded4] bg-white/50 hover:bg-white hover:shadow-xl hover:shadow-phsCream/25 transition-all duration-300 hover:-translate-y-1 relative z-10"
+                    className="group relative z-10 flex h-full flex-col items-center justify-center overflow-hidden text-center p-2 sm:p-6 rounded-2xl border border-[#e6ded4] bg-white/50 transition-all duration-300 ease-out hover:bg-white hover:border-phsOrange/40 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-2xl hover:shadow-phsOrange/10"
                   >
+                    {/* Light-glare sweep on hover */}
+                    <span className="pointer-events-none absolute inset-0 -translate-x-[150%] skew-x-12 bg-gradient-to-r from-transparent via-phsOrange/20 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-[150%]" />
+
                     {/* Icon */}
                     <img
                       src={iconSrc}
                       alt={title}
-                      className="h-10 w-10 sm:h-20 sm:w-20 object-contain mb-2 sm:mb-4 group-hover:scale-110 transition-transform duration-300"
+                      className="h-10 w-10 sm:h-20 sm:w-20 object-contain mb-2 sm:mb-4 transition-transform duration-500 ease-out group-hover:scale-125 group-hover:-translate-y-1"
                     />
 
                     {/* Text block */}
-                    <h3 className="font-display font-bold text-phsNavy text-[11px] sm:text-lg uppercase tracking-wider leading-tight">
+                    <h3 className="font-display font-bold text-phsNavy text-[11px] sm:text-lg tracking-wider leading-tight transition-colors duration-300 group-hover:text-phsOrange">
                       {title}
                     </h3>
 
@@ -94,7 +97,7 @@ export default function Services() {
 
                     {/* Real work photo with frame - hidden on mobile */}
                     {photo && (
-                      <div className="hidden sm:block relative bg-white p-1.5 shadow-md mt-auto pt-1.5 w-full border border-[#e6ded4]">
+                      <div className="hidden sm:block relative overflow-hidden bg-white p-1.5 shadow-md mt-auto pt-1.5 w-full border border-[#e6ded4]">
                         <span className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-phsOrange z-10" />
                         <span className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-phsOrange z-10" />
                         <span className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-phsOrange z-10" />
@@ -102,7 +105,7 @@ export default function Services() {
                         <img
                           src={photo}
                           alt={photoAlt}
-                          className="w-full aspect-video object-cover rounded-sm"
+                          className="w-full aspect-video object-cover rounded-sm transition-transform duration-500 ease-out group-hover:scale-110"
                         />
                       </div>
                     )}

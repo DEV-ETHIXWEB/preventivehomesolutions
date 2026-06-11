@@ -1,5 +1,19 @@
-const quickLinks = ['Home', 'About Us', 'Blogs', 'Preventive Tips', 'Maintenance', 'Contact Us']
-const services = ['AC Installation and Replacement', 'Furnace Installation and Replacement', 'Water Heater Installation and Replacement', 'Boiler Service and Maintenance', 'Drain Cleaning', 'Leak Detection & Repair']
+const quickLinks = [
+  { label: 'Home', href: '#hero' },
+  { label: 'About Us', href: '#about' },
+  { label: 'Blogs', href: '#blog' },
+  { label: 'Preventive Tips', href: '#blog' },
+  { label: 'Maintenance', href: '#services' },
+  { label: 'Contact Us', href: '#contact' },
+]
+const services = [
+  'AC Installation and Replacement',
+  'Furnace Installation and Replacement',
+  'Water Heater Installation and Replacement',
+  'Boiler Service and Maintenance',
+  'Drain Cleaning',
+  'Leak Detection & Repair',
+].map((label) => ({ label, href: '#scheduling' }))
 
 function ChevronRight() {
   return (
@@ -56,18 +70,18 @@ const contactInfo = [
 function LinkColumn({ title, items }) {
   return (
     <div>
-      <h3 className="font-display font-black text-sm uppercase tracking-[0.2em] text-phsOrange mb-6">
+      <h3 className="font-display font-black text-sm tracking-[0.2em] text-phsOrange mb-6">
         {title}
       </h3>
       <ul className="space-y-3.5">
         {items.map((item) => (
-          <li key={item}>
-            <a 
-              href="#" 
+          <li key={item.label}>
+            <a
+              href={item.href}
               className="group/link inline-flex items-center gap-2 text-[14px] text-gray-300 hover:text-white transition-colors duration-300"
             >
               <ChevronRight />
-              <span>{item}</span>
+              <span>{item.label}</span>
             </a>
           </li>
         ))}
@@ -96,10 +110,10 @@ export default function Footer() {
                 alt="Preventive Home Solutions"
                 className="h-40 w-auto"
               />
-              <span className="font-display text-lg font-black tracking-[0.18em] leading-tight text-white uppercase">
-                PREVENTIVE<br />
-                HOME<br />
-                SOLUTIONS
+              <span className="font-display text-lg font-black tracking-[0.18em] leading-tight text-white ">
+                Preventive<br />
+                Home<br />
+                Solutions
               </span>
             </div>
             <p className="mt-6 text-[14px] leading-relaxed text-gray-300 font-sans">
@@ -153,7 +167,7 @@ export default function Footer() {
 
           {/* Contact Info Column */}
           <div>
-            <h3 className="font-display font-black text-sm uppercase tracking-[0.2em] text-phsOrange mb-6">
+            <h3 className="font-display font-black text-sm tracking-[0.2em] text-phsOrange mb-6">
               Contact Info
             </h3>
             <ul className="space-y-4">

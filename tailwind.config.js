@@ -8,12 +8,13 @@ export default {
         phsOrange: '#f3741b',
         phsOrangeDark: '#e35e0a',
         phsNavy: '#0a2540',
+        phsSky: '#228CC8',
         phsLink: '#2f6fdb',
         phsCream: '#f4ecdf',
         phsInk: '#16263d',
       },
       fontFamily: {
-        sans: ['Strong', 'Poppins', 'system-ui', 'Arial', 'sans-serif'],
+        sans: ['Manrope', 'system-ui', 'Arial', 'sans-serif'],
         display: ['Strong', 'Archivo', 'system-ui', 'Arial', 'sans-serif'],
         mono: ['Strong', '"Space Mono"', 'ui-monospace', 'monospace'],
       },
@@ -37,6 +38,7 @@ export default {
       },
       animation: {
         marquee: 'marquee 18s linear infinite',
+        'marquee-slow': 'marquee 45s linear infinite',
         float: 'float 6s ease-in-out infinite',
         'spin-slow': 'spin-slow 40s linear infinite',
         'slide-down': 'slide-down 0.25s ease-out',

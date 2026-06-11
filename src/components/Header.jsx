@@ -150,19 +150,19 @@ export default function Header() {
 
   return (
     <header
-      className="sticky top-0 z-40 w-full border-b border-phsInk/10 bg-phsCream/95 backdrop-blur"
+      className="sticky top-0 z-40 w-full border-b border-phsSky/10 bg-phsCream/95 backdrop-blur"
       onMouseLeave={closeMenu}
     >
-      <div className="mx-auto flex max-w-[1500px] items-center justify-between gap-6 px-5 py-4 lg:px-10">
+      <div className="mx-auto flex max-w-[1500px] items-center justify-between gap-6 px-5 pt-4 pb-[6px] lg:px-10">
         {/* Logo */}
         <a href="#" onMouseEnter={closeMenu} className="group flex items-center gap-3">
           <img
             src={LOGO_SRC}
             alt="Preventive Home Solutions"
-            className="h-[4.3rem] w-auto rounded-lg transition-transform duration-300 group-hover:scale-105"
+            className="h-[5.2rem] w-auto rounded-lg transition-transform duration-300 group-hover:scale-[1.05]"
           />
           <span className="font-display text-xl font-extrabold tracking-[0.12em] text-phsInk">
-            PREVENTIVE HOME SOLUTIONS
+            Preventive Home Solutions
           </span>
         </a>
 
@@ -189,9 +189,7 @@ export default function Header() {
               Areas We Serve
               <CaretIcon className={`h-3.5 w-3.5 transition-transform duration-300 ${openMenu === 'areas' ? 'rotate-180' : ''}`} />
             </button>
-            <a href="#scheduling" onMouseEnter={closeMenu} className={navLinkClass}>
-              Booking
-            </a>
+
             <a href="#contact" onMouseEnter={closeMenu} className={navLinkClass}>
               Contact
             </a>
@@ -201,7 +199,7 @@ export default function Header() {
           <a
             href={`tel:${PHONE_TEL}`}
             onMouseEnter={closeMenu}
-            className="hidden items-center gap-2 rounded-md border border-phsInk/20 px-4 py-2.5 font-mono text-sm font-bold text-phsInk transition-colors hover:border-phsInk hover:bg-phsInk/5 xl:inline-flex"
+            className="hidden items-center gap-2 rounded-md border border-phsSky/20 px-4 py-2.5 font-mono text-sm font-bold text-phsInk transition-colors hover:border-phsSky hover:bg-phsSky/5 xl:inline-flex"
           >
             <PhoneIcon className="h-4 w-4" />
             {PHONE_DISPLAY}
@@ -211,9 +209,9 @@ export default function Header() {
           <a
             href="#scheduling"
             onMouseEnter={closeMenu}
-            className="rounded-md bg-phsOrange px-6 py-3 font-display text-xs font-bold uppercase tracking-[0.18em] text-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-phsOrangeDark hover:shadow-md active:translate-y-0"
+            className="rounded-md bg-phsOrange px-6 py-3 font-display text-xs font-bold tracking-[0.18em] text-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-phsOrangeDark hover:shadow-md active:translate-y-0"
           >
-            Book Session
+            Get Free Quote
           </a>
         </div>
 
@@ -237,12 +235,12 @@ export default function Header() {
 
       {/* Full-width mega menu: spans the whole window, left to right */}
       <div
-        className={`absolute inset-x-0 top-full border-t border-phsInk/10 bg-phsCream shadow-xl transition-all duration-200 ease-out ${
+        className={`absolute inset-x-0 top-full border-t border-phsSky/10 bg-phsCream shadow-xl transition-all duration-200 ease-out ${
           openMenu ? 'visible translate-y-0 opacity-100' : 'invisible -translate-y-1 opacity-0'
         }`}
       >
         <div className="mx-auto max-w-[1500px] px-5 py-6 lg:px-10">
-          <div className="mb-4 flex items-center gap-2 rounded-md border border-phsInk/15 bg-white px-3 py-2.5 focus-within:border-phsInk sm:max-w-sm">
+          <div className="mb-4 flex items-center gap-2 rounded-md border border-phsSky/15 bg-white px-3 py-2.5 focus-within:border-phsSky sm:max-w-sm">
             <SearchIcon className="h-4 w-4 shrink-0 text-phsInk/40" />
             <input
               type="text"
@@ -265,13 +263,13 @@ export default function Header() {
                       return (
                         <div
                           key={item}
-                          className={`rounded-xl border border-phsInk/10 bg-white/60 px-4 py-3 shadow-sm relative flex flex-col justify-center min-h-[58px] hover:border-phsOrange/30 hover:bg-white transition-all duration-300 ${
+                          className={`rounded-xl border border-phsSky/10 bg-white/60 px-4 py-3 shadow-sm relative flex flex-col justify-center min-h-[58px] hover:border-phsOrange/30 hover:bg-white transition-all duration-300 ${
                             isTopItem ? 'pt-6' : ''
                           }`}
                         >
                           {/* Category label on the top left of ONLY the top box */}
                           {isTopItem && (
-                            <span className="absolute -top-2.5 left-3 rounded bg-phsOrange px-2.5 py-0.5 text-[7.5px] font-mono font-bold tracking-widest text-white uppercase shadow-sm">
+                            <span className="absolute -top-2.5 left-3 rounded bg-phsOrange px-2.5 py-0.5 text-[7.5px] font-mono font-bold tracking-widest text-white shadow-sm">
                               {group.title}
                             </span>
                           )}
@@ -300,7 +298,7 @@ export default function Header() {
                     key={item}
                     href="#areas-we-serve"
                     onClick={closeMenu}
-                    className="block rounded-xl border border-phsInk/10 bg-white/60 px-4 py-3 shadow-sm flex flex-col justify-center min-h-[58px] text-[13px] font-bold text-phsInk/85 hover:border-phsOrange/30 hover:bg-white hover:text-phsOrange transition-all duration-300"
+                    className="block rounded-xl border border-phsSky/10 bg-white/60 px-4 py-3 shadow-sm flex flex-col justify-center min-h-[58px] text-[13px] font-bold text-phsInk/85 hover:border-phsOrange/30 hover:bg-white hover:text-phsOrange transition-all duration-300"
                   >
                     {item}
                   </a>
@@ -313,41 +311,39 @@ export default function Header() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="animate-slide-down max-h-[80vh] overflow-y-auto border-t border-phsInk/10 bg-phsCream px-5 py-4 lg:hidden">
+        <div className="animate-slide-down max-h-[80vh] overflow-y-auto border-t border-phsSky/10 bg-phsCream px-5 py-4 lg:hidden">
           <nav className="flex flex-col gap-4">
             <div>
-              <p className="mb-1 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-phsInk/45">
+              <p className="mb-1 font-mono text-[11px] font-bold tracking-[0.2em] text-phsInk/45">
                 Services
               </p>
               <div className="flex flex-wrap gap-1.5">
                 {SERVICES.map((s) => (
-                  <a key={s} href="#services" onClick={() => setOpen(false)} className="rounded-md bg-phsInk/5 px-3 py-1.5 text-sm font-medium text-phsInk/80">
+                  <a key={s} href="#services" onClick={() => setOpen(false)} className="rounded-md bg-phsSky/5 px-3 py-1.5 text-sm font-medium text-phsInk/80">
                     {s}
                   </a>
                 ))}
               </div>
             </div>
             <div>
-              <p className="mb-1 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-phsInk/45">
+              <p className="mb-1 font-mono text-[11px] font-bold tracking-[0.2em] text-phsInk/45">
                 Areas We Serve
               </p>
               <div className="flex flex-wrap gap-1.5">
                 {SERVICE_AREAS.map((s) => (
-                  <a key={s} href="#areas-we-serve" onClick={() => setOpen(false)} className="rounded-md bg-phsInk/5 px-3 py-1.5 text-sm font-medium text-phsInk/80">
+                  <a key={s} href="#areas-we-serve" onClick={() => setOpen(false)} className="rounded-md bg-phsSky/5 px-3 py-1.5 text-sm font-medium text-phsInk/80">
                     {s}
                   </a>
                 ))}
               </div>
             </div>
-            <a href="#scheduling" onClick={() => setOpen(false)} className="font-display text-[15px] font-semibold text-phsInk/80">
-              Booking
-            </a>
+
             <a href="#contact" onClick={() => setOpen(false)} className="font-display text-[15px] font-semibold text-phsInk/80">
               Contact
             </a>
             <a
               href={`tel:${PHONE_TEL}`}
-              className="inline-flex items-center justify-center gap-2 rounded-md border border-phsInk/20 px-4 py-3 font-mono text-sm font-bold text-phsInk"
+              className="inline-flex items-center justify-center gap-2 rounded-md border border-phsSky/20 px-4 py-3 font-mono text-sm font-bold text-phsInk"
             >
               <PhoneIcon className="h-4 w-4" />
               {PHONE_DISPLAY}
@@ -355,9 +351,9 @@ export default function Header() {
             <a
               href="#scheduling"
               onClick={() => setOpen(false)}
-              className="rounded-md bg-phsOrange px-5 py-3 text-center font-display text-xs font-bold uppercase tracking-[0.18em] text-white"
+              className="rounded-md bg-phsOrange px-5 py-3 text-center font-display text-xs font-bold tracking-[0.18em] text-white"
             >
-              Book Session
+              Get Free Quote
             </a>
           </nav>
         </div>
