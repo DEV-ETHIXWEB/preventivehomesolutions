@@ -155,13 +155,13 @@ export default function Header() {
     >
       <div className="mx-auto flex max-w-[1500px] items-center justify-between gap-6 px-5 py-4 lg:px-10">
         {/* Logo */}
-        <a href="#" onMouseEnter={closeMenu} className="group flex items-center gap-3 bg-phsOrange/95 px-4 py-2 rounded-xl backdrop-blur transition-colors hover:bg-phsOrange">
+        <a href="#" onMouseEnter={closeMenu} className="group flex items-center gap-3">
           <img
             src={LOGO_SRC}
             alt="Preventive Home Solutions"
             className="h-[4.3rem] w-auto rounded-lg transition-transform duration-300 group-hover:scale-105"
           />
-          <span className="font-display text-xl font-extrabold tracking-[0.12em] text-white">
+          <span className="font-display text-xl font-extrabold tracking-[0.12em] text-phsInk">
             PREVENTIVE HOME SOLUTIONS
           </span>
         </a>

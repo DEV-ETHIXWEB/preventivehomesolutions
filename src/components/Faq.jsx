@@ -28,7 +28,7 @@ export default function Faq() {
   const [openIndex, setOpenIndex] = useState(0)
 
   return (
-    <section className="relative overflow-hidden bg-[#fbf7f0] py-20 lg:py-28 px-6">
+    <section className="relative overflow-hidden bg-[#fbf7f0] py-12 lg:py-28 px-6">
       {/* Watermark logo */}
       <img
         src="/logo.svg"

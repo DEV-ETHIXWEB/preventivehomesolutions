@@ -2,7 +2,7 @@ import Reveal from './Reveal.jsx'
 
 export default function CtaBanner() {
   return (
-    <section className="relative w-full overflow-hidden py-20 lg:py-24">
+    <section className="relative w-full overflow-hidden py-12 lg:py-24">
       {/* Content */}
       <div className="relative mx-auto flex max-w-[1000px] flex-col items-center px-6 text-center">
         

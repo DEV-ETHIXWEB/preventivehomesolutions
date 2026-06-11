@@ -70,7 +70,7 @@ const features = [
 
 export default function WhyChoose() {
   return (
-    <section className="bg-[#FAF8F5] py-20 lg:py-28 relative border-t border-[#e6ded4]">
+    <section className="bg-[#FAF8F5] py-12 lg:py-28 relative border-t border-[#e6ded4]">
       <div className="mx-auto max-w-[1200px] px-6">
         
         {/* Trust Badges Row */}

@@ -26,7 +26,7 @@ const servicesList = [
 
 export default function Services() {
   return (
-    <section id="services" className="relative overflow-hidden bg-[#FAF8F5] py-20 lg:py-28">
+    <section id="services" className="relative overflow-hidden bg-[#FAF8F5] py-12 lg:py-28">
       <div className="relative mx-auto max-w-[1200px] px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
@@ -34,7 +34,7 @@ export default function Services() {
           <div className="lg:col-span-5 relative">
             <Reveal variant="left" className="relative w-full">
               {/* White frame with orange corner accents */}
-              <div className="relative bg-white p-3 shadow-2xl">
+              <div className="relative bg-white p-3 shadow-2xl mx-auto w-1/2 lg:w-full">
                 <span className="absolute top-0 left-0 w-8 h-8 border-t-4 border-l-4 border-phsOrange z-10" />
                 <span className="absolute top-0 right-0 w-8 h-8 border-t-4 border-r-4 border-phsOrange z-10" />
                 <span className="absolute bottom-0 left-0 w-8 h-8 border-b-4 border-l-4 border-phsOrange z-10" />
@@ -68,33 +68,33 @@ export default function Services() {
             </Reveal>
 
             {/* Service Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <div className="grid grid-cols-3 gap-2 sm:gap-6">
               {servicesList.map(({ title, description, iconSrc, photo, photoAlt }, i) => (
                 <Reveal key={title} delay={i * 100} variant="up" className="h-full">
                   <a
                     href="#contact"
-                    className="group flex h-full flex-col items-center text-center p-6 rounded-2xl border border-[#e6ded4] bg-white/50 hover:bg-white hover:shadow-xl hover:shadow-phsCream/25 transition-all duration-300 hover:-translate-y-1 relative z-10"
+                    className="group flex h-full flex-col items-center justify-center text-center p-2 sm:p-6 rounded-2xl border border-[#e6ded4] bg-white/50 hover:bg-white hover:shadow-xl hover:shadow-phsCream/25 transition-all duration-300 hover:-translate-y-1 relative z-10"
                   >
                     {/* Icon */}
                     <img
                       src={iconSrc}
                       alt={title}
-                      className="h-16 w-16 sm:h-20 sm:w-20 object-contain mb-4 group-hover:scale-110 transition-transform duration-300"
+                      className="h-10 w-10 sm:h-20 sm:w-20 object-contain mb-2 sm:mb-4 group-hover:scale-110 transition-transform duration-300"
                     />
 
                     {/* Text block */}
-                    <h3 className="font-display font-bold text-phsNavy text-base sm:text-lg uppercase tracking-wider">
+                    <h3 className="font-display font-bold text-phsNavy text-[11px] sm:text-lg uppercase tracking-wider leading-tight">
                       {title}
                     </h3>
 
-                    {/* Grey one-liner */}
-                    <p className="mt-2 text-sm leading-relaxed text-gray-500">
+                    {/* Grey one-liner - hidden on mobile */}
+                    <p className="hidden sm:block mt-2 text-sm leading-relaxed text-gray-500">
                       {description}
                     </p>
 
-                    {/* Real work photo with frame */}
+                    {/* Real work photo with frame - hidden on mobile */}
                     {photo && (
-                      <div className="relative bg-white p-1.5 shadow-md mt-auto pt-1.5 w-full border border-[#e6ded4]">
+                      <div className="hidden sm:block relative bg-white p-1.5 shadow-md mt-auto pt-1.5 w-full border border-[#e6ded4]">
                         <span className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-phsOrange z-10" />
                         <span className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-phsOrange z-10" />
                         <span className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-phsOrange z-10" />

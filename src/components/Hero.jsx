@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'motion/react'
 import Reveal from './Reveal.jsx'
 import RotatingText from './RotatingText.jsx'
@@ -53,6 +53,43 @@ function GoogleLogo({ className = '' }) {
       <path fill="#EA4335" d="M262.02 54.48l7.56 5.04c-2.44 3.61-8.32 9.83-18.48 9.83-12.6 0-22.01-9.74-22.01-22.18 0-13.19 9.49-22.18 20.92-22.18 11.51 0 17.14 9.16 18.98 14.11l1.01 2.52-29.65 12.28c2.27 4.45 5.8 6.72 10.75 6.72 4.96 0 8.4-2.44 10.92-6.13l-.01.07zm-23.27-7.98l19.82-8.23c-1.09-2.77-4.37-4.7-8.23-4.7-4.95 0-11.84 4.37-11.59 12.93z" />
       <path fill="#4285F4" d="M35.29 41.41V32H67c.31 1.64.47 3.58.47 5.68 0 7.06-1.93 15.79-8.15 22.01-6.05 6.3-13.78 9.66-24.02 9.66C16.32 69.35.36 53.89.36 34.91.36 15.93 16.32.47 35.3.47c10.5 0 17.98 4.12 23.6 9.49l-6.64 6.64c-4.03-3.78-9.49-6.72-16.97-6.72-13.86 0-24.7 11.17-24.7 25.03 0 13.86 10.84 25.03 24.7 25.03 8.99 0 14.11-3.61 17.39-6.89 2.66-2.66 4.41-6.46 5.1-11.65l-22.49.01z" />
     </svg>
+  )
+}
+
+function ExperienceCounter() {
+  const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    let startTime = null
+    const duration = 2500 // 2.5 seconds
+    const end = 35
+
+    const animate = (time) => {
+      if (!startTime) startTime = time
+      const progress = time - startTime
+      const percentage = Math.min(progress / duration, 1)
+      
+      // easeOutQuart
+      const easeOut = 1 - Math.pow(1 - percentage, 4)
+      setCount(Math.floor(easeOut * end))
+
+      if (percentage < 1) {
+        requestAnimationFrame(animate)
+      }
+    }
+    
+    requestAnimationFrame(animate)
+  }, [])
+
+  return (
+    <div className="flex items-center gap-6 mt-2 border-t border-phsInk/10 pt-6 w-full max-w-md">
+      <div className="text-[4.5rem] font-display font-black text-phsOrange leading-none">
+        {count}+
+      </div>
+      <div className="text-[17px] font-bold text-phsInk/75 uppercase tracking-[0.18em] leading-relaxed">
+        Years of Combined <br /> Experience
+      </div>
+    </div>
   )
 }
 
@@ -146,7 +183,7 @@ function BookingForm() {
 export default function Hero() {
   return (
     <section id="hero" className="relative w-full overflow-hidden bg-phsCream">
-      <div className="relative mx-auto grid max-w-[1500px] items-start gap-12 px-5 py-16 lg:grid-cols-2 lg:gap-12 lg:px-10 lg:py-24">
+      <div className="relative mx-auto grid max-w-[1500px] items-start gap-8 px-5 py-8 lg:grid-cols-2 lg:gap-12 lg:px-10 lg:py-24">
         {/* Left column */}
         <div>
           <Reveal
@@ -222,35 +259,46 @@ export default function Hero() {
             </span>
           </Reveal>
 
+          {/* Mobile-only Form Container Moved Here */}
+          <div className="block lg:hidden mt-10 mb-8 w-full max-w-sm rounded-2xl bg-[#EBE4D5]/60 shadow-lg border border-phsInk/10 p-6 sm:p-8 backdrop-blur-sm">
+            <BookingForm />
+          </div>
+
           {/* Quote to fill empty space */}
-          <Reveal delay={800} className="mt-16 max-w-md">
+          <Reveal delay={800} className="mt-8 lg:mt-16 max-w-md">
             <div className="flex flex-col gap-6">
               <blockquote className="border-l-4 border-phsOrange pl-6 font-display italic text-phsInk/85">
                 <p className="text-xl leading-relaxed font-semibold">
                   "Quick response, fast solutions, and efficient work you can always depend on."
                 </p>
               </blockquote>
+              
+              <ExperienceCounter />
             </div>
           </Reveal>
         </div>
 
         {/* Right column — knight holding the shield, with the booking form on the shield face */}
-        <Reveal variant="scale" delay={300} className="relative w-full max-w-[680px] -translate-y-[40px] -translate-x-[40px] lg:justify-self-end lg:-mt-8 lg:-ml-12">
-          {/* Floor shadow beneath the knight */}
-          <div className="absolute -bottom-10 left-1/2 h-16 w-3/4 -translate-x-1/2 rounded-[100%] bg-black/30 blur-2xl" />
-          
-          <img
-            src="/soldier-form.svg"
-            alt="Armored knight holding a shield"
-            className="w-full h-auto select-none pointer-events-none relative z-10"
-          />
-          {/* Form overlaid on the shield face */}
-          <div
-            className="absolute z-20"
-            style={{ top: '25%', left: '34%', width: '53%' }}
-          >
-            <div style={{ transform: 'scale(0.85)', transformOrigin: 'top center' }}>
-              <BookingForm />
+        <Reveal variant="scale" delay={300} className="relative w-full max-w-[680px] lg:-translate-y-[40px] lg:-translate-x-[40px] lg:justify-self-end lg:-mt-8 lg:-ml-12 mt-4 lg:mt-0">
+
+          {/* Desktop-only Knight with Form overlaid */}
+          <div className="hidden lg:block relative">
+            {/* Floor shadow beneath the knight */}
+            <div className="absolute -bottom-10 left-1/2 h-16 w-3/4 -translate-x-1/2 rounded-[100%] bg-black/30 blur-2xl" />
+            
+            <img
+              src="/soldier-form.svg"
+              alt="Armored knight holding a shield"
+              className="w-full h-auto select-none pointer-events-none relative z-10"
+            />
+            {/* Form overlaid on the shield face */}
+            <div
+              className="absolute z-20"
+              style={{ top: '25%', left: '34%', width: '53%' }}
+            >
+              <div style={{ transform: 'scale(0.85)', transformOrigin: 'top center' }}>
+                <BookingForm />
+              </div>
             </div>
           </div>
         </Reveal>

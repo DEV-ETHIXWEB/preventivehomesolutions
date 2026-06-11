@@ -141,11 +141,15 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Quick Links Column */}
-          <LinkColumn title="Quick Links" items={quickLinks} />
+          {/* Quick Links Column (Hidden on Mobile) */}
+          <div className="hidden sm:block">
+            <LinkColumn title="Quick Links" items={quickLinks} />
+          </div>
 
-          {/* Our Services Column */}
-          <LinkColumn title="Our Services" items={services} />
+          {/* Our Services Column (Hidden on Mobile) */}
+          <div className="hidden sm:block">
+            <LinkColumn title="Our Services" items={services} />
+          </div>
 
           {/* Contact Info Column */}
           <div>

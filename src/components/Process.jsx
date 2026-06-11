@@ -47,7 +47,7 @@ const steps = [
 
 export default function Process() {
   return (
-    <section className="relative py-20 lg:py-28 px-6 border-t border-white/5">
+    <section className="relative py-12 lg:py-28 px-6 border-t border-white/5">
       <div className="mx-auto max-w-[1200px]">
         
         {/* Heading block */}
@@ -74,8 +74,8 @@ export default function Process() {
                 delay={i * 100}
               >
                 <div
-                  className={`group flex flex-col p-8 rounded-3xl bg-[#0e223f]/50 backdrop-blur-sm shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:bg-[#0e223f]/75 border ${
-                    isMiddle ? 'border-phsOrange/50' : 'border-white/10'
+                  className={`group flex flex-col p-4 sm:p-8 rounded-3xl transition-all duration-300 hover:-translate-y-1 sm:shadow-md sm:hover:shadow-xl sm:bg-[#0e223f]/50 sm:hover:bg-[#0e223f]/75 sm:backdrop-blur-sm border-transparent sm:border ${
+                    isMiddle ? 'sm:border-phsOrange/50' : 'sm:border-white/10'
                   }`}
                 >
                   {/* Top row */}

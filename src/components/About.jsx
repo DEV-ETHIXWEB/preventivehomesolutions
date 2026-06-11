@@ -10,7 +10,7 @@ export default function About() {
           <div className="lg:col-span-5 flex justify-center">
             <Reveal variant="left" className="relative w-full max-w-[440px]">
               {/* White frame with orange corner accents */}
-              <div className="relative bg-white p-4 shadow-2xl">
+              <div className="relative bg-white p-3 shadow-2xl w-2/3 mx-auto sm:w-1/2 lg:w-full lg:mx-0 lg:p-4">
                 {/* Orange corner — top left */}
                 <span className="absolute top-0 left-0 w-8 h-8 border-t-4 border-l-4 border-phsOrange z-10" />
                 {/* Orange corner — top right */}

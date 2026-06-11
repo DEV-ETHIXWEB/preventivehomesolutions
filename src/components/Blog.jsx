@@ -27,26 +27,26 @@ export default function Blog() {
       <div className="mx-auto max-w-[1200px]">
         
         {/* Heading Block */}
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-12">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 md:gap-6 mb-8 md:mb-12 p-6 md:p-0 rounded-2xl bg-gradient-to-br from-white to-orange-50 md:bg-none shadow-sm md:shadow-none border border-phsOrange/10 md:border-transparent">
           <div>
             <Reveal
               as="p"
-              className="text-xs sm:text-sm font-mono tracking-[0.25em] font-bold text-phsOrange uppercase mb-4"
+              className="text-[10px] sm:text-sm font-mono tracking-[0.25em] font-bold text-phsOrange uppercase mb-2 md:mb-4"
             >
               FIELD NOTES
             </Reveal>
             <Reveal
               as="h2"
               delay={100}
-              className="font-display font-black text-phsInk text-3xl sm:text-4xl lg:text-[2.75rem] tracking-tight leading-[1.0] uppercase"
+              className="font-display font-black text-phsInk text-2xl sm:text-4xl lg:text-[2.75rem] tracking-tight leading-[1.0] uppercase"
             >
-              LATEST FROM<br />THE GUARD.
+              LATEST FROM THE GUARD.
             </Reveal>
           </div>
           <Reveal
             as="p"
             delay={200}
-            className="max-w-md text-[15px] sm:text-base leading-relaxed text-gray-600 font-sans md:pt-4"
+            className="max-w-md text-[13px] sm:text-base leading-relaxed text-gray-600 font-sans md:pt-4"
           >
             Tactical advice from the techs who service Northern Utah homes every day.
           </Reveal>
