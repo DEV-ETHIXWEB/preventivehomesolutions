@@ -1,0 +1,69 @@
+import Reveal from './Reveal.jsx'
+
+export default function About() {
+  return (
+    <section id="about" className="scroll-mt-24 relative w-full pt-0 pb-24 lg:pb-32 px-6">
+      <div className="relative mx-auto max-w-[1200px]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          
+          {/* Left Column: Team Photo */}
+          <div className="lg:col-span-5 flex justify-center">
+            <Reveal variant="left" className="relative w-full max-w-[440px]">
+              {/* White frame with orange corner accents */}
+              <div className="relative bg-white p-3 shadow-2xl w-2/3 mx-auto sm:w-1/2 lg:w-full lg:mx-0 lg:p-4">
+                {/* Orange corner — top left */}
+                <span className="absolute top-0 left-0 w-8 h-8 border-t-4 border-l-4 border-phsOrange z-10" />
+                {/* Orange corner — top right */}
+                <span className="absolute top-0 right-0 w-8 h-8 border-t-4 border-r-4 border-phsOrange z-10" />
+                {/* Orange corner — bottom left */}
+                <span className="absolute bottom-0 left-0 w-8 h-8 border-b-4 border-l-4 border-phsOrange z-10" />
+                {/* Orange corner — bottom right */}
+                <span className="absolute bottom-0 right-0 w-8 h-8 border-b-4 border-r-4 border-phsOrange z-10" />
+                <img
+                  src="/IMG_6217.jpeg"
+                  alt="Preventive Home Solutions full team in red uniforms"
+                  className="w-full aspect-[4/5] object-cover object-top"
+                />
+              </div>
+            </Reveal>
+          </div>
+
+          {/* Right Column: Copywriting list */}
+          <div className="lg:col-span-7 flex flex-col justify-center">
+            <Reveal variant="right" delay={100}>
+              <p className="text-xs sm:text-sm font-mono tracking-[0.25em] font-bold text-white/60 mb-4">
+                About Preventive
+              </p>
+              <h2 className="font-display font-black text-white text-3xl sm:text-4xl lg:text-[2.75rem] tracking-tight leading-[1.0] mb-6">
+                Affordable, Professional<br />Protection.
+              </h2>
+            </Reveal>
+            
+            <Reveal variant="right" delay={200} className="space-y-6 text-[15px] leading-relaxed text-white/75 font-sans">
+              <p>
+                We are your go-to garrison for reliable plumbing, heating, and cooling defense in Northern Utah. We specialize in stopping failures before they breach. Expert maintenance, repair, and installation for the systems your home depends on.
+              </p>
+              <p>
+                Built on integrity, professionalism, and proactive care, our craft protects every home we touch, from a minor leak to a full HVAC overhaul, through every season.
+              </p>
+              <p>
+                When you choose Preventive, you're not just hiring a service. You're enlisting a guard committed to your home's long-term endurance.
+              </p>
+            </Reveal>
+            
+            <Reveal variant="right" delay={300}>
+              <a
+                href="#contact"
+                className="group inline-flex items-center justify-center gap-2 rounded-md bg-phsOrange px-7 py-4 font-display text-sm font-bold tracking-[0.12em] text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-phsOrangeDark hover:shadow-lg active:translate-y-0 mt-6 relative z-10"
+              >
+                <span>Enlist Our Guard</span>
+                <span className="transform group-hover:translate-x-1 transition-transform duration-300">→</span>
+              </a>
+            </Reveal>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  )
+}
