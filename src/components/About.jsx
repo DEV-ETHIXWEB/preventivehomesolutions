@@ -1,8 +1,23 @@
+import { useState, useEffect } from 'react'
 import Reveal from './Reveal.jsx'
 
+// Crew photos for the About slideshow.
+const CREW_SLIDES = [
+  '/IMG_6217.jpeg',
+  '/IMG_6272.jpeg',
+  '/IMG_6276.jpeg',
+]
+
 export default function About() {
+  const [slide, setSlide] = useState(0)
+
+  useEffect(() => {
+    const id = setInterval(() => setSlide((s) => (s + 1) % CREW_SLIDES.length), 3000)
+    return () => clearInterval(id)
+  }, [])
+
   return (
-    <section id="about" className="scroll-mt-24 relative w-full pt-0 pb-24 lg:pb-32 px-6">
+    <section id="about" className="scroll-mt-24 relative w-full pt-0 pb-[clamp(3rem,10vw,6rem)] lg:pb-32 px-[clamp(16px,5vw,24px)] sm:px-6">
       <div className="relative mx-auto max-w-[1200px]">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
@@ -19,11 +34,18 @@ export default function About() {
                 <span className="absolute bottom-0 left-0 w-8 h-8 border-b-4 border-l-4 border-phsOrange z-10" />
                 {/* Orange corner — bottom right */}
                 <span className="absolute bottom-0 right-0 w-8 h-8 border-b-4 border-r-4 border-phsOrange z-10" />
-                <img
-                  src="/IMG_6217.jpeg"
-                  alt="Preventive Home Solutions full team in red uniforms"
-                  className="w-full aspect-[4/5] object-cover object-top"
-                />
+                <div className="relative aspect-[4/5] w-full overflow-hidden">
+                  {CREW_SLIDES.map((src, i) => (
+                    <img
+                      key={src}
+                      src={src}
+                      alt="Preventive Home Solutions crew"
+                      className={`absolute inset-0 h-full w-full object-cover object-top transition-opacity duration-1000 ease-in-out ${
+                        i === slide ? 'opacity-100' : 'opacity-0'
+                      }`}
+                    />
+                  ))}
+                </div>
               </div>
             </Reveal>
           </div>
@@ -31,15 +53,15 @@ export default function About() {
           {/* Right Column: Copywriting list */}
           <div className="lg:col-span-7 flex flex-col justify-center">
             <Reveal variant="right" delay={100}>
-              <p className="text-xs sm:text-sm font-mono tracking-[0.25em] font-bold text-white/60 mb-4">
+              <p className="text-[clamp(11px,3.5vw,12px)] sm:text-sm font-mono tracking-[0.25em] font-bold text-white/60 mb-4">
                 About Preventive
               </p>
-              <h2 className="font-display font-black text-white text-3xl sm:text-4xl lg:text-[2.75rem] tracking-tight leading-[1.0] mb-6">
+              <h2 className="font-display font-black text-white text-[clamp(1.75rem,7vw,2.25rem)] sm:text-4xl lg:text-[2.75rem] tracking-tight leading-[1.0] mb-6">
                 Affordable, Professional<br />Protection.
               </h2>
             </Reveal>
             
-            <Reveal variant="right" delay={200} className="space-y-6 text-[15px] leading-relaxed text-white/75 font-sans">
+            <Reveal variant="right" delay={200} className="space-y-4 sm:space-y-6 text-[clamp(14px,4vw,15px)] sm:text-base leading-relaxed text-white/75 font-sans">
               <p>
                 We are your go-to garrison for reliable plumbing, heating, and cooling defense in Northern Utah. We specialize in stopping failures before they breach. Expert maintenance, repair, and installation for the systems your home depends on.
               </p>

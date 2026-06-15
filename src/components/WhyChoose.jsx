@@ -74,61 +74,76 @@ export default function WhyChoose() {
     <section className="bg-white py-12 lg:py-28 relative">
       <div className="mx-auto max-w-[1200px] px-6">
         
-        {/* Trust Badges Row — Angi · 35+ Years (center, larger) · BBB */}
-        <Reveal variant="scale" className="flex items-end justify-center gap-[32px] sm:gap-[44px] lg:gap-[60px] mb-16 -translate-y-[25px]">
-          <img
-            src="/Group 12.png"
-            alt="Angi Super Service Award 2024"
-            className="h-[141px] sm:h-[211px] lg:h-[282px] w-auto object-contain transition-transform duration-300 hover:-translate-y-1"
-          />
-          <img
-            src="/Group 13.png"
-            alt="35+ Years of Experience"
-            className="h-44 sm:h-64 lg:h-[360px] w-auto object-contain transition-transform duration-300 hover:-translate-y-1"
-          />
-          <img
-            src="/Group 14.png"
-            alt="BBB Accredited Business"
-            className="h-[141px] sm:h-[211px] lg:h-[282px] w-auto object-contain transition-transform duration-300 hover:-translate-y-1"
-          />
-        </Reveal>
-
-        {/* Heading Block */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <Reveal as="p" className="text-xs sm:text-sm font-mono tracking-[0.25em] font-bold text-phsOrange mb-4">
-            Why Choose Preventive Home Solutions
-          </Reveal>
-          <Reveal as="h2" delay={100} className="font-display font-black text-phsNavy text-3xl sm:text-4xl lg:text-[2.75rem] tracking-tight leading-[1.0] ">
-            Benefits of the<br />Best in the Trade.
-          </Reveal>
-          <Reveal as="p" delay={200} className="mt-4 text-[15px] leading-relaxed text-gray-500 font-sans">
-            Choosing Preventive Home Solutions means partnering with a team dedicated to exceptional service and lasting solutions for your home.
+        {/* Trust Badges Row — Angi · 35+ Years (center, larger) · BBB.
+            Breaks out wider than the 1200px column (capped at the viewport)
+            so the three badges can grow and spread across the space. */}
+        <div className="relative left-1/2 mb-16 w-[min(100vw,1500px)] -translate-x-1/2 -translate-y-[25px]">
+          <Reveal
+            variant="scale"
+            className="flex items-end justify-center gap-4 sm:gap-12 lg:gap-16 px-6 lg:px-10 flex-wrap sm:flex-nowrap"
+          >
+            <img
+              src="/Group 12.png"
+              alt="Angi Super Service Award 2024"
+              className="h-[clamp(100px,35vw,208px)] sm:h-[320px] lg:h-[440px] w-auto object-contain transition-transform duration-300 hover:-translate-y-1.5"
+            />
+            <img
+              src="/Group 13.png"
+              alt="35+ Years of Experience"
+              className="h-[clamp(100px,35vw,208px)] sm:h-[320px] lg:h-[440px] w-auto object-contain transition-transform duration-300 hover:-translate-y-1.5"
+            />
+            <img
+              src="/Group 14.png"
+              alt="BBB Accredited Business"
+              className="h-[clamp(100px,35vw,208px)] sm:h-[320px] lg:h-[440px] w-auto object-contain transition-transform duration-300 hover:-translate-y-1.5"
+            />
           </Reveal>
         </div>
 
-        {/* Feature Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-          {features.map(({ title, Icon, description }, i) => (
-            <Reveal key={title} variant="up" delay={i * 100}>
-              <div className="group relative z-10 flex h-full flex-col overflow-hidden p-8 rounded-3xl border border-[#e6ded4] bg-white/50 transition-all duration-300 ease-out hover:bg-white hover:border-phsOrange/40 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-2xl hover:shadow-phsOrange/10">
-                {/* Light-glare sweep on hover */}
-                <span className="pointer-events-none absolute inset-0 -translate-x-[150%] skew-x-12 bg-gradient-to-r from-transparent via-phsOrange/20 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-[150%]" />
-
-                {/* Icon Container */}
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-phsOrange/10 border border-phsOrange/20 text-phsOrange mb-6 transition-all duration-500 ease-out group-hover:scale-125 group-hover:-translate-y-1 group-hover:bg-phsOrange group-hover:text-white group-hover:border-transparent">
-                  <Icon />
-                </div>
-
-                {/* Content */}
-                <h3 className="font-display font-bold text-phsNavy text-lg tracking-wide transition-colors duration-300 group-hover:text-phsOrange">
-                  {title}
-                </h3>
-                <p className="mt-2 text-sm text-gray-500 font-sans leading-relaxed">
-                  {description}
-                </p>
-              </div>
+        {/* Two-column: heading on the left, full-width benefit rows on the
+            right — fills the space instead of leaving it empty. */}
+        <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-20">
+          {/* Heading Block */}
+          <div className="lg:sticky lg:top-28">
+            <Reveal as="p" className="text-xs sm:text-sm font-mono tracking-[0.25em] font-bold text-phsOrange mb-4">
+              Why Choose Preventive Home Solutions
             </Reveal>
-          ))}
+            <Reveal as="h2" delay={100} className="font-display font-black text-phsNavy text-3xl sm:text-4xl lg:text-[2.75rem] tracking-tight leading-[1.0] ">
+              Benefits of the<br />Best in the Trade.
+            </Reveal>
+            <Reveal as="p" delay={200} className="mt-5 max-w-md text-[15px] leading-relaxed text-gray-500 font-sans">
+              Choosing Preventive Home Solutions means partnering with a team dedicated to exceptional service and lasting solutions for your home.
+            </Reveal>
+          </div>
+
+          {/* Feature Rows — full-width horizontal rows: icon left, title +
+              description stacked on the right. */}
+          <div className="flex flex-col">
+            {features.map(({ title, Icon, description }, i) => (
+              <Reveal key={title} variant="up" delay={i * 100}>
+                <div
+                  className={`group flex w-full items-start gap-6 py-7 sm:gap-8 ${
+                    i === 0 ? 'pt-0 lg:pt-1' : ''
+                  } ${i !== features.length - 1 ? 'border-b border-[#e6ded4]' : ''}`}
+                >
+                  {/* Icon Container */}
+                  <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl bg-phsOrange/10 border border-phsOrange/20 text-phsOrange transition-all duration-500 ease-out group-hover:scale-110 group-hover:bg-phsOrange group-hover:text-white group-hover:border-transparent">
+                    <Icon />
+                  </div>
+
+                  {/* Content */}
+                  <div>
+                    <h3 className="font-display font-bold text-phsNavy text-lg sm:text-xl tracking-wide transition-colors duration-300 group-hover:text-phsOrange">
+                      {title}
+                    </h3>
+                    <p className="mt-1.5 text-sm sm:text-[15px] text-gray-500 font-sans leading-relaxed">
+                      {description}
+                    </p>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
 
         {/* Live, continuously-scrolling Google reviews */}

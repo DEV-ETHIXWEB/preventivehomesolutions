@@ -12,10 +12,11 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 /* Force every element — including form controls that don't inherit by
-   default — onto the Strong typeface so no text falls back to a system font. */
+   default — onto Manrope so no text falls back to a system font. */
 *,
 input,
 select,
@@ -24,6 +25,13 @@ button,
 optgroup,
 option {
   font-family: 'Manrope', system-ui, Arial, sans-serif;
+}
+
+/* Typography rule: section titles (<h1> and <h2>) use the Strong display
+   face by default. Everything else uses Manrope. */
+h1,
+h2 {
+  font-family: 'Strong', 'Archivo', system-ui, Arial, sans-serif;
 }
 
 /* Custom themed scrollbar */
@@ -61,6 +69,7 @@ body {
   -webkit-font-smoothing: antialiased;
   color: #16263d;
   background: #f4ecdf;
+  overflow-x: hidden;
 }
 
 /* Heavy-duty look: pointy (square) corners on every box & button.
@@ -98,4 +107,20 @@ body {
 
 .animate-map-zoom {
   animation: map-zoom 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Google-rating ribbon slides in from the left edge. */
+@keyframes ribbon-in {
+  from {
+    opacity: 0;
+    transform: translateX(-120px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-ribbon-in {
+  animation: ribbon-in 2s cubic-bezier(0.33, 0, 0.2, 1) 0.5s both;
 }

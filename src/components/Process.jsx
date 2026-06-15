@@ -47,18 +47,18 @@ const steps = [
 
 export default function Process() {
   return (
-    <section className="relative py-12 lg:py-28 px-6">
+    <section className="relative py-[clamp(3rem,10vw,4rem)] lg:py-28 px-[clamp(16px,5vw,24px)] sm:px-6">
       <div className="mx-auto max-w-[1200px]">
         
         {/* Heading block */}
-        <div className="text-center max-w-3xl mx-auto mb-16 -mt-5 md:-translate-y-[70px]">
-          <Reveal as="p" className="text-sm sm:text-base font-mono tracking-[0.25em] font-bold text-white/60 mb-4">
+        <div className="text-center max-w-3xl mx-auto mb-16 mt-0 md:-mt-[40px] md:-translate-y-[70px]">
+          <Reveal as="p" className="text-[clamp(12px,3.5vw,14px)] sm:text-base font-mono tracking-[0.25em] font-bold text-white/60 mb-4">
             How We Work
           </Reveal>
-          <Reveal as="h2" delay={100} className="font-display font-black text-white text-3xl sm:text-4xl lg:text-[2.75rem] tracking-tight leading-[1.0] ">
+          <Reveal as="h2" delay={100} className="font-display font-black text-white text-[clamp(1.5rem,7vw,2.25rem)] sm:text-4xl lg:text-[2.75rem] tracking-tight leading-[1.0] ">
             Our Process
           </Reveal>
-          <Reveal as="p" delay={200} className="mt-4 text-[15px] sm:text-base text-white/75 font-sans leading-relaxed">
+          <Reveal as="p" delay={200} className="mt-[6px] text-[clamp(14px,4vw,15px)] sm:text-base text-white/75 font-sans leading-relaxed">
             A hassle-free experience from start to finish.
           </Reveal>
         </div>
@@ -84,13 +84,13 @@ export default function Process() {
                       src="/process mascot.svg"
                       alt=""
                       aria-hidden="true"
-                      className="pointer-events-none absolute left-1/2 -top-[36px] z-20 hidden md:block w-[185px] lg:w-[230px] h-auto -translate-x-1/2 -translate-y-[62%] drop-shadow-xl"
+                      className="pointer-events-none absolute left-1/2 -top-[46px] z-20 hidden md:block w-[222px] lg:w-[276px] h-auto -translate-x-1/2 -translate-y-[62%] drop-shadow-xl"
                     />
                   )}
 
                   {/* Top row */}
                   <div className="flex items-start justify-between mb-8">
-                    <div className="font-display font-black text-phsNavy text-4xl sm:text-5xl leading-none">
+                    <div className="font-display font-black text-phsNavy text-[clamp(2.25rem,10vw,3rem)] sm:text-5xl leading-none">
                       {number}
                     </div>
                     <Icon className="h-6 w-6 text-phsNavy/40 group-hover:text-phsOrange transition-colors duration-300" />

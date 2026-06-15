@@ -13,31 +13,38 @@ export default function ContactForm() {
   }
 
   return (
-    <section id="scheduling" className="scroll-mt-24 bg-phsCream py-12 lg:py-28 px-6">
+    <section id="scheduling" className="scroll-mt-24 bg-phsCream py-[clamp(3rem,10vw,4rem)] lg:py-28 px-[clamp(16px,5vw,24px)] sm:px-6">
       {/* Anchor so "Contact" nav / CTAs that point to #contact land here too */}
       <span id="contact" aria-hidden="true" className="block scroll-mt-28" />
-      <div className="mx-auto max-w-[1100px]">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <div className="mx-auto max-w-[1200px]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
 
-          {/* Left Column: Copy + Phone + Details */}
-          <div className="lg:col-span-6 w-full">
+          {/* Left Column: Image */}
+          <div className="lg:col-span-4 w-full flex justify-center lg:justify-start">
             <Reveal variant="left" className="w-full">
-              <span className="text-xs sm:text-sm font-mono tracking-[0.25em] font-bold text-phsOrange mb-4 block">
+              <img src="/ready to book.png" alt="Ready to Book" className="w-full max-w-[350px] lg:max-w-[450px] h-auto object-contain drop-shadow-2xl mx-auto lg:-ml-4" />
+            </Reveal>
+          </div>
+
+          {/* Middle Column: Copy + Phone + Details */}
+          <div className="lg:col-span-4 w-full text-center lg:text-left flex flex-col items-center lg:items-start">
+            <Reveal variant="up" delay={100} className="w-full flex flex-col items-center lg:items-start">
+              <span className="text-[clamp(11px,3vw,12px)] sm:text-sm font-mono tracking-[0.25em] font-bold text-phsOrange mb-4 block uppercase">
                 Ready to Book?
               </span>
-              <h2 className="font-display font-black text-phsInk text-4xl sm:text-5xl lg:text-[3.25rem] tracking-tight leading-[1.0] mb-6">
+              <h2 className="font-display font-black text-phsInk text-[clamp(2.25rem,10vw,3rem)] sm:text-5xl tracking-tight leading-[1.0] mb-6 uppercase">
                 Available <span className="text-phsOrange">7</span>
                 <br />
-                <span className="text-phsOrange">days</span> a week.
+                <span className="text-phsOrange lowercase">days</span> A WEEK.
               </h2>
-              <p className="text-[15px] sm:text-base leading-relaxed text-gray-600 font-sans mb-8 max-w-md">
+              <p className="text-[clamp(14px,4vw,15px)] sm:text-base leading-relaxed text-gray-600 font-sans mb-8">
                 Call us directly or fill out the form and we'll get back to you same day.
               </p>
 
               {/* Call Now Button */}
               <a
                 href="tel:3854539428"
-                className="inline-flex items-center justify-center gap-3 rounded-xl bg-phsOrange px-8 py-4 text-base font-bold text-white shadow-md hover:-translate-y-0.5 hover:bg-phsOrangeDark hover:shadow-lg active:translate-y-0 active:scale-95 transition-all duration-300"
+                className="inline-flex items-center justify-center gap-3 rounded-md bg-phsOrange px-8 py-4 text-base font-bold text-white shadow-md hover:-translate-y-0.5 hover:bg-phsOrangeDark hover:shadow-lg active:translate-y-0 active:scale-95 transition-all duration-300 mb-8"
               >
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5">
                   <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
@@ -45,19 +52,21 @@ export default function ContactForm() {
                 <span>(385) 453-9428</span>
               </a>
 
-              {/* Small details */}
-              <div className="mt-8 space-y-2 font-sans text-xs text-gray-500 leading-relaxed">
-                <p className="flex flex-wrap gap-x-1">
-                  <span className="font-semibold text-phsInk">Areas:</span>
-                  <span className="text-phsOrange/90">Ogden, Syracuse, Layton, Clearfield, Farmington, Clinton &amp; more</span>
+              {/* Details */}
+              <div className="space-y-2 font-sans text-[11px] sm:text-xs text-gray-500 leading-relaxed">
+                <p>
+                  <span className="font-bold text-phsInk">Hours:</span> <span className="text-phsOrange">Mon - Fri 7AM - 8PM | Sat 7AM - 7PM | Sun 7AM - 6PM</span>
+                </p>
+                <p>
+                  <span className="font-bold text-phsInk">Areas:</span> <span className="text-phsOrange">Ogden, Syracuse, Layton, Clearfield, Farmington, Clinton &amp; more</span>
                 </p>
               </div>
             </Reveal>
           </div>
 
           {/* Right Column: Quote Form Card */}
-          <div className="lg:col-span-6 w-full">
-            <Reveal variant="right" delay={150} className="w-full">
+          <div className="lg:col-span-4 w-full">
+            <Reveal variant="right" delay={200} className="w-full max-lg:!transform-none max-lg:!opacity-100 max-lg:!transition-none">
               <div className="bg-white p-6 sm:p-8 rounded-2xl border border-[#e6ded4] shadow-[0_20px_50px_-25px_rgba(22,38,61,0.35)] w-full">
 
                 {submitted ? (
@@ -74,7 +83,7 @@ export default function ContactForm() {
                   </div>
                 ) : (
                   <form className="space-y-4" onSubmit={handleSubmit}>
-                    <h3 className="font-display font-black text-[18px] text-phsInk tracking-wide mb-6">
+                    <h3 className="font-display font-black text-[clamp(16px,5vw,18px)] sm:text-[18px] text-phsInk tracking-wide mb-6">
                       Get a Free Quote
                     </h3>
 

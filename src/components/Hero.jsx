@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion } from 'motion/react'
 import Reveal from './Reveal.jsx'
 import RotatingText from './RotatingText.jsx'
@@ -60,11 +60,13 @@ function GoogleLogo({ className = '' }) {
 /** Compact booking form used in the hero spec card. */
 function BookingForm() {
   const [submitted, setSubmitted] = useState(false)
+  const [service, setService] = useState('')
+  const [dropdownOpen, setDropdownOpen] = useState(false)
 
   const fieldClass =
     'w-full rounded-md border border-phsSky/15 bg-white/70 px-4 py-3 text-center text-sm text-phsInk placeholder:text-phsInk/40 outline-none transition-colors focus:border-phsSky focus:bg-white'
   const labelClass =
-    'mb-1.5 block text-center font-mono text-[11px] font-bold tracking-[0.18em] text-phsInk'
+    'mb-1.5 block text-center font-mono text-[11.5px] lg:text-[11px] font-bold tracking-[0.18em] text-phsInk'
 
   if (submitted) {
     return (
@@ -93,10 +95,10 @@ function BookingForm() {
 
   return (
     <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true) }}>
-      <p className="text-center font-mono text-xs font-bold tracking-[0.24em] text-phsOrange">
+      <p className="text-center font-mono max-lg:text-[12.6px] text-xs font-bold tracking-[0.24em] text-phsOrange">
         Request Service
       </p>
-      <h2 className="mt-2 text-center font-display text-2xl font-extrabold leading-tight tracking-tight text-phsInk">
+      <h2 className="mt-2 text-center font-sans max-lg:text-[25.2px] text-2xl font-extrabold leading-tight tracking-tight text-phsInk">
         Book Your Inspection
       </h2>
 
@@ -111,14 +113,40 @@ function BookingForm() {
             <label htmlFor="bf-phone" className={labelClass}>Phone</label>
             <input id="bf-phone" name="phone" type="tel" required placeholder="(385) 000-0000" className={fieldClass} />
           </div>
-          <div>
+          <div className="relative">
             <label htmlFor="bf-service" className={labelClass}>Service</label>
-            <select id="bf-service" name="service" className={`${fieldClass} appearance-none`} defaultValue="">
-              <option value="" disabled>Select…</option>
-              {SERVICES.map((s) => (
-                <option key={s} value={s}>{s}</option>
-              ))}
-            </select>
+            
+            <button
+              type="button"
+              onClick={() => setDropdownOpen(!dropdownOpen)}
+              className={`${fieldClass} flex items-center justify-between !px-3`}
+            >
+              <span className={`block truncate ${service ? 'text-phsInk' : 'text-phsInk/40'}`}>
+                {service || 'Select…'}
+              </span>
+              <svg className={`h-4 w-4 shrink-0 text-phsInk/40 transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <input type="text" name="service" value={service} required className="absolute bottom-0 left-1/2 w-0 h-0 opacity-0 pointer-events-none" readOnly />
+            
+            {dropdownOpen && (
+              <>
+                <div className="fixed inset-0 z-40" onClick={() => setDropdownOpen(false)} />
+                <div className="absolute left-0 right-0 z-50 mt-1 overflow-hidden rounded-md border border-phsSky/15 bg-white shadow-xl">
+                  {SERVICES.map((s) => (
+                    <button
+                      key={s}
+                      type="button"
+                      onClick={() => { setService(s); setDropdownOpen(false) }}
+                      className="block w-full px-4 py-3 text-center text-[13.5px] font-bold text-phsInk hover:bg-phsOrange/10 hover:text-phsOrange focus:bg-phsOrange/10 focus:text-phsOrange outline-none transition-colors border-b border-gray-50 last:border-0"
+                    >
+                      {s}
+                    </button>
+                  ))}
+                </div>
+              </>
+            )}
           </div>
         </div>
 
@@ -129,12 +157,12 @@ function BookingForm() {
 
         <div>
           <label htmlFor="bf-message" className={labelClass}>How can we help?</label>
-          <textarea id="bf-message" name="message" rows={3} placeholder="Briefly describe the issue…" className={`${fieldClass} resize-none`} />
+          <textarea id="bf-message" name="message" rows={3} placeholder="Briefly describe the issue…" className={`${fieldClass} resize-none mx-auto block !w-[calc(100%-32px)]`} />
         </div>
 
         <button
           type="submit"
-          className="group mx-auto mt-1 flex w-fit items-center justify-center gap-2 whitespace-nowrap rounded-md bg-phsOrange px-8 py-3 font-display text-sm font-bold tracking-[0.12em] text-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-phsOrangeDark hover:shadow-md active:translate-y-0"
+          className="group mx-auto mt-1 flex w-fit items-center justify-center gap-2 whitespace-nowrap rounded-md bg-phsOrange px-8 py-3 max-lg:px-[35px] max-lg:py-[13.5px] font-display text-sm max-lg:text-[15.5px] font-bold tracking-[0.12em] text-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-phsOrangeDark hover:shadow-md active:translate-y-0"
         >
           Schedule Inspection
           <ArrowIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -144,10 +172,29 @@ function BookingForm() {
   )
 }
 
+// Width (px) the booking form is designed at. The form is scaled uniformly so
+// that this design width maps onto the shield region, keeping all of its
+// content proportional to the shield as the screen resizes.
+const FORM_DESIGN_WIDTH = 360
+
 export default function Hero() {
+  // Scale the shield form to match the shield's current rendered size.
+  const shieldFormRef = useRef(null)
+  const [formScale, setFormScale] = useState(1)
+
+  useEffect(() => {
+    const el = shieldFormRef.current
+    if (!el) return
+    const ro = new ResizeObserver(() => {
+      if (el.clientWidth) setFormScale(el.clientWidth / FORM_DESIGN_WIDTH)
+    })
+    ro.observe(el)
+    return () => ro.disconnect()
+  }, [])
+
   return (
     <section id="hero" className="relative w-full overflow-hidden bg-phsCream">
-      <div className="relative mx-auto grid max-w-[1500px] items-start gap-8 px-5 py-8 lg:grid-cols-2 lg:gap-12 lg:px-10 lg:py-24">
+      <div className="relative mx-auto grid max-w-[1500px] items-start gap-8 px-[clamp(16px,5vw,20px)] sm:px-5 py-[clamp(24px,8vw,32px)] sm:py-8 lg:grid-cols-2 lg:gap-12 lg:px-10 lg:py-24">
         {/* Left column */}
         <div>
           <Reveal
@@ -164,13 +211,13 @@ export default function Hero() {
             className="mt-6 font-display font-black leading-[1.0] tracking-tight text-phsInk"
           >
             {/* Two static lines */}
-            <span className="block text-4xl sm:text-5xl lg:text-6xl">Welcome to Your</span>
-            <span className="block text-4xl sm:text-5xl lg:text-6xl mt-1.5">Comfort Sanctuary</span>
+            <span className="block font-display text-[clamp(1.75rem,8vw,2.25rem)] sm:text-5xl lg:text-6xl">Welcome to Your</span>
+            <span className="block font-display text-[clamp(1.75rem,8vw,2.25rem)] sm:text-5xl lg:text-6xl mt-1.5">Comfort Sanctuary</span>
             {/* Third line: animated box, single line */}
             <motion.span
               layout
               transition={{ type: 'spring', damping: 30, stiffness: 200 }}
-              className="rotate-oneline mt-5 flex w-fit max-w-full items-center overflow-hidden rounded-xl bg-phsOrange px-4 py-2.5 shadow-sm"
+              className="rotate-oneline mt-5 flex w-fit max-w-full items-center justify-center sm:justify-start overflow-hidden rounded-xl bg-phsOrange px-4 py-2.5 shadow-sm"
             >
               <RotatingText
                 texts={BOX_PHRASES}
@@ -179,7 +226,7 @@ export default function Hero() {
                 staggerFrom="last"
                 splitBy="characters"
                 animatePresenceMode="popLayout"
-                mainClassName="text-base font-bold normal-case tracking-normal text-white sm:text-lg lg:text-xl"
+                mainClassName="font-sans text-[clamp(11px,3.2vw,14px)] whitespace-nowrap font-bold normal-case tracking-normal text-white sm:text-lg lg:text-xl"
                 elementLevelClassName="will-change-transform"
               />
             </motion.span>
@@ -188,7 +235,7 @@ export default function Hero() {
           <Reveal
             as="p"
             delay={350}
-            className="mt-8 max-w-md text-lg leading-relaxed text-phsInk/70 font-sans"
+            className="mt-8 max-w-md text-[clamp(15px,4.5vw,18px)] sm:text-lg leading-relaxed text-phsInk/70 font-sans"
           >
             Northern Utah's premier shield for plumbing, heating, and cooling. 
             We keep your family cozy, your pipes clear, and your home running beautifully through every season.
@@ -204,19 +251,19 @@ export default function Hero() {
             </a>
             <a
               href={`tel:${PHONE_TEL}`}
-              className="inline-flex items-center justify-center gap-3 rounded-md border border-phsSky/25 bg-phsCream/60 px-7 py-4 font-semibold text-phsInk transition-all duration-300 hover:border-phsSky hover:bg-phsSky/5"
+              className="inline-flex items-center justify-center gap-3 rounded-md border border-phsSky/25 bg-white px-7 py-4 font-semibold text-phsInk shadow-sm transition-all duration-300 hover:border-phsSky hover:bg-phsSky/5"
             >
               <PhoneIcon className="h-5 w-5" />
               {PHONE_DISPLAY}
             </a>
           </Reveal>
 
-          <Reveal delay={650} className="relative mt-12 w-fit">
+          <div className="relative mt-12 w-fit animate-ribbon-in">
             {/* Flag ribbon behind the rating — bleeds to the left edge of the
                 screen and ends just past the text. Absolute so it never affects
                 the rating's own layout. */}
             <div
-              className="pointer-events-none absolute inset-y-0 right-0 -left-5 translate-x-[5px] lg:left-[calc(-1*max(2.5rem,calc((100vw_-_1500px)/2_+_2.5rem)))]"
+              className="pointer-events-none absolute inset-y-0 right-0 -left-5 translate-x-[10px] lg:left-[calc(-1*max(2.5rem,calc((100vw_-_1500px)/2_+_2.5rem)))]"
               style={{
                 backgroundImage: 'url("/flag for google rating.svg")',
                 backgroundSize: '100% 100%',
@@ -234,11 +281,31 @@ export default function Hero() {
                 5-Star Rated
               </span>
             </div>
-          </Reveal>
+          </div>
 
-          {/* Mobile-only Form Container Moved Here */}
-          <div className="block lg:hidden mx-auto mt-10 mb-8 w-full max-w-sm rounded-2xl bg-[#EBE4D5]/60 shadow-lg border border-phsSky/10 p-6 sm:p-8 backdrop-blur-sm">
-            <BookingForm />
+          {/* Mobile-only Form Container */}
+          <div className="block lg:hidden mx-auto mt-12 mb-10 w-full max-w-[380px] relative drop-shadow-2xl">
+            {/* Background Shield */}
+            <img 
+              src="/shield.svg" 
+              alt="Shield Background" 
+              className="w-full h-auto relative z-0" 
+            />
+            {/* Shield Border Overlay */}
+            <img 
+              src="/shield border.svg" 
+              alt="" 
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[127.7%] max-w-none pointer-events-none z-20" 
+            />
+            {/* Form Content positioned inside the shield bounds */}
+            <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-[14%] pt-[12%] pb-[18%]">
+              <div 
+                className="flex flex-col justify-center transform origin-top translate-y-[calc(30px+5%)] scale-[0.73] min-[400px]:scale-[0.81]"
+                style={{ width: `${FORM_DESIGN_WIDTH}px` }}
+              >
+                <BookingForm />
+              </div>
+            </div>
           </div>
 
 
@@ -257,12 +324,21 @@ export default function Hero() {
               alt="Armored knight holding a shield"
               className="w-full h-auto select-none pointer-events-none relative z-10"
             />
-            {/* Form overlaid on the shield face */}
+            {/* Form overlaid on the shield face. The outer box scales its
+                position/size with the shield via percentages; the inner form is
+                scaled uniformly to fill it so its content stays proportional. */}
             <div
+              ref={shieldFormRef}
               className="absolute z-20"
               style={{ top: '25%', left: 'calc(34% + 14px)', width: '53%' }}
             >
-              <div style={{ transform: 'scale(0.85)', transformOrigin: 'top center' }}>
+              <div
+                style={{
+                  width: `${FORM_DESIGN_WIDTH}px`,
+                  transform: `scale(${formScale})`,
+                  transformOrigin: 'top left',
+                }}
+              >
                 <BookingForm />
               </div>
             </div>

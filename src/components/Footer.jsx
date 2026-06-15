@@ -59,7 +59,7 @@ const contactInfo = [
 function LinkColumn({ title, items }) {
   return (
     <div>
-      <h3 className="font-display font-black text-sm tracking-[0.2em] text-phsOrange mb-6">
+      <h3 className="font-display font-black text-sm tracking-[0.2em] text-white mb-6 [-webkit-text-stroke:0.6px_currentColor]">
         {title}
       </h3>
       <ul className="space-y-3.5">
@@ -82,7 +82,7 @@ function LinkColumn({ title, items }) {
 export default function Footer() {
   return (
     <footer 
-      className="bg-[#071626] text-white relative overflow-hidden pt-20"
+      className="bg-[#2E9DC8] text-white relative overflow-hidden pt-20"
       style={{
         backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px)',
         backgroundSize: '24px 24px'
@@ -156,7 +156,7 @@ export default function Footer() {
 
           {/* Contact Info Column */}
           <div>
-            <h3 className="font-display font-black text-sm tracking-[0.2em] text-phsOrange mb-6">
+            <h3 className="font-display font-black text-sm tracking-[0.2em] text-white mb-6 [-webkit-text-stroke:0.6px_currentColor]">
               Contact Info
             </h3>
             <ul className="space-y-4">
@@ -178,14 +178,14 @@ export default function Footer() {
         </div>
 
         {/* Accessibility Note */}
-        <p className="mt-16 text-center text-[12px] text-gray-400 max-w-2xl mx-auto leading-relaxed border-t border-white/5 pt-8 font-sans">
+        <p className="mt-16 text-center text-[12px] text-phsNavy max-w-2xl mx-auto leading-relaxed border-t border-white/5 pt-8 font-sans">
           Preventive Home Solutions is committed to keeping our site accessible to everyone. We welcome feedback on ways to improve this site's accessibility.
         </p>
       </div>
 
       {/* Bottom Bar */}
       <div className="border-t border-white/10 bg-black/10">
-        <div className="mx-auto flex max-w-[1400px] flex-col items-center justify-between gap-4 px-6 py-6 text-[13px] text-gray-400 md:flex-row font-mono font-medium">
+        <div className="mx-auto flex max-w-[1400px] flex-col items-center justify-between gap-4 px-6 py-6 text-[13px] text-phsNavy md:flex-row font-mono font-medium">
           <p className="text-center md:text-left">
             Copyright © {new Date().getFullYear()}, Preventive Home Solutions. All Rights Reserved.
           </p>

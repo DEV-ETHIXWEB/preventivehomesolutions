@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import Reveal from './Reveal.jsx'
 
 const servicesList = [
@@ -24,15 +25,30 @@ const servicesList = [
   },
 ]
 
+// Slideshow cycles the same photos shown on the three cards, with the back of van first.
+// The active slide highlights its matching card (shifted by 1 due to the van photo).
+const SLIDES = [
+  '/back van.jpg',
+  ...servicesList.map((s) => s.photo),
+]
+
 export default function Services() {
+  const [slide, setSlide] = useState(0)
+
+  useEffect(() => {
+    const id = setInterval(() => setSlide((s) => (s + 1) % SLIDES.length), 3000)
+    return () => clearInterval(id)
+  }, [])
+
   return (
     <section id="services" className="relative overflow-hidden bg-[#FAF8F5] py-12 lg:py-28">
       <div className="relative mx-auto max-w-[1200px] px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
-          {/* Left Column: Team + Van Photo */}
-          <div className="lg:col-span-5 relative">
-            <Reveal variant="left" className="relative w-full">
+          {/* Image card — moved to the right on desktop. Slideshow of the
+              three service-card photos. */}
+          <div className="lg:col-span-5 relative lg:order-last">
+            <Reveal variant="right" className="relative w-full">
               {/* White frame with orange corner accents */}
               <div className="relative bg-white p-3 shadow-2xl mx-auto w-1/2 lg:w-full">
                 <span className="absolute top-0 left-0 w-8 h-8 border-t-4 border-l-4 border-phsOrange z-10" />
@@ -40,13 +56,18 @@ export default function Services() {
                 <span className="absolute bottom-0 left-0 w-8 h-8 border-b-4 border-l-4 border-phsOrange z-10" />
                 <span className="absolute bottom-0 right-0 w-8 h-8 border-b-4 border-r-4 border-phsOrange z-10" />
                 <div className="relative aspect-[4/5] sm:aspect-[4/3] lg:aspect-[3/4] w-full overflow-hidden group">
-                  <img
-                    src="/back van.jpg"
-                    alt="Preventive Home Solutions service van"
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  {/* Gradient only — no text overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-phsSky/70 via-phsSky/20 to-transparent" />
+                  {SLIDES.map((src, i) => (
+                    <img
+                      key={src}
+                      src={src}
+                      alt="Preventive Home Solutions work"
+                      className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ease-in-out group-hover:scale-105 ${
+                        i === slide ? 'opacity-100' : 'opacity-0'
+                      }`}
+                    />
+                  ))}
+                  {/* Lighter gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-phsSky/30 via-phsSky/5 to-transparent" />
                 </div>
               </div>
             </Reveal>
@@ -73,7 +94,11 @@ export default function Services() {
                 <Reveal key={title} delay={i * 100} variant="up" className="h-full">
                   <a
                     href="#contact"
-                    className="group relative z-10 flex h-full flex-col items-center justify-center overflow-hidden text-center p-2 sm:p-6 rounded-2xl border border-[#e6ded4] bg-white/50 transition-all duration-300 ease-out hover:bg-white hover:border-phsOrange/40 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-2xl hover:shadow-phsOrange/10"
+                    className={`group relative z-10 flex h-full flex-col items-center justify-center overflow-hidden text-center p-2 sm:p-6 rounded-2xl border bg-white/50 transition-all duration-300 ease-out hover:bg-white hover:border-phsOrange/40 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-2xl hover:shadow-phsOrange/10 ${
+                      i === slide - 1
+                        ? 'border-phsOrange bg-white -translate-y-2 scale-[1.02] shadow-2xl shadow-phsOrange/10'
+                        : 'border-[#e6ded4]'
+                    }`}
                   >
                     {/* Light-glare sweep on hover */}
                     <span className="pointer-events-none absolute inset-0 -translate-x-[150%] skew-x-12 bg-gradient-to-r from-transparent via-phsOrange/20 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-[150%]" />

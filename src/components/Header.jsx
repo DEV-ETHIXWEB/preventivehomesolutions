@@ -153,15 +153,15 @@ export default function Header() {
       className="sticky top-0 z-40 w-full border-b border-phsSky/10 bg-phsCream/95 backdrop-blur"
       onMouseLeave={closeMenu}
     >
-      <div className="mx-auto flex max-w-[1500px] items-center justify-between gap-6 px-5 pt-4 pb-[6px] lg:px-10">
+      <div className="mx-auto flex max-w-[1500px] items-center justify-between gap-4 sm:gap-6 px-[clamp(12px,4vw,20px)] sm:px-5 pt-4 pb-[6px] lg:px-10">
         {/* Logo */}
         <a href="#" onMouseEnter={closeMenu} className="group flex items-center gap-3">
           <img
             src={LOGO_SRC}
             alt="Preventive Home Solutions"
-            className="h-[5.2rem] w-auto rounded-lg transition-transform duration-300 group-hover:scale-[1.05]"
+            className="h-[clamp(3.25rem,5.8vw,5.6rem)] w-auto translate-y-[5px] rounded-lg transition-transform duration-300 group-hover:scale-[1.05]"
           />
-          <span className="font-sans text-xl font-extrabold text-phsInk">
+          <span className="font-sans text-[clamp(12px,3.5vw,18px)] sm:text-xl font-extrabold text-phsInk truncate max-w-[clamp(100px,40vw,200px)] sm:max-w-none">
             Preventive Home Solutions
           </span>
         </a>
@@ -202,7 +202,7 @@ export default function Header() {
           <a
             href={`tel:${PHONE_TEL}`}
             onMouseEnter={closeMenu}
-            className="hidden items-center gap-2 rounded-md border border-phsSky/20 px-4 py-2.5 font-mono text-sm font-bold text-phsInk transition-colors hover:border-phsSky hover:bg-phsSky/5 xl:inline-flex"
+            className="hidden items-center gap-2 rounded-md border border-phsSky/20 bg-white px-4 py-2.5 font-mono text-sm font-bold text-phsInk shadow-sm transition-colors hover:border-phsSky hover:bg-phsSky/5 xl:inline-flex"
           >
             <PhoneIcon className="h-4 w-4" />
             {PHONE_DISPLAY}
@@ -222,7 +222,7 @@ export default function Header() {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="inline-flex items-center justify-center rounded-md p-2 text-phsInk lg:hidden"
+          className="inline-flex items-center justify-center rounded-md p-2 text-phsInk lg:hidden min-h-[44px] min-w-[44px]"
           aria-label="Toggle menu"
           aria-expanded={open}
         >
