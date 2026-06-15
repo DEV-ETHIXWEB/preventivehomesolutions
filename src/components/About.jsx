@@ -2,11 +2,7 @@ import Reveal from './Reveal.jsx'
 
 export default function About() {
   return (
-<<<<<<< HEAD
-    <section id="about" className="scroll-mt-24 relative w-full overflow-hidden pb-24 lg:pb-32 px-6">
-=======
     <section id="about" className="scroll-mt-24 relative w-full pt-0 pb-24 lg:pb-32 px-6">
->>>>>>> 586b25297a4c5b1201b9510cd6f45178c2c70b8c
       <div className="relative mx-auto max-w-[1200px]">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
@@ -35,11 +31,7 @@ export default function About() {
           {/* Right Column: Copywriting list */}
           <div className="lg:col-span-7 flex flex-col justify-center">
             <Reveal variant="right" delay={100}>
-<<<<<<< HEAD
-              <p className="text-xs sm:text-sm font-mono tracking-[0.25em] font-bold text-white mb-4">
-=======
               <p className="text-xs sm:text-sm font-mono tracking-[0.25em] font-bold text-white/60 mb-4">
->>>>>>> 586b25297a4c5b1201b9510cd6f45178c2c70b8c
                 About Preventive
               </p>
               <h2 className="font-display font-black text-white text-3xl sm:text-4xl lg:text-[2.75rem] tracking-tight leading-[1.0] mb-6">
@@ -47,11 +39,7 @@ export default function About() {
               </h2>
             </Reveal>
             
-<<<<<<< HEAD
-            <Reveal variant="right" delay={200} className="space-y-6 text-[15px] leading-relaxed text-white/85 font-sans">
-=======
             <Reveal variant="right" delay={200} className="space-y-6 text-[15px] leading-relaxed text-white/75 font-sans">
->>>>>>> 586b25297a4c5b1201b9510cd6f45178c2c70b8c
               <p>
                 We are your go-to garrison for reliable plumbing, heating, and cooling defense in Northern Utah. We specialize in stopping failures before they breach. Expert maintenance, repair, and installation for the systems your home depends on.
               </p>

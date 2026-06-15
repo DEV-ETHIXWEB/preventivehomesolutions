@@ -155,38 +155,22 @@ export default function Hero() {
             delay={100}
             className="font-mono text-xs font-bold tracking-[0.28em] text-phsOrange"
           >
-<<<<<<< HEAD
-            Established Defense · Northern Utah
-=======
             TRUSTED HOME CARE · NORTHERN UTAH
->>>>>>> 586b25297a4c5b1201b9510cd6f45178c2c70b8c
           </Reveal>
 
           <Reveal
             as="h1"
             delay={200}
-<<<<<<< HEAD
-            className="mt-6 font-display font-extrabold leading-[1.0] tracking-tight text-phsInk"
-          >
-            {/* Two static lines */}
-            <span className="block whitespace-nowrap text-4xl sm:text-5xl lg:text-6xl">Heavy Duty</span>
-            <span className="block whitespace-nowrap text-4xl sm:text-5xl lg:text-6xl">Home Service</span>
-=======
             className="mt-6 font-display font-black leading-[1.0] tracking-tight text-phsInk"
           >
             {/* Two static lines */}
             <span className="block text-4xl sm:text-5xl lg:text-6xl">Welcome to Your</span>
             <span className="block text-4xl sm:text-5xl lg:text-6xl mt-1.5">Comfort Sanctuary</span>
->>>>>>> 586b25297a4c5b1201b9510cd6f45178c2c70b8c
             {/* Third line: animated box, single line */}
             <motion.span
               layout
               transition={{ type: 'spring', damping: 30, stiffness: 200 }}
-<<<<<<< HEAD
-              className="rotate-oneline mt-4 flex w-fit max-w-full items-center overflow-hidden rounded-xl bg-phsOrange px-4 py-2.5 shadow-sm"
-=======
               className="rotate-oneline mt-5 flex w-fit max-w-full items-center overflow-hidden rounded-xl bg-phsOrange px-4 py-2.5 shadow-sm"
->>>>>>> 586b25297a4c5b1201b9510cd6f45178c2c70b8c
             >
               <RotatingText
                 texts={BOX_PHRASES}
@@ -204,17 +188,10 @@ export default function Hero() {
           <Reveal
             as="p"
             delay={350}
-<<<<<<< HEAD
-            className="mt-8 max-w-md text-lg leading-relaxed text-phsInk/60"
-          >
-            Mechanical systems engineered for endurance. We defend your home from
-            the elements with technical precision and warrior-grade reliability.
-=======
             className="mt-8 max-w-md text-lg leading-relaxed text-phsInk/70 font-sans"
           >
             Northern Utah's premier shield for plumbing, heating, and cooling. 
             We keep your family cozy, your pipes clear, and your home running beautifully through every season.
->>>>>>> 586b25297a4c5b1201b9510cd6f45178c2c70b8c
           </Reveal>
 
           <Reveal delay={500} className="mt-10 flex flex-col gap-4 sm:flex-row">
@@ -234,26 +211,19 @@ export default function Hero() {
             </a>
           </Reveal>
 
-<<<<<<< HEAD
-          <Reveal delay={650} className="mt-12 flex flex-wrap items-center gap-4">
-            <GoogleLogo className="h-7 sm:h-8 w-auto" />
-            <div className="flex text-xl sm:text-2xl text-yellow-400 drop-shadow-sm">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <span key={i}>★</span>
-              ))}
-            </div>
-            <span className="font-display text-sm sm:text-base font-bold tracking-wider text-phsInk">
-              5-Star Rated
-            </span>
-=======
-          <Reveal delay={650} className="relative mt-12 flex h-[190px] w-[340px] sm:h-[202px] sm:w-[360px] items-center justify-center">
-            {/* Scroll background with 50% opacity */}
-            <div 
-              className="absolute inset-0 -z-10 bg-[url('/scroll-banner.png')] bg-[length:100%_100%] bg-center bg-no-repeat opacity-50" 
+          <Reveal delay={650} className="relative mt-12 w-fit">
+            {/* Flag ribbon behind the rating — bleeds to the left edge of the
+                screen and ends just past the text. Absolute so it never affects
+                the rating's own layout. */}
+            <div
+              className="pointer-events-none absolute inset-y-0 right-0 -left-5 translate-x-[5px] lg:left-[calc(-1*max(2.5rem,calc((100vw_-_1500px)/2_+_2.5rem)))]"
+              style={{
+                backgroundImage: 'url("/flag for google rating.svg")',
+                backgroundSize: '100% 100%',
+                backgroundRepeat: 'no-repeat',
+              }}
             />
-            
-            {/* Rating Content */}
-            <div className="flex items-center gap-3.5 px-6">
+            <div className="relative z-10 inline-flex items-center gap-3.5 py-12 pl-6 pr-16 -translate-x-[35px] lg:py-14 lg:pl-10">
               <GoogleLogo className="h-6 sm:h-7 w-auto shrink-0" />
               <div className="flex text-lg sm:text-xl text-yellow-400 drop-shadow-sm">
                 {Array.from({ length: 5 }).map((_, i) => (
@@ -264,7 +234,6 @@ export default function Hero() {
                 5-Star Rated
               </span>
             </div>
->>>>>>> 586b25297a4c5b1201b9510cd6f45178c2c70b8c
           </Reveal>
 
           {/* Mobile-only Form Container Moved Here */}
@@ -272,26 +241,11 @@ export default function Hero() {
             <BookingForm />
           </div>
 
-<<<<<<< HEAD
-          {/* Quote to fill empty space */}
-          <Reveal delay={800} className="mt-8 lg:mt-16 max-w-md">
-            <blockquote className="border-l-4 border-phsOrange pl-6 font-display italic text-phsInk/85">
-              <p className="text-xl leading-relaxed font-semibold">
-                "Quick response, fast solutions, and efficient work you can always depend on."
-              </p>
-            </blockquote>
-          </Reveal>
-        </div>
-
-        {/* Right column — knight holding the shield, with the booking form on the shield face */}
-        <Reveal variant="scale" delay={300} className="relative w-full max-w-[680px] lg:-translate-y-[40px] lg:-translate-x-[40px] lg:justify-self-end lg:-mt-8 lg:-ml-12 mt-4 lg:mt-0">
-=======
 
         </div>
 
         {/* Right column — knight holding the shield, with the booking form on the shield face */}
         <Reveal variant="scale" delay={300} className="relative w-full max-w-[625px] lg:-translate-y-[70px] lg:-translate-x-[70px] lg:justify-self-end lg:-mt-8 lg:-ml-12 mt-4 lg:mt-0">
->>>>>>> 586b25297a4c5b1201b9510cd6f45178c2c70b8c
 
           {/* Desktop-only Knight with Form overlaid */}
           <div className="hidden lg:block relative">

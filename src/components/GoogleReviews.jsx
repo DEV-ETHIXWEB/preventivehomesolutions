@@ -166,16 +166,6 @@ export default function GoogleReviews() {
   return (
     <div className="mt-16 lg:mt-20">
       {/* Heading */}
-<<<<<<< HEAD
-      <div className="mb-8 flex flex-col items-center gap-2 text-center">
-        <div className="flex items-center gap-2">
-          <GoogleG className="h-5 w-5" />
-          <span className="font-display text-sm font-bold tracking-wide text-phsNavy">
-            Reviews from Google
-          </span>
-          {isLive && (
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-green-50 px-2.5 py-0.5 text-[11px] font-bold text-green-600">
-=======
       <div className="mb-8 flex flex-col items-center gap-2.5 text-center">
         <div className="flex items-center gap-2.5">
           <GoogleG className="h-6 w-6" />
@@ -184,7 +174,6 @@ export default function GoogleReviews() {
           </span>
           {isLive && (
             <span className="inline-flex items-center gap-1.5 rounded-full bg-green-50 px-2.5 py-0.5 text-xs font-bold text-green-600">
->>>>>>> 586b25297a4c5b1201b9510cd6f45178c2c70b8c
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
@@ -193,11 +182,7 @@ export default function GoogleReviews() {
             </span>
           )}
         </div>
-<<<<<<< HEAD
-        <p className="text-xs font-mono tracking-[0.2em] text-gray-400">
-=======
         <p className="text-sm font-mono tracking-[0.2em] text-gray-600">
->>>>>>> 586b25297a4c5b1201b9510cd6f45178c2c70b8c
           REAL HOMEOWNERS · REAL RESULTS
         </p>
       </div>

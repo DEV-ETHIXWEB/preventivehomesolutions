@@ -74,19 +74,23 @@ export default function WhyChoose() {
     <section className="bg-white py-12 lg:py-28 relative">
       <div className="mx-auto max-w-[1200px] px-6">
         
-        {/* Trust Badges Row */}
-        <Reveal variant="scale" className="flex items-center justify-center mb-16">
-          <div className="rounded-3xl bg-white px-8 py-6 -translate-y-[25px] scale-[1.15]">
-            <img
-              src="/badges.png"
-              alt="Trust Badges"
-<<<<<<< HEAD
-              className="h-44 sm:h-52 md:h-64 lg:h-72 w-auto object-contain transition-transform duration-300 hover:scale-[1.02]"
-=======
-              className="h-52 sm:h-64 md:h-80 lg:h-[346px] w-auto object-contain scale-x-110 transition-transform duration-300 hover:scale-x-[1.12] hover:scale-y-[1.02]"
->>>>>>> 586b25297a4c5b1201b9510cd6f45178c2c70b8c
-            />
-          </div>
+        {/* Trust Badges Row — Angi · 35+ Years (center, larger) · BBB */}
+        <Reveal variant="scale" className="flex items-end justify-center gap-[32px] sm:gap-[44px] lg:gap-[60px] mb-16 -translate-y-[25px]">
+          <img
+            src="/Group 12.png"
+            alt="Angi Super Service Award 2024"
+            className="h-[141px] sm:h-[211px] lg:h-[282px] w-auto object-contain transition-transform duration-300 hover:-translate-y-1"
+          />
+          <img
+            src="/Group 13.png"
+            alt="35+ Years of Experience"
+            className="h-44 sm:h-64 lg:h-[360px] w-auto object-contain transition-transform duration-300 hover:-translate-y-1"
+          />
+          <img
+            src="/Group 14.png"
+            alt="BBB Accredited Business"
+            className="h-[141px] sm:h-[211px] lg:h-[282px] w-auto object-contain transition-transform duration-300 hover:-translate-y-1"
+          />
         </Reveal>
 
         {/* Heading Block */}

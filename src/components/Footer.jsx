@@ -49,28 +49,11 @@ function MailIcon() {
   )
 }
 
-<<<<<<< HEAD
-function ClockIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 text-phsOrange shrink-0">
-      <circle cx="12" cy="12" r="10" />
-      <polyline points="12 6 12 12 16 14" />
-    </svg>
-  )
-}
-=======
->>>>>>> 586b25297a4c5b1201b9510cd6f45178c2c70b8c
 
 const contactInfo = [
   { Icon: PinIcon, text: 'Clinton 84015, United States' },
   { Icon: PhoneIcon, text: '(385) 453-9428', href: 'tel:3854539428' },
   { Icon: MailIcon, text: 'preventivehomesolutions@outlook.com', href: 'mailto:preventivehomesolutions@outlook.com' },
-<<<<<<< HEAD
-  { Icon: ClockIcon, text: 'Mon – Fri : 7AM – 8PM' },
-  { Icon: ClockIcon, text: 'Saturday : 7AM – 7PM' },
-  { Icon: ClockIcon, text: 'Sunday : 7AM – 6PM' },
-=======
->>>>>>> 586b25297a4c5b1201b9510cd6f45178c2c70b8c
 ]
 
 function LinkColumn({ title, items }) {

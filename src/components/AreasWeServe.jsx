@@ -94,11 +94,7 @@ export default function AreasWeServe() {
               </svg>
 
               {/* Embedded Google Maps frame */}
-<<<<<<< HEAD
-              <div className="w-full h-[65%] relative overflow-hidden mb-6 rounded-t-[2.2rem] border-b border-white/10">
-=======
               <div className="w-full h-[65%] relative overflow-hidden mb-6 rounded-t-[2.2rem] border-4 border-phsSky/80">
->>>>>>> 586b25297a4c5b1201b9510cd6f45178c2c70b8c
                 <iframe
                   key={activeCity || 'default'}
                   title="Northern Utah Service Map"
@@ -133,11 +129,7 @@ export default function AreasWeServe() {
                 </h3>
 
                 {/* Subheading */}
-<<<<<<< HEAD
-                <p className="font-mono text-[9px] sm:text-[10px] font-bold tracking-[0.2em] text-gray-400 mt-3">
-=======
                 <p className="font-mono text-sm sm:text-base font-bold tracking-[0.2em] text-phsNavy mt-3">
->>>>>>> 586b25297a4c5b1201b9510cd6f45178c2c70b8c
                   10 Cities · One Standard
                 </p>
               </div>

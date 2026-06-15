@@ -146,11 +146,7 @@ export default function Header() {
   }
 
   const navLinkClass =
-<<<<<<< HEAD
-    'font-display text-[15px] font-semibold text-phsInk/75 transition-colors hover:text-phsInk'
-=======
     'font-sans text-[15px] font-semibold text-phsInk/75 transition-colors hover:text-phsInk'
->>>>>>> 586b25297a4c5b1201b9510cd6f45178c2c70b8c
 
   return (
     <header
@@ -165,11 +161,7 @@ export default function Header() {
             alt="Preventive Home Solutions"
             className="h-[5.2rem] w-auto rounded-lg transition-transform duration-300 group-hover:scale-[1.05]"
           />
-<<<<<<< HEAD
-          <span className="font-display text-xl font-extrabold tracking-[0.12em] text-phsInk">
-=======
           <span className="font-sans text-xl font-extrabold text-phsInk">
->>>>>>> 586b25297a4c5b1201b9510cd6f45178c2c70b8c
             Preventive Home Solutions
           </span>
         </a>
@@ -198,16 +190,11 @@ export default function Header() {
               <CaretIcon className={`h-3.5 w-3.5 transition-transform duration-300 ${openMenu === 'areas' ? 'rotate-180' : ''}`} />
             </button>
 
-<<<<<<< HEAD
-            <a href="#contact" onMouseEnter={closeMenu} className={navLinkClass}>
-              Contact
-=======
             <a href="#about" onMouseEnter={closeMenu} className={navLinkClass}>
               About Us
             </a>
             <a href="#blog" onMouseEnter={closeMenu} className={navLinkClass}>
               Blog
->>>>>>> 586b25297a4c5b1201b9510cd6f45178c2c70b8c
             </a>
           </nav>
 
@@ -225,11 +212,7 @@ export default function Header() {
           <a
             href="#scheduling"
             onMouseEnter={closeMenu}
-<<<<<<< HEAD
-            className="rounded-md bg-phsOrange px-6 py-3 font-display text-xs font-bold tracking-[0.18em] text-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-phsOrangeDark hover:shadow-md active:translate-y-0"
-=======
             className="rounded-md bg-phsOrange px-6 py-3 font-sans text-sm font-bold text-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-phsOrangeDark hover:shadow-md active:translate-y-0"
->>>>>>> 586b25297a4c5b1201b9510cd6f45178c2c70b8c
           >
             Get Free Quote
           </a>
@@ -358,16 +341,11 @@ export default function Header() {
               </div>
             </div>
 
-<<<<<<< HEAD
-            <a href="#contact" onClick={() => setOpen(false)} className="font-display text-[15px] font-semibold text-phsInk/80">
-              Contact
-=======
             <a href="#about" onClick={() => setOpen(false)} className="font-sans text-[15px] font-semibold text-phsInk/80">
               About Us
             </a>
             <a href="#blog" onClick={() => setOpen(false)} className="font-sans text-[15px] font-semibold text-phsInk/80">
               Blog
->>>>>>> 586b25297a4c5b1201b9510cd6f45178c2c70b8c
             </a>
             <a
               href={`tel:${PHONE_TEL}`}
@@ -379,11 +357,7 @@ export default function Header() {
             <a
               href="#scheduling"
               onClick={() => setOpen(false)}
-<<<<<<< HEAD
-              className="rounded-md bg-phsOrange px-5 py-3 text-center font-display text-xs font-bold tracking-[0.18em] text-white"
-=======
               className="rounded-md bg-phsOrange px-5 py-3 text-center font-sans text-sm font-bold text-white"
->>>>>>> 586b25297a4c5b1201b9510cd6f45178c2c70b8c
             >
               Get Free Quote
             </a>
