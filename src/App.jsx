@@ -44,7 +44,7 @@ export default function App() {
           hueShift={0}
           intensity={0.6}
           saturation={1.95}
-          opacity={0.6}
+          opacity={0.48}
           scale={2.6}
           glass={false}
         />

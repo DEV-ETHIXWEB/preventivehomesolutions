@@ -80,7 +80,7 @@ export default function WhyChoose() {
         <div className="relative left-1/2 mb-16 w-[min(100vw,1500px)] -translate-x-1/2 -translate-y-[25px]">
           <Reveal
             variant="scale"
-            className="flex items-end justify-center gap-4 sm:gap-12 lg:gap-16 px-6 lg:px-10 flex-wrap sm:flex-nowrap"
+            className="flex items-end justify-center gap-[36px] sm:gap-[68px] lg:gap-[84px] px-6 lg:px-10 flex-wrap sm:flex-nowrap"
           >
             <img
               src="/Group 12.png"

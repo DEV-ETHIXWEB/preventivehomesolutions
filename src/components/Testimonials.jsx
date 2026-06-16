@@ -63,8 +63,8 @@ function Stars({ count = 5 }) {
 export default function Testimonials() {
   return (
     <section className="relative overflow-hidden bg-gray-50 py-10 sm:py-20">
-      <Arcs className="-left-32 top-0 animate-spin-slow" />
-      <Arcs className="-right-28 bottom-0 animate-spin-slow [animation-direction:reverse]" />
+      <Arcs className="-left-32 top-0 animate-spin-slow opacity-60" />
+      <Arcs className="-right-28 bottom-0 animate-spin-slow [animation-direction:reverse] opacity-60" />
 
       <div className="relative mx-auto max-w-[1100px] px-4">
         {/* Heading block */}

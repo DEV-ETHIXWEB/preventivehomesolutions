@@ -166,7 +166,7 @@ export default function GoogleReviews() {
   return (
     <div className="mt-16 lg:mt-20">
       {/* Heading */}
-      <div className="mb-8 flex flex-col items-center gap-2.5 text-center">
+      <div className="mb-8 flex flex-col items-center gap-2.5 text-center scale-110">
         <div className="flex items-center gap-2.5">
           <GoogleG className="h-6 w-6" />
           <span className="font-display text-base font-bold tracking-wide text-phsNavy">

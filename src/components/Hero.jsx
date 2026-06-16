@@ -57,8 +57,10 @@ function GoogleLogo({ className = '' }) {
 }
 
 
-/** Compact booking form used in the hero spec card. */
-function BookingForm() {
+/** Compact booking form used in the hero spec card.
+ *  On mobile (`mobile` prop) the Email field is omitted so the four core
+ *  fields — name, phone, service, message — fit the shield without cropping. */
+function BookingForm({ mobile = false }) {
   const [submitted, setSubmitted] = useState(false)
   const [service, setService] = useState('')
   const [dropdownOpen, setDropdownOpen] = useState(false)
@@ -150,10 +152,12 @@ function BookingForm() {
           </div>
         </div>
 
-        <div>
-          <label htmlFor="bf-email" className={labelClass}>Email</label>
-          <input id="bf-email" name="email" type="email" placeholder="jane@email.com" className={fieldClass} />
-        </div>
+        {!mobile && (
+          <div>
+            <label htmlFor="bf-email" className={labelClass}>Email</label>
+            <input id="bf-email" name="email" type="email" placeholder="jane@email.com" className={fieldClass} />
+          </div>
+        )}
 
         <div>
           <label htmlFor="bf-message" className={labelClass}>How can we help?</label>
@@ -182,6 +186,9 @@ export default function Hero() {
   const shieldFormRef = useRef(null)
   const [formScale, setFormScale] = useState(1)
 
+  const mobileShieldFormRef = useRef(null)
+  const [mobileFormScale, setMobileFormScale] = useState(1)
+
   useEffect(() => {
     const el = shieldFormRef.current
     if (!el) return
@@ -192,11 +199,21 @@ export default function Hero() {
     return () => ro.disconnect()
   }, [])
 
+  useEffect(() => {
+    const el = mobileShieldFormRef.current
+    if (!el) return
+    const ro = new ResizeObserver(() => {
+      if (el.clientWidth) setMobileFormScale(el.clientWidth / FORM_DESIGN_WIDTH)
+    })
+    ro.observe(el)
+    return () => ro.disconnect()
+  }, [])
+
   return (
     <section id="hero" className="relative w-full overflow-hidden bg-phsCream">
       <div className="relative mx-auto grid max-w-[1500px] items-start gap-8 px-[clamp(16px,5vw,20px)] sm:px-5 py-[clamp(24px,8vw,32px)] sm:py-8 lg:grid-cols-2 lg:gap-12 lg:px-10 lg:py-24">
         {/* Left column */}
-        <div>
+        <div className="-mt-5 lg:mt-0">
           <Reveal
             as="p"
             delay={100}
@@ -217,7 +234,7 @@ export default function Hero() {
             <motion.span
               layout
               transition={{ type: 'spring', damping: 30, stiffness: 200 }}
-              className="rotate-oneline mt-5 flex w-fit max-w-full items-center justify-center sm:justify-start overflow-hidden rounded-xl bg-phsOrange px-4 py-2.5 shadow-sm"
+              className="rotate-oneline mt-5 flex w-[320px] sm:w-[450px] lg:w-[480px] max-w-full items-center justify-center sm:justify-start overflow-hidden rounded-xl bg-phsOrange px-4 py-2.5 shadow-sm"
             >
               <RotatingText
                 texts={BOX_PHRASES}
@@ -237,8 +254,13 @@ export default function Hero() {
             delay={350}
             className="mt-8 max-w-md text-[clamp(15px,4.5vw,18px)] sm:text-lg leading-relaxed text-phsInk/70 font-sans"
           >
-            Northern Utah's premier shield for plumbing, heating, and cooling. 
-            We keep your family cozy, your pipes clear, and your home running beautifully through every season.
+            <span className="lg:hidden">
+              Trusted plumbing, heating, and cooling that keeps your Northern Utah home cozy all year.
+            </span>
+            <span className="hidden lg:inline">
+              Northern Utah's premier shield for plumbing, heating, and cooling.
+              We keep your family cozy, your pipes clear, and your home running beautifully through every season.
+            </span>
           </Reveal>
 
           <Reveal delay={500} className="mt-10 flex flex-col gap-4 sm:flex-row">
@@ -258,7 +280,7 @@ export default function Hero() {
             </a>
           </Reveal>
 
-          <div className="relative mt-12 w-fit animate-ribbon-in">
+          <div className="relative mt-2 lg:mt-3 w-fit animate-ribbon-in">
             {/* Flag ribbon behind the rating — bleeds to the left edge of the
                 screen and ends just past the text. Absolute so it never affects
                 the rating's own layout. */}
@@ -270,21 +292,21 @@ export default function Hero() {
                 backgroundRepeat: 'no-repeat',
               }}
             />
-            <div className="relative z-10 inline-flex items-center gap-3.5 py-12 pl-6 pr-16 -translate-x-[3px] lg:-translate-x-[35px] lg:py-14 lg:pl-10">
+            <div className="relative z-10 inline-flex items-center gap-2 sm:gap-2.5 py-12 pl-6 pr-16 -translate-x-[3px] lg:-translate-x-[35px] lg:py-14 lg:pl-10">
               <GoogleLogo className="h-6 sm:h-7 w-auto shrink-0" />
               <div className="flex text-lg sm:text-xl text-yellow-400 drop-shadow-sm">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <span key={i}>★</span>
                 ))}
               </div>
-              <span className="font-display text-xs sm:text-sm font-bold tracking-wider text-phsInk shrink-0">
+              <span className="font-display text-xs sm:text-sm font-bold tracking-wider text-phsInk shrink-0 translate-y-[1px]">
                 5-Star Rated
               </span>
             </div>
           </div>
 
           {/* Mobile-only Form Container */}
-          <div className="block lg:hidden mx-auto mt-12 mb-10 w-[90%] max-w-[342px] relative drop-shadow-2xl">
+          <div id="quote-form" className="block lg:hidden scroll-mt-24 mx-auto mt-12 mb-10 w-[90%] max-w-[445px] relative drop-shadow-2xl">
             {/* Background Shield */}
             <img 
               src="/shield.svg" 
@@ -297,13 +319,21 @@ export default function Hero() {
               alt="" 
               className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[127.7%] max-w-none pointer-events-none z-20" 
             />
-            {/* Form Content positioned inside the shield bounds */}
-            <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-[14%] pt-[12%] pb-[18%]">
-              <div 
-                className="flex flex-col justify-center transform origin-top translate-y-[calc(30px+5%)] scale-[0.73] min-[400px]:scale-[0.81]"
-                style={{ width: `${FORM_DESIGN_WIDTH}px` }}
-              >
-                <BookingForm />
+            {/* Form Content positioned inside the shield bounds. Horizontal
+                padding is kept small so the fields reach toward the shield's
+                inner edges; the form is scaled uniformly off the available
+                width so it stays proportional as the screen resizes. */}
+            <div className="absolute inset-0 z-10 flex flex-col items-center justify-start px-[6%] pt-[14%]">
+              <div ref={mobileShieldFormRef} className="w-full flex justify-center">
+                <div
+                  className="origin-top"
+                  style={{
+                    width: `${FORM_DESIGN_WIDTH}px`,
+                    transform: `scale(${mobileFormScale})`,
+                  }}
+                >
+                  <BookingForm mobile />
+                </div>
               </div>
             </div>
           </div>

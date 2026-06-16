@@ -1,78 +1,10 @@
 import { useRef, useState } from 'react'
+import BottomNav from './BottomNav.jsx'
+import { SERVICE_GROUPS, SERVICE_AREAS, PHONE_DISPLAY, PHONE_TEL } from '../data/nav.js'
 
-const PHONE_DISPLAY = '(385) 453-9428'
-const PHONE_TEL = '3854539428'
 const LOGO_SRC = '/logo.svg'
 
-// TODO: replace these placeholders with the real lists provided by the client.
-const SERVICE_GROUPS = [
-  {
-    title: 'Cooling',
-    items: [
-      'AC Maintenance & Repair',
-      'AC Installation and Replacement',
-      'Heat Pumps',
-      'Mini Splits',
-      'Indoor Air Quality',
-    ],
-  },
-  {
-    title: 'Heating',
-    items: [
-      'Furnace Maintenance and Repair',
-      'Furnace Installation and Replacement',
-      'Boiler Service and Maintenance',
-      'Thermostats Replacements',
-      'Ductless Mini-Splits',
-      'Air Handler',
-    ],
-  },
-  {
-    title: 'Water Heaters',
-    items: [
-      'Water Heater Repair and Maintenance',
-      'Water Heater Installation and Replacement',
-      'Tankless Waterheater',
-    ],
-  },
-  {
-    title: 'Drain & Sewer',
-    items: [
-      'Drain Clearing',
-      'Drain Cleaning',
-      'Main Line Clearing and Cleaning',
-      'Sewer Services',
-      'Sump Pumps',
-    ],
-  },
-  {
-    title: 'Plumbing',
-    items: [
-      'Leak Detection & Repair',
-      'Faucet Replacement',
-      'Toilet Repair and Replacement',
-      'Water Quality Filters',
-      'Water Line Replacement',
-      'Emergency Services',
-      'Garbage Disposal',
-    ],
-  },
-]
-
 const SERVICES = Array.from(new Set(SERVICE_GROUPS.flatMap(g => g.items)))
-
-const SERVICE_AREAS = [
-  'Ogden',
-  'Clinton',
-  'Layton',
-  'Syracuse',
-  'West Point',
-  'Roy',
-  'Clearfield',
-  'Riverdale',
-  'Brigham City',
-  'Kaysville',
-]
 
 const MENUS = {
   services: { label: 'Services', items: SERVICES },
@@ -110,7 +42,6 @@ function PhoneIcon({ className = '' }) {
 }
 
 export default function Header() {
-  const [open, setOpen] = useState(false) // mobile menu
   const [openMenu, setOpenMenu] = useState(null) // 'services' | 'areas' | null
   const [query, setQuery] = useState('')
 
@@ -153,15 +84,19 @@ export default function Header() {
       className="sticky top-0 z-40 w-full border-b border-phsSky/10 bg-phsCream/95 backdrop-blur"
       onMouseLeave={closeMenu}
     >
-      <div className="mx-auto flex max-w-[1500px] items-center justify-between gap-4 sm:gap-6 px-[clamp(12px,4vw,20px)] sm:px-5 pt-4 pb-[6px] lg:px-10">
+      <div className="mx-auto flex max-w-[1500px] items-center justify-center lg:justify-between gap-4 sm:gap-6 px-[clamp(12px,4vw,20px)] sm:px-5 pt-3 pb-[6px] lg:pt-4 lg:px-10">
         {/* Logo */}
-        <a href="#" onMouseEnter={closeMenu} className="group flex items-center gap-3">
+        <a
+          href="#"
+          onMouseEnter={closeMenu}
+          className="group flex flex-col-reverse items-center gap-1.5 text-center lg:flex-row lg:gap-3 lg:text-left"
+        >
           <img
             src={LOGO_SRC}
             alt="Preventive Home Solutions"
-            className="h-[clamp(3.25rem,5.8vw,5.6rem)] w-auto translate-y-[5px] rounded-lg transition-transform duration-300 group-hover:scale-[1.05]"
+            className="h-[clamp(4.5rem,19vw,6rem)] w-auto rounded-lg transition-transform duration-300 group-hover:scale-[1.05] lg:h-[clamp(3.25rem,5.8vw,5.6rem)] lg:translate-y-[5px]"
           />
-          <span className="font-sans text-[clamp(12px,3.5vw,18px)] sm:text-xl font-extrabold text-phsInk truncate max-w-[clamp(100px,40vw,200px)] sm:max-w-none">
+          <span className="font-display text-[clamp(16px,5vw,20px)] sm:text-xl font-extrabold leading-tight text-phsInk lg:max-w-none">
             Preventive Home Solutions
           </span>
         </a>
@@ -218,23 +153,10 @@ export default function Header() {
           </a>
         </div>
 
-        {/* Mobile hamburger */}
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          className="inline-flex items-center justify-center rounded-md p-2 text-phsInk lg:hidden min-h-[44px] min-w-[44px]"
-          aria-label="Toggle menu"
-          aria-expanded={open}
-        >
-          <svg className="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            {open ? (
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-            )}
-          </svg>
-        </button>
       </div>
+
+      {/* Mobile bottom navigation (replaces the hamburger) */}
+      <BottomNav />
 
       {/* Full-width mega menu: spans the whole window, left to right */}
       <div
@@ -311,145 +233,6 @@ export default function Header() {
           )}
         </div>
       </div>
-
-      {/* Mobile menu */}
-      {open && (
-        <div className="animate-slide-down max-h-[80vh] overflow-y-auto border-t border-phsSky/10 bg-phsCream px-5 py-6 lg:hidden">
-          <nav className="flex flex-col gap-6">
-            {/* Emergency Services */}
-            <a 
-              href="#emergency" 
-              onClick={() => setOpen(false)} 
-              className="flex items-center justify-center gap-2 rounded-full bg-red-50 px-4 py-3 text-[15px] font-medium text-red-600 transition-colors hover:bg-red-100"
-            >
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
-                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-              </svg>
-              Emergency services
-            </a>
-
-            {/* HVAC Section */}
-            <div className="pt-2 border-t border-phsSky/10">
-              <p className="mb-4 flex items-center gap-2 font-mono text-[11px] font-bold tracking-[0.2em] text-phsInk/45 uppercase">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
-                  <path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2" />
-                </svg>
-                HVAC
-              </p>
-              
-              <div className="flex flex-col gap-5">
-                <div>
-                  <p className="mb-2 text-[13px] font-bold text-phsInk/70">Air conditioning</p>
-                  <div className="flex flex-wrap gap-2">
-                    {SERVICE_GROUPS.find(g => g.title === 'Cooling')?.items.map(item => (
-                      <a key={item} href={`#${item.toLowerCase().replace(/\s+/g, '-')}`} onClick={() => setOpen(false)} className="rounded-full bg-phsSky/5 px-4 py-2 text-[14px] font-medium text-phsInk/80 hover:bg-phsSky/15 transition-colors">
-                        {item}
-                      </a>
-                    ))}
-                  </div>
-                </div>
-
-                <div>
-                  <p className="mb-2 text-[13px] font-bold text-phsInk/70">Heating</p>
-                  <div className="flex flex-wrap gap-2">
-                    {SERVICE_GROUPS.find(g => g.title === 'Heating')?.items.map(item => (
-                      <a key={item} href={`#${item.toLowerCase().replace(/\s+/g, '-')}`} onClick={() => setOpen(false)} className="rounded-full bg-phsSky/5 px-4 py-2 text-[14px] font-medium text-phsInk/80 hover:bg-phsSky/15 transition-colors">
-                        {item}
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Plumbing Section */}
-            <div className="pt-6 border-t border-phsSky/10">
-              <p className="mb-4 flex items-center gap-2 font-mono text-[11px] font-bold tracking-[0.2em] text-phsInk/45 uppercase">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
-                  <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
-                </svg>
-                PLUMBING
-              </p>
-              
-              <div className="flex flex-col gap-5">
-                <div>
-                  <p className="mb-2 text-[13px] font-bold text-phsInk/70">Water heaters</p>
-                  <div className="flex flex-wrap gap-2">
-                    {SERVICE_GROUPS.find(g => g.title === 'Water Heaters')?.items.map(item => (
-                      <a key={item} href={`#${item.toLowerCase().replace(/\s+/g, '-')}`} onClick={() => setOpen(false)} className="rounded-full bg-phsSky/5 px-4 py-2 text-[14px] font-medium text-phsInk/80 hover:bg-phsSky/15 transition-colors">
-                        {item}
-                      </a>
-                    ))}
-                  </div>
-                </div>
-
-                <div>
-                  <p className="mb-2 text-[13px] font-bold text-phsInk/70">Drains & sewers</p>
-                  <div className="flex flex-wrap gap-2">
-                    {SERVICE_GROUPS.find(g => g.title === 'Drain & Sewer')?.items.map(item => (
-                      <a key={item} href={`#${item.toLowerCase().replace(/\s+/g, '-')}`} onClick={() => setOpen(false)} className="rounded-full bg-phsSky/5 px-4 py-2 text-[14px] font-medium text-phsInk/80 hover:bg-phsSky/15 transition-colors">
-                        {item}
-                      </a>
-                    ))}
-                  </div>
-                </div>
-
-                <div>
-                  <p className="mb-2 text-[13px] font-bold text-phsInk/70">Fixtures & water</p>
-                  <div className="flex flex-wrap gap-2">
-                    {SERVICE_GROUPS.find(g => g.title === 'Plumbing')?.items.filter(item => item !== 'Emergency Services').map(item => (
-                      <a key={item} href={`#${item.toLowerCase().replace(/\s+/g, '-')}`} onClick={() => setOpen(false)} className="rounded-full bg-phsSky/5 px-4 py-2 text-[14px] font-medium text-phsInk/80 hover:bg-phsSky/15 transition-colors">
-                        {item}
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Areas We Serve Section */}
-            <div className="pt-6 border-t border-phsSky/10">
-              <p className="mb-3 flex items-center gap-2 font-mono text-[11px] font-bold tracking-[0.2em] text-phsInk/45 uppercase">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                  <circle cx="12" cy="10" r="3" />
-                </svg>
-                AREAS WE SERVE
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {SERVICE_AREAS.map((s) => (
-                  <a key={s} href="#areas-we-serve" onClick={() => setOpen(false)} className="rounded-full border border-phsSky/20 px-4 py-2 text-[14px] font-medium text-phsInk/80 hover:border-phsSky/40 hover:bg-phsSky/5 transition-colors">
-                    {s}
-                  </a>
-                ))}
-              </div>
-            </div>
-
-            <div className="pt-6 border-t border-phsSky/10 flex flex-col gap-4">
-              <a href="#about" onClick={() => setOpen(false)} className="font-sans text-[15px] font-semibold text-phsInk/80">
-                About Us
-              </a>
-              <a href="#blog" onClick={() => setOpen(false)} className="font-sans text-[15px] font-semibold text-phsInk/80">
-                Blog
-              </a>
-              <a
-                href={`tel:${PHONE_TEL}`}
-                className="inline-flex items-center justify-center gap-2 rounded-md border border-phsSky/20 px-4 py-3 font-mono text-sm font-bold text-phsInk"
-              >
-                <PhoneIcon className="h-4 w-4" />
-                {PHONE_DISPLAY}
-              </a>
-              <a
-                href="#scheduling"
-                onClick={() => setOpen(false)}
-                className="rounded-md bg-phsOrange px-5 py-3 text-center font-sans text-sm font-bold text-white"
-              >
-                Get Free Quote
-              </a>
-            </div>
-          </nav>
-        </div>
-      )}
     </header>
   )
 }

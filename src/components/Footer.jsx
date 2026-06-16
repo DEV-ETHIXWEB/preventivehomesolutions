@@ -185,7 +185,7 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div className="border-t border-white/10 bg-black/10">
-        <div className="mx-auto flex max-w-[1400px] flex-col items-center justify-between gap-4 px-6 py-6 text-[13px] text-phsNavy md:flex-row font-mono font-medium">
+        <div className="mx-auto flex max-w-[1400px] flex-col items-center justify-between gap-4 px-6 pt-6 pb-28 lg:pb-6 text-[13px] text-phsNavy md:flex-row font-mono font-medium">
           <p className="text-center md:text-left">
             Copyright © {new Date().getFullYear()}, Preventive Home Solutions. All Rights Reserved.
           </p>
