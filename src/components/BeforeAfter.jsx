@@ -267,7 +267,7 @@ export default function BeforeAfter() {
   }, [tiltEngine, handlePointerMove, handlePointerEnter, handlePointerLeave])
 
   return (
-    <section className="bg-[#FAF8F5] py-16 lg:py-24 px-6 border-t border-[#e6ded4]">
+    <section className="relative z-10 bg-[#FAF8F5] py-16 lg:py-24 px-6 border-t border-[#e6ded4]">
       <div className="mx-auto max-w-[1200px]">
         
         {/* Main Section Header */}

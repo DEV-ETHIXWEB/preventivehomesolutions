@@ -67,7 +67,7 @@ function LinkColumn({ title, items }) {
           <li key={item.label}>
             <a
               href={item.href}
-              className="group/link inline-flex items-center gap-2 text-[14px] text-gray-300 hover:text-white transition-colors duration-300"
+              className="group/link inline-flex items-center gap-2 text-[14px] text-gray-300 hover:text-phsOrange hover:[text-shadow:0_0_10px_rgba(243,116,27,0.85)] transition-all duration-300"
             >
               <ChevronRight />
               <span>{item.label}</span>

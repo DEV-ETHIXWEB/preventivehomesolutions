@@ -51,7 +51,7 @@ export default function Process() {
       <div className="mx-auto max-w-[1200px]">
         
         {/* Heading block */}
-        <div className="text-center max-w-3xl mx-auto mb-16 mt-0 md:-mt-[40px] md:-translate-y-[70px]">
+        <div className="text-center max-w-3xl mx-auto mb-20 mt-0 md:-mt-[40px] md:-translate-y-[110px]">
           <Reveal as="p" className="text-[clamp(12px,3.5vw,14px)] sm:text-base font-mono tracking-[0.25em] font-bold text-white/60 mb-4">
             How We Work
           </Reveal>

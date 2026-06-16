@@ -95,7 +95,7 @@ function BookingForm() {
 
   return (
     <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true) }}>
-      <p className="text-center font-mono max-lg:text-[12.6px] text-xs font-bold tracking-[0.24em] text-phsOrange">
+      <p className="text-center font-mono max-lg:mt-[30px] max-lg:text-[12.6px] text-xs font-bold tracking-[0.24em] text-phsOrange">
         Request Service
       </p>
       <h2 className="mt-2 text-center font-sans max-lg:text-[25.2px] text-2xl font-extrabold leading-tight tracking-tight text-phsInk">
@@ -162,7 +162,7 @@ function BookingForm() {
 
         <button
           type="submit"
-          className="group mx-auto mt-1 flex w-fit items-center justify-center gap-2 whitespace-nowrap rounded-md bg-phsOrange px-8 py-3 max-lg:px-[35px] max-lg:py-[13.5px] font-display text-sm max-lg:text-[15.5px] font-bold tracking-[0.12em] text-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-phsOrangeDark hover:shadow-md active:translate-y-0"
+          className="group mx-auto mt-1 flex w-fit items-center justify-center gap-2 whitespace-nowrap rounded-md bg-phsOrange px-8 py-3 max-lg:px-[26.06px] max-lg:py-[8.6px] font-display text-sm max-lg:text-[14.73px] font-bold tracking-[0.12em] text-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-phsOrangeDark hover:shadow-md active:translate-y-0"
         >
           Schedule Inspection
           <ArrowIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -263,7 +263,7 @@ export default function Hero() {
                 screen and ends just past the text. Absolute so it never affects
                 the rating's own layout. */}
             <div
-              className="pointer-events-none absolute inset-y-0 right-0 -left-5 translate-x-[10px] lg:left-[calc(-1*max(2.5rem,calc((100vw_-_1500px)/2_+_2.5rem)))]"
+              className="pointer-events-none absolute inset-y-0 right-0 -left-5 translate-x-[10px] lg:-translate-x-[70px] lg:origin-left lg:scale-x-[1.38] lg:scale-y-[1.15] lg:left-[calc(-1*max(2.5rem,calc((100vw_-_1500px)/2_+_2.5rem)))]"
               style={{
                 backgroundImage: 'url("/flag for google rating.svg")',
                 backgroundSize: '100% 100%',
@@ -284,7 +284,7 @@ export default function Hero() {
           </div>
 
           {/* Mobile-only Form Container */}
-          <div className="block lg:hidden mx-auto mt-12 mb-10 w-full max-w-[380px] relative drop-shadow-2xl">
+          <div className="block lg:hidden mx-auto mt-12 mb-10 w-[90%] max-w-[342px] relative drop-shadow-2xl">
             {/* Background Shield */}
             <img 
               src="/shield.svg" 

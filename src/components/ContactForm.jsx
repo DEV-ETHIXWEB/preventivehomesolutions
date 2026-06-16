@@ -24,7 +24,15 @@ export default function ContactForm() {
           {/* Left Column: Image */}
           <div className="lg:col-span-4 w-full flex justify-center lg:justify-start">
             <Reveal variant="left" className="w-full">
-              <img src="/ready to book.png" alt="Ready to Book" className="w-full max-w-[350px] lg:max-w-[450px] h-auto object-contain drop-shadow-2xl mx-auto lg:-ml-4" />
+              {/* Flip card: same shield image on both faces, slow 3D flip on hover */}
+              <div className="group w-full max-w-[350px] lg:max-w-[450px] mx-auto lg:-ml-4 [perspective:1500px]">
+                <div className="relative w-full [transform-style:preserve-3d] transition-transform duration-[2200ms] ease-in-out group-hover:[transform:rotateY(180deg)]">
+                  {/* Front face */}
+                  <img src="/ready to book.png" alt="Ready to Book" className="w-full h-auto object-contain drop-shadow-2xl [backface-visibility:hidden]" />
+                  {/* Back face — same image */}
+                  <img src="/ready to book.png" alt="" aria-hidden="true" className="absolute inset-0 w-full h-auto object-contain drop-shadow-2xl [backface-visibility:hidden] [transform:rotateY(180deg)]" />
+                </div>
+              </div>
             </Reveal>
           </div>
 

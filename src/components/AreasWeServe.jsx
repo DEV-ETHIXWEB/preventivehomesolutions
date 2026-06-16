@@ -29,7 +29,7 @@ export default function AreasWeServe() {
   return (
     <section 
       id="areas-we-serve"
-      className="relative w-full overflow-hidden bg-white pb-16 sm:pb-20 px-6"
+      className="relative z-10 w-full overflow-hidden bg-white pb-16 sm:pb-20 px-6"
     >
       <div className="relative mx-auto max-w-[1200px]">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">

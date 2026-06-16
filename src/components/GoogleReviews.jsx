@@ -197,7 +197,7 @@ export default function GoogleReviews() {
             'linear-gradient(to right, transparent, black 6%, black 94%, transparent)',
         }}
       >
-        <div className="flex w-max animate-marquee-slow gap-5 py-6">
+        <div className="flex w-max animate-marquee-slow [animation-direction:reverse] gap-5 py-6">
           {track.map((review, i) => (
             <ReviewCard key={i} {...review} />
           ))}

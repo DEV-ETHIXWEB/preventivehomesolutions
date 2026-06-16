@@ -202,7 +202,7 @@ export default function Header() {
           <a
             href={`tel:${PHONE_TEL}`}
             onMouseEnter={closeMenu}
-            className="hidden items-center gap-2 rounded-md border border-phsSky/20 bg-white px-4 py-2.5 font-mono text-sm font-bold text-phsInk shadow-sm transition-colors hover:border-phsSky hover:bg-phsSky/5 xl:inline-flex"
+            className="hidden items-center gap-2 rounded-md border border-phsSky/20 bg-white px-4 py-2.5 font-sans text-sm font-bold text-phsInk shadow-sm transition-colors hover:border-phsSky hover:bg-phsSky/5 xl:inline-flex"
           >
             <PhoneIcon className="h-4 w-4" />
             {PHONE_DISPLAY}
