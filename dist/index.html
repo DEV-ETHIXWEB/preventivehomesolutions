@@ -23,10 +23,34 @@
       href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&family=Poppins:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <script type="module" crossorigin src="/assets/index-CjWhOQHF.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-DviA6r5O.css">
+    <style>
+      /* Instant loading screen — visible before the JS bundle parses. React
+         replaces #root (and this loader) on mount, handing off to the matching
+         <Loader /> overlay seamlessly. */
+      @keyframes phsShieldFlip { to { transform: rotateY(360deg); } }
+      #app-loader { position: fixed; inset: 0; z-index: 9999; display: flex;
+        flex-direction: column; align-items: center; justify-content: center;
+        gap: 28px; background: #f4ecdf; perspective: 800px; }
+      #app-loader .phs-spin { width: 88px; height: 88px;
+        animation: phsShieldFlip 1.5s linear infinite; transform-style: preserve-3d; }
+      #app-loader .phs-label { font-family: 'Space Mono', monospace; font-size: 11px;
+        font-weight: 700; letter-spacing: 0.4em; color: rgba(243,116,27,0.8); }
+    </style>
+    <script type="module" crossorigin src="/assets/index-CK3AoPzJ.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-DZ6rXAtc.css">
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div id="app-loader">
+        <div class="phs-spin">
+          <svg viewBox="0 0 64 64" width="88" height="88" xmlns="http://www.w3.org/2000/svg">
+            <path d="M32 4 L54 12 V30 C54 44 44 54 32 60 C20 54 10 44 10 30 V12 Z" fill="#f3741b" />
+            <path d="M32 14 L46 19 V31 C46 41 39 48 32 52 C25 48 18 41 18 31 V19 Z" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linejoin="round" />
+            <path d="M27 31 L31 35 L38 26" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
+        <div class="phs-label">LOADING</div>
+      </div>
+    </div>
   </body>
 </html>

@@ -14,9 +14,72 @@ import Faq from './components/Faq.jsx'
 import Blog from './components/Blog.jsx'
 import ContactForm from './components/ContactForm.jsx'
 import Footer from './components/Footer.jsx'
+import ServicePage from './components/ServicePage.jsx'
+import Loader from './components/Loader.jsx'
+import { SERVICE_PAGES } from './data/services.js'
+import { usePath, useLinkInterceptor } from './router.js'
+import { setLoading } from './loading.js'
+import { useEffect } from 'react'
 
+
+// Map URL paths to the service-page slugs that drive ServicePage.
+const ROUTES = {
+  '/plumbing': 'plumbing',
+  '/hvac': 'hvac',
+  '/ac': 'ac',
+}
 
 export default function App() {
+  useLinkInterceptor()
+  const path = usePath()
+
+  // Loading screen: shown on first load and on every route change, hidden once
+  // the new page's images have actually finished loading — so its duration
+  // tracks real load speed (with a min so it doesn't flash, and a max so a slow
+  // asset can never leave it stuck).
+  useEffect(() => {
+    setLoading(true)
+    let cancelled = false
+
+    const raf = requestAnimationFrame(() =>
+      requestAnimationFrame(async () => {
+        const imgs = Array.from(document.querySelectorAll('#root img'))
+        const imagesReady = Promise.all(
+          imgs.map((img) =>
+            img.complete
+              ? null
+              : new Promise((res) => {
+                  img.addEventListener('load', res, { once: true })
+                  img.addEventListener('error', res, { once: true })
+                })
+          )
+        )
+        const minVisible = new Promise((r) => setTimeout(r, 350))
+        const maxWait = new Promise((r) => setTimeout(r, 2500))
+
+        await Promise.race([Promise.all([imagesReady, minVisible]), maxWait])
+        if (!cancelled) setLoading(false)
+      })
+    )
+
+    return () => {
+      cancelled = true
+      cancelAnimationFrame(raf)
+    }
+  }, [path])
+
+  const slug = ROUTES[path]
+  const page = slug && SERVICE_PAGES[slug] ? <ServicePage slug={slug} /> : <Home />
+
+  return (
+    <>
+      {page}
+      <Loader />
+    </>
+  )
+}
+
+function Home() {
   return (
     <div className="min-h-screen bg-white">
       <TopBar />

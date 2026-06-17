@@ -24,13 +24,42 @@ export default function ContactForm() {
           {/* Left Column: Image */}
           <div className="lg:col-span-4 w-full flex justify-center lg:justify-start">
             <Reveal variant="left" className="w-full">
-              {/* Flip card: same shield image on both faces, slow 3D flip on hover */}
-              <div className="group w-full max-w-[350px] lg:max-w-[450px] mx-auto lg:-ml-4 [perspective:1500px]">
+              {/* Flip card: a real-feeling 3D shield. The two readable faces are
+                  separated in Z, and a stack of darkened copies fills the gap
+                  between them so the rotation reveals a solid extruded edge
+                  (thickness) instead of looking like flat paper. */}
+              <div className="group w-full max-w-[350px] lg:max-w-[450px] mx-auto lg:-ml-4 [perspective:1600px]">
                 <div className="relative w-full [transform-style:preserve-3d] transition-transform duration-[2200ms] ease-in-out group-hover:[transform:rotateY(180deg)]">
-                  {/* Front face */}
-                  <img src="/ready to book.png" alt="Ready to Book" className="w-full h-auto object-contain drop-shadow-2xl [backface-visibility:hidden]" />
-                  {/* Back face — same image */}
-                  <img src="/ready to book.png" alt="" aria-hidden="true" className="absolute inset-0 w-full h-auto object-contain drop-shadow-2xl [backface-visibility:hidden] [transform:rotateY(180deg)]" />
+                  {/* Extruded body — darkened slices stepped through the depth */}
+                  {Array.from({ length: 16 }).map((_, i) => {
+                    const z = -8 + i // -8px .. 7px
+                    const shade = 0.4 + (i / 15) * 0.35 // darker at the back, lighter toward the front
+                    return (
+                      <img
+                        key={i}
+                        src="/ready to book.png"
+                        alt=""
+                        aria-hidden="true"
+                        className="absolute inset-0 w-full h-auto object-contain"
+                        style={{ transform: `translateZ(${z}px)`, filter: `brightness(${shade}) saturate(0.55)` }}
+                      />
+                    )
+                  })}
+                  {/* Front face — full brightness, in normal flow so it sizes the card */}
+                  <img
+                    src="/ready to book.png"
+                    alt="Ready to Book"
+                    className="relative w-full h-auto object-contain drop-shadow-2xl [backface-visibility:hidden]"
+                    style={{ transform: 'translateZ(8px)' }}
+                  />
+                  {/* Back face — same image, flipped so it reads correctly from behind */}
+                  <img
+                    src="/ready to book.png"
+                    alt=""
+                    aria-hidden="true"
+                    className="absolute inset-0 w-full h-auto object-contain drop-shadow-2xl [backface-visibility:hidden]"
+                    style={{ transform: 'translateZ(-8px) rotateY(180deg)' }}
+                  />
                 </div>
               </div>
             </Reveal>

@@ -8,6 +8,7 @@ const servicesList = [
     iconSrc: '/Group 8.svg',
     photo: '/Pot Filler Faucet Install in Ogden.jpeg',
     photoAlt: 'Pot filler faucet installation, real job photo',
+    href: '/plumbing',
   },
   {
     title: 'HVAC',
@@ -15,6 +16,7 @@ const servicesList = [
     iconSrc: '/Group 9.svg',
     photo: '/Heating furnace.jpg',
     photoAlt: 'Furnace system installation',
+    href: '/hvac',
   },
   {
     title: 'AC Conditioning',
@@ -22,6 +24,7 @@ const servicesList = [
     iconSrc: '/Group 10.svg',
     photo: '/AC installed 01.jpg',
     photoAlt: 'AC unit installation, real job photo',
+    href: '/ac',
   },
 ]
 
@@ -90,10 +93,10 @@ export default function Services() {
 
             {/* Service Grid */}
             <div className="grid grid-cols-3 gap-2 sm:gap-6">
-              {servicesList.map(({ title, description, iconSrc, photo, photoAlt }, i) => (
+              {servicesList.map(({ title, description, iconSrc, photo, photoAlt, href }, i) => (
                 <Reveal key={title} delay={i * 100} variant="up" className="h-full">
                   <a
-                    href="#contact"
+                    href={href}
                     className={`group relative z-10 flex h-full flex-col items-center justify-center overflow-hidden text-center p-2 sm:p-6 rounded-2xl border bg-white/50 transition-all duration-300 ease-out hover:bg-white hover:border-phsOrange/40 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-2xl hover:shadow-phsOrange/10 ${
                       i === slide - 1
                         ? 'border-phsOrange bg-white -translate-y-2 scale-[1.02] shadow-2xl shadow-phsOrange/10'

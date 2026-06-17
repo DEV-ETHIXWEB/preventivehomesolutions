@@ -93,6 +93,18 @@ body {
   }
 }
 
+/* Loading-screen shield: continuous 3D flip on the Y axis. */
+@keyframes phs-shield-flip {
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+.phs-shield-spin {
+  animation: phs-shield-flip 1.5s linear infinite;
+  transform-style: preserve-3d;
+}
+
 /* Custom animation for the map zoom-in transition */
 @keyframes map-zoom {
   0% {
