@@ -320,7 +320,7 @@ export default function Hero() {
             </a>
           </Reveal>
 
-          <div className="relative mt-2 lg:mt-3 w-fit animate-ribbon-in">
+          <div className="relative mt-2 lg:mt-3 w-fit animate-ribbon-in -ml-[5px] lg:ml-0">
             {/* Flag ribbon behind the rating bleeds to the left edge of the
                 screen and ends just past the text. Absolute so it never affects
                 the rating's own layout. */}

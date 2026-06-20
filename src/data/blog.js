@@ -20,7 +20,7 @@ export const BLOG_POSTS = [
       'Water on the floor can turn a normal evening into a fast-moving problem. The good news: a few quick moves protect your home.',
     date: 'JANUARY 17, 2026',
     readTime: '5 min read',
-    image: '/plumbing_blog.png',
+    image: '/Emergency Plumbing Steps.png',
   },
   {
     slug: 'utah-inversions-indoor-air-quality',
@@ -30,7 +30,7 @@ export const BLOG_POSTS = [
       'Winter along the Wasatch Front can feel a little upside down. You look toward the mountains and lose them in haze.',
     date: 'JANUARY 10, 2026',
     readTime: '6 min read',
-    image: '/air_quality_blog.png',
+    image: '/Utah Inversions.png',
   },
   {
     slug: 'seer2-2026-hvac-standards',
@@ -60,7 +60,7 @@ export const BLOG_POSTS = [
       'Northern Utah homeowners get used to a few regional realities: big temperature swings, dry air, and notably hard water.',
     date: 'DECEMBER 17, 2025',
     readTime: '5 min read',
-    image: '/plumbing_blog.png',
+    image: '/Utah Hard Water.png',
   },
   {
     slug: 'sump-pump-maintenance',
@@ -80,7 +80,7 @@ export const BLOG_POSTS = [
       "If you have a sink that won't drain or a toilet that keeps backing up, you have two main options. Here's how to choose.",
     date: 'DECEMBER 3, 2025',
     readTime: '6 min read',
-    image: '/plumbing_blog.png',
+    image: '/Hydro Jetting vs Snaking.png',
   },
   {
     slug: 'how-to-unclog-a-blocked-toilet',
@@ -90,7 +90,7 @@ export const BLOG_POSTS = [
       'A badly clogged toilet can turn a normal day into a stressful mess within minutes. A few proven steps clear most blockages.',
     date: 'NOVEMBER 26, 2025',
     readTime: '4 min read',
-    image: '/plumbing_blog.png',
+    image: '/How to Unclog a Seriously Blocked Toilet.png',
   },
   {
     slug: 'trenchless-sewer-repair-pros-cons',
@@ -100,7 +100,7 @@ export const BLOG_POSTS = [
       'Sewer problems can disrupt your home and your daily routine. When a sewer line fails, trenchless repair is worth understanding.',
     date: 'NOVEMBER 26, 2025',
     readTime: '6 min read',
-    image: '/plumbing_blog.png',
+    image: '/Trenchless Sewer Repair.png',
   },
   {
     slug: 'plumbing-tip-top-shape-year-round',
@@ -110,7 +110,7 @@ export const BLOG_POSTS = [
       'Keep your home in top condition year-round with our plumbing seasonal maintenance tips. From preparing for winter to spring checks.',
     date: 'NOVEMBER 12, 2025',
     readTime: '5 min read',
-    image: '/plumbing_blog.png',
+    image: '/Your Plumbing in TIp-Top shape.png',
   },
   {
     slug: 'regular-deck-maintenance',
@@ -130,6 +130,6 @@ export const BLOG_POSTS = [
       'Keep your home in top condition year-round with our seasonal maintenance tips. From preparing for winter to summer readiness.',
     date: 'OCTOBER 14, 2025',
     readTime: '5 min read',
-    image: '/air_quality_blog.png',
+    image: '/Home Maintanence Tips.png',
   },
 ]
