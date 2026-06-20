@@ -15,8 +15,12 @@ import Blog from './components/Blog.jsx'
 import ContactForm from './components/ContactForm.jsx'
 import Footer from './components/Footer.jsx'
 import ServicePage from './components/ServicePage.jsx'
+import BlogPage from './components/BlogPage.jsx'
+import ArticlePage from './components/ArticlePage.jsx'
+import AboutPage from './components/AboutPage.jsx'
 import Loader from './components/Loader.jsx'
 import { SERVICE_PAGES } from './data/services.js'
+import { BLOG_POSTS } from './data/blog.js'
 import { usePath, useLinkInterceptor } from './router.js'
 import { setLoading } from './loading.js'
 import { useEffect } from 'react'
@@ -69,7 +73,20 @@ export default function App() {
   }, [path])
 
   const slug = ROUTES[path]
-  const page = slug && SERVICE_PAGES[slug] ? <ServicePage slug={slug} /> : <Home />
+  let page
+  if (path === '/about-us') {
+    page = <AboutPage />
+  } else if (path === '/blog') {
+    page = <BlogPage />
+  } else if (path.startsWith('/blog/')) {
+    const postSlug = path.slice('/blog/'.length).replace(/\/$/, '')
+    const post = BLOG_POSTS.find((p) => p.slug === postSlug)
+    page = post ? <ArticlePage post={post} /> : <BlogPage />
+  } else if (slug && SERVICE_PAGES[slug]) {
+    page = <ServicePage slug={slug} />
+  } else {
+    page = <Home />
+  }
 
   return (
     <>

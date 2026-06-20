@@ -173,10 +173,10 @@ function BookingForm({ mobile = false }) {
 
         <button
           type="submit"
-          className="cta-diag cta-diag-orange group mx-auto mt-1 flex w-fit items-center justify-center gap-2 whitespace-nowrap rounded-md bg-phsOrange px-8 py-3 max-lg:px-[23.45px] max-lg:py-[7.74px] font-sans text-sm max-lg:text-[13.26px] font-bold tracking-[0.12em] text-white shadow-sm hover:-translate-y-0.5 hover:shadow-md active:translate-y-0"
+          className="cta-diag cta-diag-orange group mx-auto mt-1 flex w-fit items-center justify-center gap-2 whitespace-nowrap rounded-md bg-phsOrange px-[38.4px] py-[14.4px] max-lg:px-[28.14px] max-lg:py-[9.29px] font-sans text-[16.8px] max-lg:text-[15.91px] font-bold tracking-[0.12em] text-white shadow-sm hover:-translate-y-0.5 hover:shadow-md active:translate-y-0"
         >
-          Schedule Inspection
-          <ArrowIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+          Book Now
+          <ArrowIcon className="h-[19.2px] w-[19.2px] transition-transform duration-300 group-hover:translate-x-1" />
         </button>
       </div>
     </form>
@@ -292,14 +292,14 @@ export default function Hero() {
                 screen and ends just past the text. Absolute so it never affects
                 the rating's own layout. */}
             <div
-              className="pointer-events-none absolute inset-y-0 right-0 -left-5 translate-x-[10px] lg:-translate-x-[70px] lg:origin-left lg:scale-x-[1.38] lg:scale-y-[1.15] lg:left-[calc(-1*max(2.5rem,calc((100vw_-_1500px)/2_+_2.5rem)))]"
+              className="pointer-events-none absolute inset-y-0 -right-2.5 lg:right-0 -left-12 lg:-translate-x-[70px] lg:origin-left lg:scale-x-[1.38] lg:scale-y-[1.15] lg:left-[calc(-1*max(2.5rem,calc((100vw_-_1500px)/2_+_2.5rem)))]"
               style={{
                 backgroundImage: 'url("/flag for google rating.svg")',
                 backgroundSize: '100% 100%',
                 backgroundRepeat: 'no-repeat',
               }}
             />
-            <div className="relative z-10 inline-flex items-center gap-2 sm:gap-2.5 py-12 pl-6 pr-16 -translate-x-[3px] lg:-translate-x-[35px] lg:py-14 lg:pl-10">
+            <div className="relative z-10 inline-flex items-center gap-2 sm:gap-2.5 py-12 pl-6 pr-16 -translate-x-[33px] lg:-translate-x-[65px] lg:py-14 lg:pl-10">
               <GoogleLogo className="h-6 sm:h-7 w-auto shrink-0" />
               <div className="flex text-lg sm:text-xl text-yellow-400 drop-shadow-sm">
                 {Array.from({ length: 5 }).map((_, i) => (

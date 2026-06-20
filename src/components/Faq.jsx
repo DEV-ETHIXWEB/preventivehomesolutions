@@ -82,7 +82,7 @@ export default function Faq() {
                     className="flex w-full items-center justify-between px-6 py-5 text-left outline-none"
                     aria-expanded={open}
                   >
-                    <span className="font-display text-[15px] sm:text-base font-bold text-phsInk">
+                    <span className="font-sans text-[15px] sm:text-base font-extrabold text-phsInk">
                       {item.q}
                     </span>
                     <span className="ml-4 flex-shrink-0">

@@ -1,28 +1,8 @@
 import Reveal from './Reveal.jsx'
+import { BLOG_POSTS } from '../data/blog.js'
 
-const posts = [
-  {
-    category: 'PLUMBING',
-    title: 'Emergency Plumbing Steps: What To Do Before The Technician Arrives',
-    excerpt: 'Water on the floor can turn a normal evening into a fast-moving problem. The good news: a few quick moves protect your home.',
-    date: 'JANUARY 17, 2026',
-    image: '/plumbing_blog.png',
-  },
-  {
-    category: 'AIR QUALITY',
-    title: 'Utah Inversions And Indoor Air Quality: Solutions That Actually Work',
-    excerpt: 'Winter along the Wasatch Front can feel a little upside down. You look toward the mountains and lose them in haze.',
-    date: 'JANUARY 10, 2026',
-    image: '/air_quality_blog.png',
-  },
-  {
-    category: 'HVAC',
-    title: 'SEER2 And 2026 HVAC Efficiency Standards Explained For Utah Homeowners',
-    excerpt: "Heating and cooling efficiency got a little harder to read in the last couple of years. Here's the plain-English version.",
-    date: 'DECEMBER 29, 2025',
-    image: '/hvac_blog.png',
-  },
-]
+// Homepage teaser shows the three most recent posts; the full list lives on /blog.
+const posts = BLOG_POSTS.slice(0, 3)
 
 export default function Blog() {
   return (
@@ -82,9 +62,11 @@ export default function Blog() {
 
               {/* Bottom Card Content Section */}
               <div className="flex flex-1 flex-col p-6">
-                <h3 className="font-display font-bold text-[16px] sm:text-[17px] leading-snug text-phsInk mb-3 group-hover:text-phsOrange transition-colors duration-300">
-                  {post.title}
-                </h3>
+                <a href={`/blog/${post.slug}`}>
+                  <h3 className="font-display font-bold text-[16px] sm:text-[17px] leading-snug text-phsInk mb-3 group-hover:text-phsOrange transition-colors duration-300">
+                    {post.title}
+                  </h3>
+                </a>
                 <p className="text-[13px] sm:text-[14px] leading-relaxed text-gray-500 mb-6 font-sans flex-1">
                   {post.excerpt}
                 </p>
@@ -95,10 +77,10 @@ export default function Blog() {
                     {post.date}
                   </span>
                   <a
-                    href="#"
+                    href={`/blog/${post.slug}`}
                     className="inline-flex items-center gap-1.5 font-mono text-[9px] sm:text-[10px] font-bold tracking-widest text-phsOrange hover:text-phsOrangeDark transition-colors duration-300 group/link"
                   >
-                    Read 
+                    Read
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="h-3 w-3 transition-transform duration-300 group-hover/link:translate-x-1">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                     </svg>
@@ -107,6 +89,19 @@ export default function Blog() {
               </div>
             </Reveal>
           ))}
+        </div>
+
+        {/* View all */}
+        <div className="mt-12 flex justify-center">
+          <a
+            href="/blog"
+            className="cta-diag cta-diag-orange group inline-flex items-center gap-2 rounded-md bg-phsOrange px-7 py-4 font-sans text-sm font-bold tracking-[0.12em] text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0"
+          >
+            View All Articles
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
+          </a>
         </div>
 
       </div>

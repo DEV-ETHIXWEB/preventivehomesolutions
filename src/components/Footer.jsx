@@ -1,8 +1,8 @@
 const quickLinks = [
   { label: 'Home', href: '#hero' },
-  { label: 'About Us', href: '#about' },
-  { label: 'Blogs', href: '#blog' },
-  { label: 'Preventive Tips', href: '#blog' },
+  { label: 'About Us', href: '/about-us' },
+  { label: 'Blogs', href: '/blog' },
+  { label: 'Preventive Tips', href: '/blog' },
   { label: 'Maintenance', href: '#services' },
   { label: 'Contact Us', href: '#contact' },
 ]
@@ -92,14 +92,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
           
           {/* Brand Column */}
-          <div>
-            <div className="flex items-center gap-3.5">
+          <div className="min-w-0">
+            <div className="flex items-center gap-3">
               <img
                 src="/main logo.png"
                 alt="Preventive Home Solutions"
-                className="h-40 w-auto"
+                className="h-28 w-auto shrink-0"
               />
-              <span className="font-display text-lg font-black tracking-[0.18em] leading-tight text-white hover:text-phsOrange transition-colors duration-300">
+              <span className="min-w-0 font-display text-base font-black tracking-[0.16em] leading-tight text-white hover:text-phsOrange transition-colors duration-300">
                 Preventive<br />
                 Home<br />
                 Solutions
@@ -145,17 +145,17 @@ export default function Footer() {
           </div>
 
           {/* Quick Links Column (Hidden on Mobile) */}
-          <div className="hidden sm:block">
+          <div className="hidden min-w-0 sm:block">
             <LinkColumn title="Quick Links" items={quickLinks} />
           </div>
 
           {/* Our Services Column (Hidden on Mobile) */}
-          <div className="hidden sm:block">
+          <div className="hidden min-w-0 sm:block">
             <LinkColumn title="Our Services" items={services} />
           </div>
 
           {/* Contact Info Column */}
-          <div>
+          <div className="min-w-0">
             <h3 className="font-display font-black text-sm tracking-[0.2em] text-white mb-6 [-webkit-text-stroke:0.6px_currentColor] hover:text-phsOrange transition-colors duration-300">
               Contact Info
             </h3>
@@ -164,11 +164,11 @@ export default function Footer() {
                 <li key={i} className="flex items-start gap-3.5 text-[14px] text-gray-300">
                   <info.Icon />
                   {info.href ? (
-                    <a href={info.href} className="hover:text-phsOrange transition-colors duration-200">
+                    <a href={info.href} className="min-w-0 break-words hover:text-phsOrange transition-colors duration-200">
                       {info.text}
                     </a>
                   ) : (
-                    <span className="hover:text-phsOrange transition-colors duration-200">{info.text}</span>
+                    <span className="min-w-0 break-words hover:text-phsOrange transition-colors duration-200">{info.text}</span>
                   )}
                 </li>
               ))}

@@ -122,10 +122,10 @@ export default function Header() {
         Areas We Serve
         <CaretIcon className={`h-3.5 w-3.5 transition-transform duration-300 ${openMenu === 'areas' ? 'rotate-180' : ''}`} />
       </button>
-      <a href="#about" onMouseEnter={closeMenu} className={navLinkClass}>
+      <a href="/about-us" onMouseEnter={closeMenu} className={navLinkClass}>
         About Us
       </a>
-      <a href="#blog" onMouseEnter={closeMenu} className={navLinkClass}>
+      <a href="/blog" onMouseEnter={closeMenu} className={navLinkClass}>
         Blog
       </a>
     </nav>
@@ -223,7 +223,7 @@ export default function Header() {
             <img
               src={LOGO_SRC}
               alt="Preventive Home Solutions"
-              className="h-11 lg:h-14 w-auto rounded-lg transition-transform duration-300 group-hover:scale-105"
+              className="h-[61.6px] lg:h-14 w-auto rounded-lg transition-transform duration-300 group-hover:scale-105"
             />
             <span className="hidden sm:block font-display text-base lg:text-lg font-extrabold leading-tight text-phsInk">
               Preventive Home Solutions
@@ -270,7 +270,7 @@ export default function Header() {
           <img
             src={LOGO_SRC}
             alt="Preventive Home Solutions"
-            className="h-[clamp(7.0313rem,29.6875vw,9.375rem)] w-auto rounded-lg transition-transform duration-300 group-hover:scale-[1.05] lg:h-[clamp(5.0781rem,9.0625vw,8.75rem)] lg:translate-y-[5px]"
+            className="h-[clamp(9.8438rem,41.5625vw,13.125rem)] w-auto rounded-lg transition-transform duration-300 group-hover:scale-[1.05] lg:h-[clamp(5.0781rem,9.0625vw,8.75rem)] lg:translate-y-[5px]"
           />
           <span className="font-display text-[clamp(16px,5vw,20px)] sm:text-xl font-extrabold leading-tight text-phsInk lg:max-w-none">
             Preventive Home Solutions

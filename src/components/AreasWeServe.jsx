@@ -129,7 +129,7 @@ export default function AreasWeServe() {
                 </h3>
 
                 {/* Subheading */}
-                <p className="font-mono text-sm sm:text-base font-bold tracking-[0.2em] text-phsNavy mt-3">
+                <p className="font-mono text-sm sm:text-base font-bold tracking-[0.2em] text-white mt-3">
                   10 Cities · One Standard
                 </p>
               </div>
