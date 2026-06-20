@@ -25,7 +25,7 @@ function ChevronRight() {
 
 function PinIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 text-phsOrange shrink-0">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 text-white shrink-0">
       <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
       <circle cx="12" cy="10" r="3" />
     </svg>
@@ -34,7 +34,7 @@ function PinIcon() {
 
 function PhoneIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 text-phsOrange shrink-0">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 text-white shrink-0">
       <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
     </svg>
   )
@@ -42,7 +42,7 @@ function PhoneIcon() {
 
 function MailIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 text-phsOrange shrink-0">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 text-white shrink-0">
       <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
       <polyline points="22,6 12,13 2,6" />
     </svg>
@@ -59,7 +59,7 @@ const contactInfo = [
 function LinkColumn({ title, items }) {
   return (
     <div>
-      <h3 className="font-display font-black text-sm tracking-[0.2em] text-white mb-6 [-webkit-text-stroke:0.6px_currentColor]">
+      <h3 className="font-display font-black text-sm tracking-[0.2em] text-white mb-6 [-webkit-text-stroke:0.6px_currentColor] hover:text-phsOrange transition-colors duration-300">
         {title}
       </h3>
       <ul className="space-y-3.5">
@@ -99,13 +99,13 @@ export default function Footer() {
                 alt="Preventive Home Solutions"
                 className="h-40 w-auto"
               />
-              <span className="font-display text-lg font-black tracking-[0.18em] leading-tight text-white ">
+              <span className="font-display text-lg font-black tracking-[0.18em] leading-tight text-white hover:text-phsOrange transition-colors duration-300">
                 Preventive<br />
                 Home<br />
                 Solutions
               </span>
             </div>
-            <p className="mt-6 text-[14px] leading-relaxed text-gray-300 font-sans">
+            <p className="mt-6 text-[14px] leading-relaxed text-gray-300 font-sans hover:text-phsOrange transition-colors duration-300">
               Fix It. Prevent It. Protect It. Expert plumbing, heating, and cooling services built on trust and standard.
             </p>
 
@@ -156,7 +156,7 @@ export default function Footer() {
 
           {/* Contact Info Column */}
           <div>
-            <h3 className="font-display font-black text-sm tracking-[0.2em] text-white mb-6 [-webkit-text-stroke:0.6px_currentColor]">
+            <h3 className="font-display font-black text-sm tracking-[0.2em] text-white mb-6 [-webkit-text-stroke:0.6px_currentColor] hover:text-phsOrange transition-colors duration-300">
               Contact Info
             </h3>
             <ul className="space-y-4">
@@ -168,7 +168,7 @@ export default function Footer() {
                       {info.text}
                     </a>
                   ) : (
-                    <span>{info.text}</span>
+                    <span className="hover:text-phsOrange transition-colors duration-200">{info.text}</span>
                   )}
                 </li>
               ))}
@@ -178,21 +178,21 @@ export default function Footer() {
         </div>
 
         {/* Accessibility Note */}
-        <p className="mt-16 text-center text-[12px] text-phsNavy max-w-2xl mx-auto leading-relaxed border-t border-white/5 pt-8 font-sans">
+        <p className="mt-16 text-center text-[12px] text-white max-w-2xl mx-auto leading-relaxed border-t border-white/5 pt-8 font-sans hover:text-phsOrange transition-colors duration-300">
           Preventive Home Solutions is committed to keeping our site accessible to everyone. We welcome feedback on ways to improve this site's accessibility.
         </p>
       </div>
 
       {/* Bottom Bar */}
       <div className="border-t border-white/10 bg-black/10">
-        <div className="mx-auto flex max-w-[1400px] flex-col items-center justify-between gap-4 px-6 pt-6 pb-28 lg:pb-6 text-[13px] text-phsNavy md:flex-row font-mono font-medium">
-          <p className="text-center md:text-left">
+        <div className="mx-auto flex max-w-[1400px] flex-col items-center justify-between gap-4 px-6 pt-6 pb-28 lg:pb-6 text-[13px] text-white md:flex-row font-mono font-medium">
+          <p className="text-center md:text-left hover:text-phsOrange transition-colors duration-300">
             Copyright © {new Date().getFullYear()}, Preventive Home Solutions. All Rights Reserved.
           </p>
           <nav className="flex items-center gap-6">
-            <a href="#" className="hover:text-white transition-colors duration-300">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors duration-300">Terms &amp; Conditions</a>
-            <a href="#" className="hover:text-white transition-colors duration-300">Sitemap</a>
+            <a href="#" className="hover:text-phsOrange transition-colors duration-300">Privacy Policy</a>
+            <a href="#" className="hover:text-phsOrange transition-colors duration-300">Terms &amp; Conditions</a>
+            <a href="#" className="hover:text-phsOrange transition-colors duration-300">Sitemap</a>
           </nav>
         </div>
       </div>

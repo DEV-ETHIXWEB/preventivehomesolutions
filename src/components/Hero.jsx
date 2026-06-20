@@ -15,6 +15,13 @@ const PHONE_TEL = '3854539428'
 
 const SERVICES = ['Plumbing', 'Heating', 'Cooling', 'Maintenance', 'Other']
 
+// Mirrors the "Why Choose" benefits, surfaced as quick bullets under the rating.
+const WHY_CHOOSE_POINTS = [
+  'Family-Owned & Local',
+  'Fast & Reliable Response',
+  'Preventive Home Protection',
+]
+
 function ArrowIcon({ className = '' }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -166,7 +173,7 @@ function BookingForm({ mobile = false }) {
 
         <button
           type="submit"
-          className="group mx-auto mt-1 flex w-fit items-center justify-center gap-2 whitespace-nowrap rounded-md bg-phsOrange px-8 py-3 max-lg:px-[26.06px] max-lg:py-[8.6px] font-display text-sm max-lg:text-[14.73px] font-bold tracking-[0.12em] text-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-phsOrangeDark hover:shadow-md active:translate-y-0"
+          className="cta-diag cta-diag-orange group mx-auto mt-1 flex w-fit items-center justify-center gap-2 whitespace-nowrap rounded-md bg-phsOrange px-8 py-3 max-lg:px-[23.45px] max-lg:py-[7.74px] font-sans text-sm max-lg:text-[13.26px] font-bold tracking-[0.12em] text-white shadow-sm hover:-translate-y-0.5 hover:shadow-md active:translate-y-0"
         >
           Schedule Inspection
           <ArrowIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -266,14 +273,14 @@ export default function Hero() {
           <Reveal delay={500} className="mt-10 flex flex-col gap-4 sm:flex-row">
             <a
               href="#scheduling"
-              className="group inline-flex items-center justify-center gap-3 rounded-md bg-phsOrange px-7 py-4 font-semibold text-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-phsOrangeDark hover:shadow-lg active:translate-y-0"
+              className="cta-diag cta-diag-orange group inline-flex items-center justify-center gap-3 rounded-md bg-phsOrange px-7 py-4 font-semibold text-white shadow-sm hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0"
             >
               Schedule Inspection
               <ArrowIcon className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
             <a
               href={`tel:${PHONE_TEL}`}
-              className="inline-flex items-center justify-center gap-3 rounded-md border border-phsSky/25 bg-white px-7 py-4 font-semibold text-phsInk shadow-sm transition-all duration-300 hover:border-phsSky hover:bg-phsSky/5"
+              className="cta-diag cta-diag-white inline-flex items-center justify-center gap-3 rounded-md border border-phsSky/25 bg-white px-7 py-4 font-semibold text-phsInk shadow-sm hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0"
             >
               <PhoneIcon className="h-5 w-5" />
               {PHONE_DISPLAY}
@@ -304,6 +311,25 @@ export default function Hero() {
               </span>
             </div>
           </div>
+
+          {/* Why-choose highlights, directly under the Google rating */}
+          <Reveal delay={650} className="mt-9">
+            <ul className="flex flex-col gap-3.5">
+              {WHY_CHOOSE_POINTS.map((point) => (
+                <li
+                  key={point}
+                  className="flex items-center gap-3 font-sans text-[clamp(16.8px,5.04vw,19.2px)] font-semibold text-phsInk"
+                >
+                  <span className="flex h-[1.8rem] w-[1.8rem] shrink-0 items-center justify-center rounded-full bg-phsOrange/15 text-phsOrange">
+                    <svg className="h-[1.05rem] w-[1.05rem]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="m5 12.5 4.5 4.5L19 7" />
+                    </svg>
+                  </span>
+                  {point}
+                </li>
+              ))}
+            </ul>
+          </Reveal>
 
           {/* Mobile-only Form Container */}
           <div id="quote-form" className="block lg:hidden scroll-mt-24 mx-auto mt-12 mb-10 w-[90%] max-w-[445px] relative drop-shadow-2xl">
@@ -342,13 +368,14 @@ export default function Hero() {
         </div>
 
         {/* Right column — knight holding the shield, with the booking form on the shield face */}
-        <Reveal variant="scale" delay={300} className="relative w-full max-w-[625px] lg:-translate-y-[70px] lg:-translate-x-[70px] lg:justify-self-end lg:-mt-8 lg:-ml-12 mt-4 lg:mt-0">
+        <Reveal variant="scale" delay={300} className="relative w-full max-w-[625px] lg:-translate-y-[90px] lg:-translate-x-[70px] lg:justify-self-end lg:-mt-8 lg:-ml-12 mt-4 lg:mt-0">
 
           {/* Desktop-only Knight with Form overlaid */}
-          <div className="hidden lg:block relative">
-            {/* Floor shadow beneath the knight */}
-            <div className="absolute -bottom-10 left-1/2 h-16 w-3/4 -translate-x-1/2 rounded-[100%] bg-black/30 blur-2xl" />
-            
+          <div className="hidden lg:block relative lg:scale-[0.8] lg:origin-top">
+            {/* Elemental aura behind the knight: fire-orange up top, water-blue below */}
+            <div className="phs-fire-glow pointer-events-none absolute left-1/2 top-[16%] z-0 h-[60%] w-[72%] -translate-x-1/2 rounded-full bg-[#f3741b] blur-[70px]" />
+            <div className="phs-water-glow pointer-events-none absolute left-1/2 top-[48%] z-0 h-[40%] w-[82%] -translate-x-1/2 rounded-full bg-[#38bdf8] blur-[70px]" />
+
             <img
               src="/soldier-form.svg"
               alt="Armored knight holding a shield"

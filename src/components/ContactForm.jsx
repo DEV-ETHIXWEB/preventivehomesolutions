@@ -22,14 +22,17 @@ export default function ContactForm() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
 
           {/* Left Column: Image */}
-          <div className="lg:col-span-4 w-full flex justify-center lg:justify-start">
+          <div className="lg:col-span-4 w-full flex justify-center lg:justify-start order-last lg:order-first mt-8 lg:mt-0">
             <Reveal variant="left" className="w-full">
               {/* Flip card: a real-feeling 3D shield. The two readable faces are
                   separated in Z, and a stack of darkened copies fills the gap
                   between them so the rotation reveals a solid extruded edge
                   (thickness) instead of looking like flat paper. */}
               <div className="group w-full max-w-[350px] lg:max-w-[450px] mx-auto lg:-ml-4 [perspective:1600px]">
-                <div className="relative w-full [transform-style:preserve-3d] transition-transform duration-[2200ms] ease-in-out group-hover:[transform:rotateY(180deg)]">
+                <div 
+                  className="relative w-full [transform-style:preserve-3d]"
+                  style={{ animation: 'phs-shield-flip 8s linear infinite' }}
+                >
                   {/* Extruded body — darkened slices stepped through the depth */}
                   {Array.from({ length: 16 }).map((_, i) => {
                     const z = -8 + i // -8px .. 7px
@@ -83,7 +86,7 @@ export default function ContactForm() {
               {/* Call Now Button */}
               <a
                 href="tel:3854539428"
-                className="inline-flex items-center justify-center gap-3 rounded-md bg-phsOrange px-8 py-4 text-base font-bold text-white shadow-md hover:-translate-y-0.5 hover:bg-phsOrangeDark hover:shadow-lg active:translate-y-0 active:scale-95 transition-all duration-300 mb-8"
+                className="cta-diag cta-diag-orange inline-flex items-center justify-center gap-3 rounded-md bg-phsOrange px-8 py-4 text-base font-bold text-white shadow-md hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 active:scale-95 mb-8"
               >
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5">
                   <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
@@ -177,7 +180,7 @@ export default function ContactForm() {
                     {/* Submit Button */}
                     <button
                       type="submit"
-                      className="w-full rounded-xl bg-phsOrange hover:bg-phsOrangeDark text-white py-4 px-6 font-bold text-[15px] shadow-sm hover:shadow active:scale-98 transition-all duration-300 tracking-wider"
+                      className="cta-diag cta-diag-orange w-full rounded-xl bg-phsOrange text-white py-4 px-6 font-bold text-[15px] shadow-sm hover:shadow active:scale-98 tracking-wider"
                     >
                       Request Free Quote
                     </button>

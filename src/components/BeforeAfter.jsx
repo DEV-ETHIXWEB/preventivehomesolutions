@@ -368,7 +368,7 @@ export default function BeforeAfter() {
             <Reveal variant="right" delay={550} className="mt-8 pt-6 border-t border-[#e6ded4] flex items-center justify-center">
               <a
                 href="#scheduling"
-                className="inline-flex items-center justify-center gap-2 rounded-md bg-phsOrange px-6 py-3.5 font-display text-xs font-bold tracking-widest text-white shadow-md hover:bg-phsOrangeDark hover:-translate-y-0.5 transition-all duration-300 active:translate-y-0 shrink-0"
+                className="cta-diag cta-diag-orange inline-flex items-center justify-center gap-2 rounded-md bg-phsOrange px-6 py-3.5 font-sans text-xs font-bold tracking-widest text-white shadow-md hover:-translate-y-0.5 active:translate-y-0 shrink-0"
               >
                 REQUEST DISPATCH
               </a>

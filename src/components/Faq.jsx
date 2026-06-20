@@ -29,13 +29,13 @@ export default function Faq() {
 
   return (
     <section className="relative overflow-hidden bg-[#fbf7f0] py-12 lg:py-28 px-6">
-      {/* Watermark logo */}
+      {/* Watermark — the header logo, enlarged and faded */}
       <img
         src="/logo.svg"
         alt=""
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 h-full w-full object-contain"
-        style={{ opacity: 0.35 }}
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[108%] w-auto max-w-none -translate-x-1/2 -translate-y-1/2 object-contain"
+        style={{ opacity: 0.12 }}
       />
       <div className="relative mx-auto max-w-[850px]">
         {/* Heading block */}

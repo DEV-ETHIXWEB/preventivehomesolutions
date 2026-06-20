@@ -123,7 +123,7 @@ export default function ServicePage({ slug }) {
             <Reveal delay={350} className="mt-9 flex flex-col gap-4 sm:flex-row">
               <a
                 href="/#scheduling"
-                className="group inline-flex items-center justify-center gap-3 rounded-md bg-phsOrange px-7 py-4 font-semibold text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-phsOrangeDark hover:shadow-lg active:translate-y-0"
+                className="cta-diag cta-diag-orange group inline-flex items-center justify-center gap-3 rounded-md bg-phsOrange px-7 py-4 font-semibold text-white shadow-md hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0"
               >
                 Get a Free Quote
                 <ArrowIcon className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />

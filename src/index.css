@@ -136,3 +136,100 @@ body {
 .animate-ribbon-in {
   animation: ribbon-in 2s cubic-bezier(0.33, 0, 0.2, 1) 0.5s both;
 }
+
+/* Diagonal color-swipe for CTA buttons. The button background is a two-tone
+   gradient with a diagonal edge; on hover the gradient slides so the second
+   colour wipes diagonally across. Orange buttons fill white, white buttons
+   fill orange. `--cta-from` is the resting colour, `--cta-to` the hover fill. */
+.cta-diag {
+  background-image: linear-gradient(
+    115deg,
+    var(--cta-to) 0 49%,
+    var(--cta-from) 51% 100%
+  );
+  background-size: 230% 100%;
+  background-position: 100% 0;
+  background-repeat: no-repeat;
+  transition:
+    background-position 0.55s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.4s ease,
+    border-color 0.4s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+.cta-diag:hover {
+  background-position: 0 0;
+}
+
+.cta-diag-orange {
+  --cta-from: #f3741b;
+  --cta-to: #ffffff;
+  color: #ffffff;
+}
+.cta-diag-orange:hover {
+  color: #f3741b;
+}
+
+.cta-diag-white {
+  --cta-from: #ffffff;
+  --cta-to: #f3741b;
+}
+.cta-diag-white:hover {
+  color: #ffffff;
+  border-color: #f3741b;
+}
+
+/* Sticky compact-nav phone button: a continuous, subtle light-blue border
+   glow that gently pulses to draw the eye without being distracting. */
+@keyframes phs-phone-glow {
+  0%,
+  100% {
+    border-color: rgba(56, 189, 248, 0.4);
+    box-shadow: 0 0 4px 0 rgba(56, 189, 248, 0.25);
+  }
+  50% {
+    border-color: rgba(56, 189, 248, 0.95);
+    box-shadow: 0 0 14px 2px rgba(56, 189, 248, 0.6);
+  }
+}
+.phone-glow {
+  border-width: 1px;
+  border-style: solid;
+  animation: phs-phone-glow 2.4s ease-in-out infinite;
+}
+
+/* Elemental aura behind the hero knight — calm water-blue up top, flickering
+   fire-orange below. They breathe gently and out of sync so it feels alive,
+   while staying subtle. (-50% X is baked in so the glow stays centred.) */
+@keyframes phs-water-glow {
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: translate(-50%, 0) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -3%) scale(1.07);
+  }
+}
+@keyframes phs-fire-glow {
+  0%,
+  100% {
+    opacity: 0.72;
+    transform: translate(-50%, 0) scale(1);
+  }
+  35% {
+    opacity: 1;
+    transform: translate(-50%, 2%) scale(1.09);
+  }
+  65% {
+    opacity: 0.84;
+    transform: translate(-50%, 1%) scale(1.04);
+  }
+}
+.phs-water-glow {
+  animation: phs-water-glow 6s ease-in-out infinite;
+}
+.phs-fire-glow {
+  animation: phs-fire-glow 4.5s ease-in-out infinite;
+}

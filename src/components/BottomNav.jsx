@@ -152,7 +152,7 @@ function NavSheet({ kind, onClose }) {
         <a
           href="#scheduling"
           onClick={onClose}
-          className="mt-7 flex w-full items-center justify-center rounded-md bg-phsOrange px-5 py-3.5 font-display text-sm font-bold tracking-wide text-white shadow-sm transition-colors hover:bg-phsOrangeDark"
+          className="cta-diag cta-diag-orange mt-7 flex w-full items-center justify-center rounded-md bg-phsOrange px-5 py-3.5 font-sans text-sm font-bold tracking-wide text-white shadow-sm"
         >
           {kind === 'services' ? 'Book This Service' : 'Schedule in Your Area'}
         </a>

@@ -85,7 +85,9 @@ function Home() {
       <TopBar />
       <Header />
       <Hero />
-      <MarqueeBanner />
+      <div className="relative z-10 lg:-mt-[230px]">
+        <MarqueeBanner />
+      </div>
       <Services />
       <WhyChoose />
       <BeforeAfter />

@@ -20,7 +20,7 @@ export default function MapSection() {
             href="https://www.google.com/maps/dir/?api=1&destination=Clearfield,+UT"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-none bg-phsOrange px-4 py-2.5 text-sm font-bold text-white shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:bg-phsOrangeDark hover:shadow-xl active:translate-y-0 active:scale-95"
+            className="cta-diag cta-diag-orange inline-flex items-center gap-2 rounded-none bg-phsOrange px-4 py-2.5 text-sm font-bold text-white shadow-lg hover:-translate-y-0.5 hover:shadow-xl active:translate-y-0 active:scale-95"
           >
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-4 w-4">
               <path strokeLinecap="round" strokeLinejoin="round" d="M21.7 11.3l-9-9a1 1 0 00-1.4 0l-9 9a1 1 0 000 1.4l9 9a1 1 0 001.4 0l9-9a1 1 0 000-1.4z" />
@@ -32,7 +32,7 @@ export default function MapSection() {
             href="https://www.google.com/maps?q=Clearfield,+UT"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-none bg-white px-4 py-2.5 text-sm font-bold text-phsBlue shadow-lg ring-1 ring-phsBlue/15 transition-all duration-300 hover:-translate-y-0.5 hover:bg-phsBlue hover:text-white hover:shadow-xl active:translate-y-0 active:scale-95"
+            className="cta-diag cta-diag-white inline-flex items-center gap-2 rounded-none bg-white px-4 py-2.5 text-sm font-bold text-phsBlue shadow-lg ring-1 ring-phsBlue/15 hover:-translate-y-0.5 hover:shadow-xl active:translate-y-0 active:scale-95"
           >
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-4 w-4">
               <path strokeLinecap="round" strokeLinejoin="round" d="M14 4h6v6M20 4l-9 9M19 14v5a1 1 0 01-1 1H5a1 1 0 01-1-1V6a1 1 0 011-1h5" />
