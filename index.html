@@ -31,8 +31,13 @@
       #app-loader { position: fixed; inset: 0; z-index: 9999; display: flex;
         flex-direction: column; align-items: center; justify-content: center;
         gap: 28px; background: #f4ecdf; perspective: 800px; }
-      #app-loader .phs-spin { width: 88px; height: 88px;
+      #app-loader .phs-spin { position: relative; width: 88px; height: 88px;
         animation: phsShieldFlip 1.5s linear infinite; transform-style: preserve-3d; }
+      /* Two-faced card: the back face is pre-mirrored and each face hides its
+         own backside, so the checkmark always reads correctly while spinning. */
+      #app-loader .phs-face { position: absolute; inset: 0;
+        backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+      #app-loader .phs-face.back { transform: rotateY(180deg); }
       #app-loader .phs-label { font-family: 'Space Mono', monospace; font-size: 11px;
         font-weight: 700; letter-spacing: 0.4em; color: rgba(243,116,27,0.8); }
     </style>
@@ -41,11 +46,20 @@
     <div id="root">
       <div id="app-loader">
         <div class="phs-spin">
-          <svg viewBox="0 0 64 64" width="88" height="88" xmlns="http://www.w3.org/2000/svg">
-            <path d="M32 4 L54 12 V30 C54 44 44 54 32 60 C20 54 10 44 10 30 V12 Z" fill="#f3741b" />
-            <path d="M32 14 L46 19 V31 C46 41 39 48 32 52 C25 48 18 41 18 31 V19 Z" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linejoin="round" />
-            <path d="M27 31 L31 35 L38 26" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
+          <div class="phs-face front">
+            <svg viewBox="0 0 64 64" width="88" height="88" xmlns="http://www.w3.org/2000/svg">
+              <path d="M32 4 L54 12 V30 C54 44 44 54 32 60 C20 54 10 44 10 30 V12 Z" fill="#f3741b" />
+              <path d="M32 14 L46 19 V31 C46 41 39 48 32 52 C25 48 18 41 18 31 V19 Z" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linejoin="round" />
+              <path d="M27 31 L31 35 L38 26" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+          <div class="phs-face back">
+            <svg viewBox="0 0 64 64" width="88" height="88" xmlns="http://www.w3.org/2000/svg">
+              <path d="M32 4 L54 12 V30 C54 44 44 54 32 60 C20 54 10 44 10 30 V12 Z" fill="#f3741b" />
+              <path d="M32 14 L46 19 V31 C46 41 39 48 32 52 C25 48 18 41 18 31 V19 Z" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linejoin="round" />
+              <path d="M27 31 L31 35 L38 26" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
         </div>
         <div class="phs-label">LOADING</div>
       </div>
