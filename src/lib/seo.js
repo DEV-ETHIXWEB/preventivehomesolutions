@@ -39,7 +39,7 @@ function upsertLink(rel, href) {
  * @param {string} [opts.image]  Absolute or root-relative OG image.
  * @param {object|object[]} [opts.jsonLd]  Structured data injected as <script type="application/ld+json">.
  */
-export function useSeo({ title, description, path, image = '/logo.svg', jsonLd } = {}) {
+export function useSeo({ title, description, path, image = '/og-image.png', jsonLd } = {}) {
   useEffect(() => {
     const prevTitle = document.title
     if (title) document.title = title

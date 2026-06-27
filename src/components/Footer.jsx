@@ -95,8 +95,10 @@ export default function Footer() {
           <div className="min-w-0">
             <div className="flex items-center gap-3">
               <img
-                src="/main logo.png"
+                src="/main logo.webp"
                 alt="Preventive Home Solutions"
+                loading="lazy"
+                decoding="async"
                 className="h-28 w-auto shrink-0"
               />
               <span className="min-w-0 font-display text-base font-black tracking-[0.16em] leading-tight text-white hover:text-white transition-colors duration-300">

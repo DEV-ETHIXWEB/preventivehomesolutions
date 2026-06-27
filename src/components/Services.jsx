@@ -6,7 +6,7 @@ const servicesList = [
     title: 'Plumbing',
     description: 'Leak defense, repairs, repipes.',
     iconSrc: '/Group 8.svg',
-    photo: '/Pot Filler Faucet Install in Ogden.jpeg',
+    photo: '/Pot Filler Faucet Install in Ogden.webp',
     photoAlt: 'Pot filler faucet installation, real job photo',
     href: '/plumbing',
   },
@@ -14,7 +14,7 @@ const servicesList = [
     title: 'HVAC',
     description: 'Furnaces, boilers, heat pumps.',
     iconSrc: '/Group 9.svg',
-    photo: '/Heating furnace.jpg',
+    photo: '/Heating furnace.webp',
     photoAlt: 'Furnace system installation',
     href: '/hvac',
   },
@@ -22,7 +22,7 @@ const servicesList = [
     title: 'AC Conditioning',
     description: 'AC install, tune-ups, repair.',
     iconSrc: '/Group 10.svg',
-    photo: '/AC installed 01.jpg',
+    photo: '/AC installed 01.webp',
     photoAlt: 'AC unit installation, real job photo',
     href: '/ac',
   },
@@ -31,7 +31,7 @@ const servicesList = [
 // Slideshow cycles the same photos shown on the three cards, with the back of van first.
 // The active slide highlights its matching card (shifted by 1 due to the van photo).
 const SLIDES = [
-  '/back van.jpg',
+  '/back van.webp',
   ...servicesList.map((s) => s.photo),
 ]
 
@@ -64,6 +64,8 @@ export default function Services() {
                       key={src}
                       src={src}
                       alt="Preventive Home Solutions work"
+                      loading="lazy"
+                      decoding="async"
                       className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ease-in-out group-hover:scale-105 ${
                         i === slide ? 'opacity-100' : 'opacity-0'
                       }`}
@@ -110,6 +112,8 @@ export default function Services() {
                     <img
                       src={iconSrc}
                       alt={title}
+                      loading="lazy"
+                      decoding="async"
                       className="h-10 w-10 sm:h-20 sm:w-20 object-contain mb-2 sm:mb-4 transition-transform duration-500 ease-out group-hover:scale-125 group-hover:-translate-y-1"
                     />
 
@@ -133,6 +137,8 @@ export default function Services() {
                         <img
                           src={photo}
                           alt={photoAlt}
+                          loading="lazy"
+                          decoding="async"
                           className="w-full aspect-video object-cover rounded-sm transition-transform duration-500 ease-out group-hover:scale-110"
                         />
                       </div>

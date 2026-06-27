@@ -8,7 +8,7 @@ export const SERVICE_PAGES = {
     eyebrow: 'Plumbing Services',
     name: 'Plumbing',
     iconSrc: '/Group 8.svg',
-    heroImage: '/Pot Filler Faucet Install in Ogden.jpeg',
+    heroImage: '/Pot Filler Faucet Install in Ogden.webp',
     heroImageAlt: 'Pot filler faucet installation in Ogden real job photo',
     introTitle: 'Professional Plumbing Solutions To Keep Your Home Running Smoothly',
     introText:
@@ -44,7 +44,7 @@ export const SERVICE_PAGES = {
     eyebrow: 'Heating Services',
     name: 'HVAC',
     iconSrc: '/Group 9.svg',
-    heroImage: '/Heating furnace.jpg',
+    heroImage: '/Heating furnace.webp',
     heroImageAlt: 'Furnace heating system installation real job photo',
     introTitle: 'Reliable Heating Built For Northern Utah Winters',
     introText:
@@ -78,7 +78,7 @@ export const SERVICE_PAGES = {
     eyebrow: 'Cooling Services',
     name: 'AC Conditioning',
     iconSrc: '/Group 10.svg',
-    heroImage: '/AC installed 01.jpg',
+    heroImage: '/AC installed 01.webp',
     heroImageAlt: 'Air conditioning unit installation real job photo',
     introTitle: 'Cool, Comfortable Air When You Need It Most',
     introText:

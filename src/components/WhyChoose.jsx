@@ -83,17 +83,17 @@ export default function WhyChoose() {
             className="flex items-end justify-center gap-[36px] sm:gap-[68px] lg:gap-[84px] px-6 lg:px-10 flex-wrap sm:flex-nowrap"
           >
             <img
-              src="/Group 12.png"
+              src="/Group 12.webp"
               alt="Angi Super Service Award 2024"
               className="h-[clamp(100px,35vw,208px)] sm:h-[320px] lg:h-[440px] w-auto object-contain transition-transform duration-300 hover:-translate-y-1.5"
             />
             <img
-              src="/Group 13.png"
+              src="/Group 13.webp"
               alt="35+ Years of Experience"
               className="h-[clamp(120px,42vw,250px)] sm:h-[384px] lg:h-[528px] w-auto object-contain transition-transform duration-300 hover:-translate-y-1.5"
             />
             <img
-              src="/Group 14.png"
+              src="/Group 14.webp"
               alt="BBB Accredited Business"
               className="h-[clamp(100px,35vw,208px)] sm:h-[320px] lg:h-[440px] w-auto object-contain transition-transform duration-300 hover:-translate-y-1.5"
             />

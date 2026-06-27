@@ -419,6 +419,8 @@ export default function Hero() {
             <img
               src="/soldier-form.svg"
               alt="Armored knight holding a shield"
+              width="637"
+              height="987"
               className="w-full h-auto select-none pointer-events-none relative z-10"
             />
             {/* Form overlaid on the shield face. The outer box scales its

@@ -52,11 +52,11 @@ const STRANDS_PROPS = {
 
 /* Work-only photos for the swapping hero stack (no team shots, no labels). */
 const SHOWCASE = [
-  '/AC installed 01.jpg',
-  '/Heating furnace.jpg',
-  '/Pot Filler Faucet Install in Ogden.jpeg',
-  '/beforeandafterwaterheater.PNG',
-  '/Van in Kaysville Call.jpg',
+  '/AC installed 01.webp',
+  '/Heating furnace.webp',
+  '/Pot Filler Faucet Install in Ogden.webp',
+  '/beforeandafterwaterheater.webp',
+  '/Van in Kaysville Call.webp',
 ]
 
 const VALUES = [
@@ -266,7 +266,7 @@ export default function AboutPage() {
                 <span className="absolute bottom-0 left-0 z-10 h-9 w-9 border-b-4 border-l-4 border-phsOrange" />
                 <span className="absolute bottom-0 right-0 z-10 h-9 w-9 border-b-4 border-r-4 border-phsOrange" />
                 <div className="relative aspect-[4/5] w-full overflow-hidden">
-                  <img src="/IMG_6217.jpeg" alt="Preventive Home Solutions technician on the job" className="h-full w-full object-cover object-top" />
+                  <img src="/IMG_6217.webp" alt="Preventive Home Solutions technician on the job" className="h-full w-full object-cover object-top" />
                   <div className="absolute inset-0 bg-gradient-to-t from-phsNavy/25 to-transparent" />
                 </div>
               </div>

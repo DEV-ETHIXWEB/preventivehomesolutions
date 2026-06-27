@@ -92,7 +92,7 @@ export default function BlogPage() {
       description:
         'Plumbing, HVAC and home-maintenance advice for Northern Utah homeowners from Preventive Home Solutions.',
       url: `${ORIGIN}/blog`,
-      publisher: { '@type': 'Organization', name: SITE_NAME, logo: `${ORIGIN}/logo.svg` },
+      publisher: { '@type': 'Organization', name: SITE_NAME, logo: `${ORIGIN}/og-image.png` },
       blogPost: BLOG_POSTS.map((p) => ({
         '@type': 'BlogPosting',
         headline: p.title,

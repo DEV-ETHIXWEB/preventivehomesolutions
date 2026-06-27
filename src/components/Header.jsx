@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import BottomNav from './BottomNav.jsx'
 import { SERVICE_GROUPS, SERVICE_AREAS, PHONE_DISPLAY, PHONE_TEL } from '../data/nav.js'
 
-const LOGO_SRC = '/main logo.png'
+const LOGO_SRC = '/main logo.webp'
 
 const SERVICES = Array.from(new Set(SERVICE_GROUPS.flatMap(g => g.items)))
 

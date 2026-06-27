@@ -20,7 +20,7 @@ export const BLOG_POSTS = [
       'Water on the floor can turn a normal evening into a fast-moving problem. The good news: a few quick moves protect your home.',
     date: 'JANUARY 17, 2026',
     readTime: '5 min read',
-    image: '/Emergency Plumbing Steps.png',
+    image: '/Emergency Plumbing Steps.webp',
   },
   {
     slug: 'utah-inversions-indoor-air-quality',
@@ -30,7 +30,7 @@ export const BLOG_POSTS = [
       'Winter along the Wasatch Front can feel a little upside down. You look toward the mountains and lose them in haze.',
     date: 'JANUARY 10, 2026',
     readTime: '6 min read',
-    image: '/Utah Inversions.png',
+    image: '/Utah Inversions.webp',
   },
   {
     slug: 'seer2-2026-hvac-standards',
@@ -40,7 +40,7 @@ export const BLOG_POSTS = [
       "Heating and cooling efficiency got a little harder to read in the last couple of years. Here's the plain-English version.",
     date: 'DECEMBER 29, 2025',
     readTime: '7 min read',
-    image: '/hvac_blog.png',
+    image: '/hvac_blog.webp',
   },
   {
     slug: 'tankless-vs-traditional-water-heater',
@@ -50,7 +50,7 @@ export const BLOG_POSTS = [
       'Northern Utah winters change the math on water heaters. Incoming water is colder, garages and crawlspaces stay chilly.',
     date: 'DECEMBER 17, 2025',
     readTime: '6 min read',
-    image: '/beforeandafterwaterheater.PNG',
+    image: '/beforeandafterwaterheater.webp',
   },
   {
     slug: 'utah-hard-water-impacts',
@@ -60,7 +60,7 @@ export const BLOG_POSTS = [
       'Northern Utah homeowners get used to a few regional realities: big temperature swings, dry air, and notably hard water.',
     date: 'DECEMBER 17, 2025',
     readTime: '5 min read',
-    image: '/Utah Hard Water.png',
+    image: '/Utah Hard Water.webp',
   },
   {
     slug: 'sump-pump-maintenance',
@@ -70,7 +70,7 @@ export const BLOG_POSTS = [
       'Sewer problems can disrupt your home and your daily routine. The sump pump is the most forgotten appliance in the house until it fails.',
     date: 'DECEMBER 13, 2025',
     readTime: '5 min read',
-    image: '/plumbing_blog.png',
+    image: '/plumbing_blog.webp',
   },
   {
     slug: 'hydro-jetting-vs-snaking',
@@ -80,7 +80,7 @@ export const BLOG_POSTS = [
       "If you have a sink that won't drain or a toilet that keeps backing up, you have two main options. Here's how to choose.",
     date: 'DECEMBER 3, 2025',
     readTime: '6 min read',
-    image: '/Hydro Jetting vs Snaking.png',
+    image: '/Hydro Jetting vs Snaking.webp',
   },
   {
     slug: 'how-to-unclog-a-blocked-toilet',
@@ -90,7 +90,7 @@ export const BLOG_POSTS = [
       'A badly clogged toilet can turn a normal day into a stressful mess within minutes. A few proven steps clear most blockages.',
     date: 'NOVEMBER 26, 2025',
     readTime: '4 min read',
-    image: '/How to Unclog a Seriously Blocked Toilet.png',
+    image: '/How to Unclog a Seriously Blocked Toilet.webp',
   },
   {
     slug: 'trenchless-sewer-repair-pros-cons',
@@ -100,7 +100,7 @@ export const BLOG_POSTS = [
       'Sewer problems can disrupt your home and your daily routine. When a sewer line fails, trenchless repair is worth understanding.',
     date: 'NOVEMBER 26, 2025',
     readTime: '6 min read',
-    image: '/Trenchless Sewer Repair.png',
+    image: '/Trenchless Sewer Repair.webp',
   },
   {
     slug: 'plumbing-tip-top-shape-year-round',
@@ -110,7 +110,7 @@ export const BLOG_POSTS = [
       'Keep your home in top condition year-round with our plumbing seasonal maintenance tips. From preparing for winter to spring checks.',
     date: 'NOVEMBER 12, 2025',
     readTime: '5 min read',
-    image: '/Your Plumbing in TIp-Top shape.png',
+    image: '/Your Plumbing in TIp-Top shape.webp',
   },
   {
     slug: 'regular-deck-maintenance',
@@ -120,7 +120,7 @@ export const BLOG_POSTS = [
       'Keep your home in top condition year-round with our deck maintenance seasonal tips. Small, regular care prevents costly repairs.',
     date: 'OCTOBER 28, 2025',
     readTime: '4 min read',
-    image: '/hvac_blog.png',
+    image: '/hvac_blog.webp',
   },
   {
     slug: 'home-maintenance-tips-every-season',
@@ -130,6 +130,6 @@ export const BLOG_POSTS = [
       'Keep your home in top condition year-round with our seasonal maintenance tips. From preparing for winter to summer readiness.',
     date: 'OCTOBER 14, 2025',
     readTime: '5 min read',
-    image: '/Home Maintanence Tips.png',
+    image: '/Home Maintanence Tips.webp',
   },
 ]

@@ -1,5 +1,8 @@
-import { useEffect, useRef, useState } from 'react'
-import Strands from './Strands.jsx'
+import { useEffect, useRef, useState, lazy, Suspense } from 'react'
+
+// ogl (WebGL) is heavy and the effect is purely decorative, so it is split into
+// its own chunk and only loaded once the band actually reaches the viewport.
+const Strands = lazy(() => import('./Strands.jsx'))
 
 /**
  * Renders the Strands effect as a viewport-fixed background that stays locked
@@ -14,13 +17,19 @@ import Strands from './Strands.jsx'
 export default function BandStrands(props) {
   const anchorRef = useRef(null)
   const [active, setActive] = useState(false)
+  // Once the band has been reached once, keep the chunk mounted so re-entering
+  // doesn't re-initialize WebGL; visibility is handled purely via opacity.
+  const [everActive, setEverActive] = useState(false)
 
   useEffect(() => {
     const band = anchorRef.current?.parentElement
     if (!band) return
 
     const io = new IntersectionObserver(
-      ([entry]) => setActive(entry.isIntersecting),
+      ([entry]) => {
+        setActive(entry.isIntersecting)
+        if (entry.isIntersecting) setEverActive(true)
+      },
       // 0-height root line at the vertical center of the viewport: active only
       // while the band is the thing occupying the middle of the screen.
       { rootMargin: '-50% 0px -50% 0px', threshold: 0 }
@@ -36,7 +45,11 @@ export default function BandStrands(props) {
           active ? 'opacity-100' : 'opacity-0'
         }`}
       >
-        <Strands {...props} />
+        {everActive && (
+          <Suspense fallback={null}>
+            <Strands {...props} />
+          </Suspense>
+        )}
       </div>
     </div>
   )

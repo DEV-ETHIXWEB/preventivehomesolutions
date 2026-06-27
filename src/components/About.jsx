@@ -3,9 +3,9 @@ import Reveal from './Reveal.jsx'
 
 // Crew photos for the About slideshow.
 const CREW_SLIDES = [
-  '/IMG_6217.jpeg',
-  '/IMG_6272.jpeg',
-  '/IMG_6276.jpeg',
+  '/IMG_6217.webp',
+  '/IMG_6272.webp',
+  '/IMG_6276.webp',
 ]
 
 export default function About() {
@@ -40,6 +40,8 @@ export default function About() {
                       key={src}
                       src={src}
                       alt="Preventive Home Solutions crew"
+                      loading="lazy"
+                      decoding="async"
                       className={`absolute inset-0 h-full w-full object-cover object-top transition-opacity duration-1000 ease-in-out ${
                         i === slide ? 'opacity-100' : 'opacity-0'
                       }`}

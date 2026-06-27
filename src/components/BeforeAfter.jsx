@@ -297,8 +297,10 @@ export default function BeforeAfter() {
                       {/* Image content layer */}
                       <div className="pc-image-container">
                         <img
-                          src="/beforeandafterwaterheater.PNG"
+                          src="/beforeandafterwaterheater.webp"
                           alt="Water heater replacement before and after"
+                          loading="lazy"
+                          decoding="async"
                           className="absolute top-0 left-0 w-full h-[115%] object-cover object-top"
                         />
                         {/* Static Label Overlay inside card */}

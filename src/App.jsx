@@ -14,16 +14,19 @@ import Faq from './components/Faq.jsx'
 import Blog from './components/Blog.jsx'
 import ContactForm from './components/ContactForm.jsx'
 import Footer from './components/Footer.jsx'
-import ServicePage from './components/ServicePage.jsx'
-import BlogPage from './components/BlogPage.jsx'
-import ArticlePage from './components/ArticlePage.jsx'
-import AboutPage from './components/AboutPage.jsx'
 import Loader from './components/Loader.jsx'
 import { SERVICE_PAGES } from './data/services.js'
 import { BLOG_POSTS } from './data/blog.js'
 import { usePath, useLinkInterceptor } from './router.js'
 import { setLoading } from './loading.js'
-import { useEffect } from 'react'
+import { useEffect, lazy, Suspense } from 'react'
+
+// Secondary routes are code-split so the home page bundle stays lean and never
+// ships the service/blog/about page code (or their gsap/ogl dependencies).
+const ServicePage = lazy(() => import('./components/ServicePage.jsx'))
+const BlogPage = lazy(() => import('./components/BlogPage.jsx'))
+const ArticlePage = lazy(() => import('./components/ArticlePage.jsx'))
+const AboutPage = lazy(() => import('./components/AboutPage.jsx'))
 
 
 // Map URL paths to the service-page slugs that drive ServicePage.
@@ -47,7 +50,11 @@ export default function App() {
 
     const raf = requestAnimationFrame(() =>
       requestAnimationFrame(async () => {
-        const imgs = Array.from(document.querySelectorAll('#root img'))
+        // Only gate the loader on eagerly-loaded (above-the-fold) images;
+        // lazy images load on scroll and must not hold the loader open.
+        const imgs = Array.from(
+          document.querySelectorAll('#root img:not([loading="lazy"])')
+        )
         const imagesReady = Promise.all(
           imgs.map((img) =>
             img.complete
@@ -90,7 +97,7 @@ export default function App() {
 
   return (
     <>
-      {page}
+      <Suspense fallback={null}>{page}</Suspense>
       <Loader />
     </>
   )

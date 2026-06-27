@@ -72,7 +72,7 @@ export default function ContactForm() {
                     return (
                       <img
                         key={i}
-                        src="/Shield tagline.png"
+                        src="/Shield tagline.webp"
                         alt=""
                         aria-hidden="true"
                         className="absolute inset-0 w-full h-auto object-contain"
@@ -82,14 +82,14 @@ export default function ContactForm() {
                   })}
                   {/* Front face full brightness, in normal flow so it sizes the card */}
                   <img
-                    src="/Shield tagline.png"
+                    src="/Shield tagline.webp"
                     alt="Ready to Book"
                     className="relative w-full h-auto object-contain drop-shadow-2xl [backface-visibility:hidden]"
                     style={{ transform: 'translateZ(8px)' }}
                   />
                   {/* Back face same image, flipped so it reads correctly from behind */}
                   <img
-                    src="/Shield tagline.png"
+                    src="/Shield tagline.webp"
                     alt=""
                     aria-hidden="true"
                     className="absolute inset-0 w-full h-auto object-contain drop-shadow-2xl [backface-visibility:hidden]"

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <title>Preventive Home Solutions | Plumbing & HVAC</title>
     <meta
       name="description"
@@ -16,13 +16,25 @@
       property="og:description"
       content="Fast, professional plumbing, heating & cooling for Northern Utah homes. Available 7 days a week. Free quotes."
     />
-    <meta property="og:image" content="/logo.svg" />
+    <meta property="og:image" content="/og-image.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Load fonts without blocking first render: fetch as a non-applied
+         stylesheet, then flip its media to apply once downloaded. -->
     <link
       href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&family=Poppins:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+    <!-- Hero visual is the LCP element on desktop — fetch it early. -->
+    <link rel="preload" as="image" href="/soldier-form.svg" fetchpriority="high" />
     <style>
       /* Instant loading screen — visible before the JS bundle parses. React
          replaces #root (and this loader) on mount, handing off to the matching

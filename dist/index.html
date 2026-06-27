@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <title>Preventive Home Solutions | Plumbing & HVAC</title>
     <meta
       name="description"
@@ -16,13 +16,25 @@
       property="og:description"
       content="Fast, professional plumbing, heating & cooling for Northern Utah homes. Available 7 days a week. Free quotes."
     />
-    <meta property="og:image" content="/logo.svg" />
+    <meta property="og:image" content="/og-image.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Load fonts without blocking first render: fetch as a non-applied
+         stylesheet, then flip its media to apply once downloaded. -->
     <link
       href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&family=Poppins:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+    <!-- Hero visual is the LCP element on desktop — fetch it early. -->
+    <link rel="preload" as="image" href="/soldier-form.svg" fetchpriority="high" />
     <style>
       /* Instant loading screen — visible before the JS bundle parses. React
          replaces #root (and this loader) on mount, handing off to the matching
@@ -31,23 +43,37 @@
       #app-loader { position: fixed; inset: 0; z-index: 9999; display: flex;
         flex-direction: column; align-items: center; justify-content: center;
         gap: 28px; background: #f4ecdf; perspective: 800px; }
-      #app-loader .phs-spin { width: 88px; height: 88px;
+      #app-loader .phs-spin { position: relative; width: 88px; height: 88px;
         animation: phsShieldFlip 1.5s linear infinite; transform-style: preserve-3d; }
+      /* Two-faced card: the back face is pre-mirrored and each face hides its
+         own backside, so the checkmark always reads correctly while spinning. */
+      #app-loader .phs-face { position: absolute; inset: 0;
+        backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+      #app-loader .phs-face.back { transform: rotateY(180deg); }
       #app-loader .phs-label { font-family: 'Space Mono', monospace; font-size: 11px;
         font-weight: 700; letter-spacing: 0.4em; color: rgba(243,116,27,0.8); }
     </style>
-    <script type="module" crossorigin src="/assets/index-is31hd8L.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-B2u-Iwsu.css">
+    <script type="module" crossorigin src="/assets/index-BqvKAXoP.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BQUCzLVB.css">
   </head>
   <body>
     <div id="root">
       <div id="app-loader">
         <div class="phs-spin">
-          <svg viewBox="0 0 64 64" width="88" height="88" xmlns="http://www.w3.org/2000/svg">
-            <path d="M32 4 L54 12 V30 C54 44 44 54 32 60 C20 54 10 44 10 30 V12 Z" fill="#f3741b" />
-            <path d="M32 14 L46 19 V31 C46 41 39 48 32 52 C25 48 18 41 18 31 V19 Z" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linejoin="round" />
-            <path d="M27 31 L31 35 L38 26" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
+          <div class="phs-face front">
+            <svg viewBox="0 0 64 64" width="88" height="88" xmlns="http://www.w3.org/2000/svg">
+              <path d="M32 4 L54 12 V30 C54 44 44 54 32 60 C20 54 10 44 10 30 V12 Z" fill="#f3741b" />
+              <path d="M32 14 L46 19 V31 C46 41 39 48 32 52 C25 48 18 41 18 31 V19 Z" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linejoin="round" />
+              <path d="M27 31 L31 35 L38 26" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+          <div class="phs-face back">
+            <svg viewBox="0 0 64 64" width="88" height="88" xmlns="http://www.w3.org/2000/svg">
+              <path d="M32 4 L54 12 V30 C54 44 44 54 32 60 C20 54 10 44 10 30 V12 Z" fill="#f3741b" />
+              <path d="M32 14 L46 19 V31 C46 41 39 48 32 52 C25 48 18 41 18 31 V19 Z" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linejoin="round" />
+              <path d="M27 31 L31 35 L38 26" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
         </div>
         <div class="phs-label">LOADING</div>
       </div>

@@ -86,7 +86,7 @@ export default function ArticlePage({ post }) {
         articleSection: post.category,
         keywords: (content?.keywords ?? []).join(', '),
         author: { '@type': 'Organization', name: SITE_NAME },
-        publisher: { '@type': 'Organization', name: SITE_NAME, logo: { '@type': 'ImageObject', url: `${ORIGIN}/logo.svg` } },
+        publisher: { '@type': 'Organization', name: SITE_NAME, logo: { '@type': 'ImageObject', url: `${ORIGIN}/og-image.png` } },
         mainEntityOfPage: { '@type': 'WebPage', '@id': `${ORIGIN}/blog/${post.slug}` },
       },
       {
