@@ -252,6 +252,7 @@ const interpolate = (tpl, d) => tpl.replace('{name}', d.name ? ` ${firstNameOf(d
 
 export default function ChatBot() {
   const [open, setOpen] = useState(false)
+  const [hasUnread, setHasUnread] = useState(true)
   const [messages, setMessages] = useState([])
   const [options, setOptions] = useState([])
   const [typing, setTyping] = useState(false)
@@ -504,6 +505,10 @@ export default function ChatBot() {
   }, [open, showNode])
 
   useEffect(() => {
+    if (open) setHasUnread(false)
+  }, [open])
+
+  useEffect(() => {
     if (open) return
     const t = setTimeout(() => setTeaser(true), 4000)
     return () => clearTimeout(t)
@@ -521,7 +526,7 @@ export default function ChatBot() {
     <>
       {/* Chat panel */}
       {open && (
-        <div className="fixed bottom-24 right-4 z-[70] flex w-[calc(100vw-2rem)] max-w-[380px] flex-col overflow-hidden rounded-2xl bg-white shadow-2xl ring-1 ring-black/10 animate-sheet-up lg:bottom-24 lg:right-6">
+        <div className="fixed bottom-4 right-4 z-[80] flex w-[calc(100vw-2rem)] max-w-[380px] flex-col overflow-hidden rounded-2xl bg-white shadow-2xl ring-1 ring-black/10 animate-sheet-up lg:bottom-24 lg:right-6">
           {/* Header */}
           <div className="flex items-center gap-3 bg-phsNavy px-4 py-3">
             <div className="relative">
@@ -559,7 +564,7 @@ export default function ChatBot() {
           </div>
 
           {/* Messages */}
-          <div className="flex-1 space-y-3 overflow-y-auto bg-phsCream/60 px-4 py-4" style={{ height: 'min(56vh, 420px)' }}>
+          <div className="flex-1 space-y-3 overflow-y-auto bg-phsCream/60 px-4 py-4" style={{ height: 'min(60vh, 440px)' }}>
             {messages.map((m) =>
               m.from === 'bot' ? (
                 <div key={m.id} className="flex items-end gap-2">
@@ -654,7 +659,9 @@ export default function ChatBot() {
       <button
         onClick={() => setOpen((v) => !v)}
         aria-label={open ? 'Close chat' : 'Open chat assistant'}
-        className="fixed bottom-24 right-4 z-[70] h-[4.8rem] w-[4.8rem] overflow-hidden rounded-full bg-phsNavy shadow-xl ring-2 ring-phsOrange transition-transform hover:scale-105 active:scale-95 lg:bottom-6 lg:right-6"
+        className={`fixed bottom-24 right-4 z-[70] h-[4.8rem] w-[4.8rem] overflow-hidden rounded-full bg-phsNavy shadow-xl ring-2 ring-phsOrange transition-transform hover:scale-105 active:scale-95 lg:bottom-6 lg:right-6 ${
+          open ? 'hidden lg:block' : 'block'
+        }`}
       >
         {open ? (
           <span className="flex h-full w-full items-center justify-center bg-phsNavy text-white">
@@ -665,8 +672,14 @@ export default function ChatBot() {
         ) : (
           <>
             <img src={AVATAR} alt="" className="h-full w-full object-cover object-top" />
-            <span className="absolute right-0 top-0 h-4 w-4 animate-ping rounded-full bg-phsOrange/70" />
-            <span className="absolute right-0.5 top-0.5 h-3 w-3 rounded-full border-2 border-white bg-phsOrange" />
+            {hasUnread && (
+              <>
+                <span className="absolute -right-1 -top-1 h-6 w-6 animate-ping rounded-full bg-red-500/60" />
+                <span className="absolute -right-1 -top-1 grid h-6 w-6 place-items-center rounded-full border-2 border-white bg-red-500 text-[12px] font-bold leading-none text-white shadow-md">
+                  1
+                </span>
+              </>
+            )}
           </>
         )}
       </button>
