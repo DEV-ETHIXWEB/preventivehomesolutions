@@ -3,6 +3,7 @@ import { navigate } from '../router.js'
 import { PHONE_DISPLAY, PHONE_TEL } from '../data/nav.js'
 import { submitLead as submitLeadToServer } from '../lib/submitForm.js'
 import { recaptchaConfigured } from '../lib/recaptcha.js'
+import { useMediaQuery } from '../lib/useMediaQuery.js'
 import Recaptcha from './Recaptcha.jsx'
 
 /**
@@ -304,6 +305,10 @@ export default function ChatBot() {
   const [recaptchaToken, setRecaptchaToken] = useState('')
   const [submitting, setSubmitting] = useState(false)
   const recaptchaRef = useRef(null)
+  // Below lg the panel goes full-screen (see the panel className below), so it
+  // needs to block background scroll like any other full-screen mobile sheet;
+  // the small floating desktop widget never did and still shouldn't.
+  const isDesktop = useMediaQuery('(min-width: 1024px)')
 
   const timers = useRef([])
   const scrollEnd = useRef(null)
@@ -597,6 +602,17 @@ export default function ChatBot() {
     scrollEnd.current?.scrollIntoView({ behavior: 'smooth', block: 'end' })
   }, [messages, typing, options, inputActive])
 
+  // Full-screen mobile panel: lock the page behind it so it reads as its own
+  // screen rather than a sheet the visitor can still scroll the page under.
+  useEffect(() => {
+    if (!open || isDesktop) return
+    const prev = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.body.style.overflow = prev
+    }
+  }, [open, isDesktop])
+
   useEffect(() => () => clearTimers(), [])
 
   const curStep = mode === 'form' && inputActive ? steps.current[stepIdx.current] : null
@@ -605,7 +621,7 @@ export default function ChatBot() {
     <>
       {/* Chat panel */}
       {open && (
-        <div className="fixed bottom-4 right-4 z-[80] flex w-[calc(100vw-2rem)] max-w-[380px] flex-col overflow-hidden rounded-2xl bg-white shadow-2xl ring-1 ring-black/10 animate-sheet-up lg:bottom-24 lg:right-6">
+        <div className="fixed inset-0 z-[80] flex flex-col overflow-hidden bg-white shadow-2xl ring-1 ring-black/10 animate-sheet-up lg:inset-auto lg:bottom-24 lg:right-6 lg:w-[380px] lg:rounded-2xl">
           {/* Header */}
           <div className="flex items-center gap-3 bg-phsNavy px-4 py-3">
             <div className="relative">
@@ -643,7 +659,7 @@ export default function ChatBot() {
           </div>
 
           {/* Messages */}
-          <div className="flex-1 space-y-3 overflow-y-auto bg-phsCream/60 px-4 py-4" style={{ height: 'min(60vh, 440px)' }}>
+          <div className="min-h-0 flex-1 space-y-3 overflow-y-auto bg-phsCream/60 px-4 py-4 lg:h-[min(60vh,440px)] lg:flex-none">
             {messages.map((m) =>
               m.from === 'bot' ? (
                 <div key={m.id} className="flex items-end gap-2">
