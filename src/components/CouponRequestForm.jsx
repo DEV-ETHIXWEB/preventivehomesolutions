@@ -273,7 +273,7 @@ export default function CouponRequestForm({ selectedCoupon, onClearCoupon }) {
                 rows={2}
                 maxLength={OTHER_SERVICE_MAX_LENGTH}
                 tabIndex={selected.has('other') ? 0 : -1}
-                placeholder="Please tell us what service or issue you need help with…"
+                placeholder="Please describe the service or issue you need help with..."
                 className={`${fieldClass} resize-none`}
               />
             </div>

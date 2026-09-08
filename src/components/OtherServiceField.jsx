@@ -49,7 +49,7 @@ export default function OtherServiceField({
           maxLength={OTHER_SERVICE_MAX_LENGTH}
           rows={compact ? 1 : 2}
           tabIndex={open ? 0 : -1}
-          placeholder="Please tell us what service or issue you need help with…"
+          placeholder="Please describe the service or issue you need help with..."
           className={`${fieldClassName} resize-none`}
         />
       </div>
